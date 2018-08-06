@@ -1,0 +1,52 @@
+{
+    "Admin": {
+        "u2fd9d66d7006f6dac03dc94950fa83c8": true,
+        "uc721ad1f11fb7e128453ba5a27424998": true
+    },
+    "AdminDel": false,
+    "Adminadd": false,
+    "AutoReject": false,
+    "AutojoinTicket": false,
+    "BackupBot": true,
+    "Ban": false,
+    "Blacklist": {},
+    "Contact": false,
+    "ContactAdd": {},
+    "Copy": false,
+    "GName": "Ardian Purnama",
+    "Gift": false,
+    "IDSticker": false,
+    "Invite": false,
+    "KillOn": false,
+    "Leave": false,
+    "Mic": false,
+    "MicDel": false,
+    "PesanAdd": "Terima Kasih Sudah Add Saya",
+    "ROM": {
+        "c9b4a3be1db8c489d3df7f23a43f101b9": {}
+    },
+    "Steal": false,
+    "Timeline": false,
+    "Unban": false,
+    "UnsendPesan": false,
+    "Upfoto": false,
+    "UpfotoGroup": false,
+    "WcText": "Welcome My Friend",
+    "Welcome": false,
+    "WvText": "See You My Friend",
+    "autoAdd": true,
+    "autoBlock": false,
+    "autoJoin": false,
+    "autoRead": false,
+    "detectMention": false,
+    "kickMention": false,
+    "readMember": {
+        "c9b4a3be1db8c489d3df7f23a43f101b9": ""
+    },
+    "readPoint": {
+        "c9b4a3be1db8c489d3df7f23a43f101b9": "8178036848553"
+    },
+    "readTime": {
+        "c9b4a3be1db8c489d3df7f23a43f101b9": "19:02:54"
+    }
+}
