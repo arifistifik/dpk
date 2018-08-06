@@ -1,7 +1,7 @@
 {
     "Admin": {
-        "u2fd9d66d7006f6dac03dc94950fa83c8": true,
-        "uc721ad1f11fb7e128453ba5a27424998": true
+        "ud296655acef67cbd5e8208e63629f78b": true,
+        "u65224f4e8812136f01b25275a54b5aef": true
     },
     "AdminDel": false,
     "Adminadd": false,
@@ -13,7 +13,7 @@
     "Contact": false,
     "ContactAdd": {},
     "Copy": false,
-    "GName": "Ardian Purnama",
+    "GName": "ARIFISTIFIK",
     "Gift": false,
     "IDSticker": false,
     "Invite": false,
@@ -23,7 +23,7 @@
     "MicDel": false,
     "PesanAdd": "Terima Kasih Sudah Add Saya",
     "ROM": {
-        "c9b4a3be1db8c489d3df7f23a43f101b9": {}
+        "ud296655acef67cbd5e8208e63629f78b": {}
     },
     "Steal": false,
     "Timeline": false,
@@ -41,12 +41,12 @@
     "detectMention": false,
     "kickMention": false,
     "readMember": {
-        "c9b4a3be1db8c489d3df7f23a43f101b9": ""
+        "ud296655acef67cbd5e8208e63629f78b": ""
     },
     "readPoint": {
-        "c9b4a3be1db8c489d3df7f23a43f101b9": "8178036848553"
+        "ud296655acef67cbd5e8208e63629f78b": "8178036848553"
     },
     "readTime": {
-        "c9b4a3be1db8c489d3df7f23a43f101b9": "19:02:54"
+        "ud296655acef67cbd5e8208e63629f78b": "19:02:54"
     }
 }
