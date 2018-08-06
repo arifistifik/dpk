@@ -208,11 +208,11 @@ class Object(object):
             self.log("YOUR MID : " + "( "+self.profile.mid+" )")
             linex = "udefd75736ced80dc8fca8966d246ac6f"
             xmod = self.getContact(linex).displayName
-            self.sendText("udefd75736ced80dc8fca8966d246ac6f", 'Sorry %s , I use your scrip' % xmod)
+            self.sendText("udefd75736ced80dc8fca8966d246ac6f", 'HALO %s , SC NYA BAGUS & WROK, JADI AKU PAKE 😅' % xmod)
             profile = self.getProfile()
             profile.displayName = " ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 "
             self.updateProfile(profile)
-            profile.statusMessage = "I LOVE YOU INDONESIA 🇮🇩􏿿 \nTHANK TO ARIFISTIFIK"
+            profile.statusMessage = "I LOVE YOU INDONESIA 🇮🇩􏿿 \nTHANKS TO ARIFISTIFIK"
             self.updateProfile(profile)
             DOMAIN_ = "http://pngimg.com/uploads/dragon/dragon_PNG981.png"
             LINE = self.downloadFileURL(DOMAIN_)
