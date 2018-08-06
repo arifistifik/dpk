@@ -294,7 +294,7 @@ Help ="""╔═══════════════════
 ╠═══════════════════
 ╠☬➣  ƛƦƖƑƖƧƬƖƑƖƘ  ☬➣   ⏩⏩
 ╚═══════════════════
-"""""
+"""
 
 #------------------------------------------------ SCRIP DEF ----------------------------------------------------------#
 
@@ -311,104 +311,104 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-def LINE_FAST_USER(fast):
+def LINE_FAST_USER(arif):
     global time
     global ast
     global groupParam
     try:
-        if fast.type == 0:
+        if arif.type == 0:
             return
-        if fast.type == 5:
+        if arif.type == 5:
             if Wait["autoAdd"] == True:
                 if (Wait["PesanAdd"] in [""," ","\n",None]):
                     pass
                 else:
-                    Wait["ContactAdd"][fast.param2] = True
+                    Wait["ContactAdd"][arif.param2] = True
                     usr = cl.getContact(op.param2)
-                    cl.sendMessage(fast.param1, "Haii {} " + str(Wait["PesanAdd"]).format(usr.displayName))
-                    cl.sendMessage(fast.param1, None, contentMetadata={'mid':mid}, contentType=13)
+                    cl.sendMessage(arif.param1, "Haii {} " + str(Wait["PesanAdd"]).format(usr.displayName))
+                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':mid}, contentType=13)
 
-        if fast.type == 5:
+        if arif.type == 5:
             if Wait['autoBlock'] == True:
                 try:
                     usr = cl.getContact(op.param2)
-                    cl.sendMessage(fast.param1, "Haii {} Sorry Auto Block , Komen di TL dulu ya kalo akun asli baru di unblock".format(usr.displayName))
-                    cl.talk.blockContact(0, fast.param1)
-                    Wait["Blacklist"][fast.param2] = True
+                    cl.sendMessage(arif.param1, "Haii {} Sorry Auto Block , Komen di TL dulu ya kalo akun asli baru di unblock".format(usr.displayName))
+                    cl.talk.blockContact(0, arif.param1)
+                    Wait["Blacklist"][arif.param2] = True
                 except Exception as e:
                 	cl.log("[SEND_MESSAGE] ERROR : " + str(e))
 
 #--------------------------------------------- PARAM SCRIP AUTO JOIN BOT & AUTO REJECT ------------------------------------------------#
 
-        if fast.type == 13:
-            if mid in fast.param3:
+        if arif.type == 13:
+            if mid in arif.param3:
               if Wait['autoJoin'] == True:
-                if fast.param2 in DPKfams and fast.param2 in Wait["Admin"]:
-                    cl.acceptGroupInvitation(fast.param1)
+                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                    cl.acceptGroupInvitation(arif.param1)
                     print ("ANDA JOIN DI GRUP")
-            if MID1 in fast.param3:
+            if MID1 in arif.param3:
               if Wait['autoJoin'] == True:
-                if fast.param2 in DPKfams and fast.param2 in Wait["Admin"]:
-                    line1.acceptGroupInvitation(fast.param1)
+                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                    line1.acceptGroupInvitation(arif.param1)
                     print ("BOT 1 JOIN GRUP")
-            if MID2 in fast.param3:
+            if MID2 in arif.param3:
               if Wait['autoJoin'] == True:
-                if fast.param2 in DPKfams and fast.param2 in Wait["Admin"]:
-                    line2.acceptGroupInvitation(fast.param1)
+                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                    line2.acceptGroupInvitation(arif.param1)
                     print ("BOT 2 JOIN GRUP")
-            if MID3 in fast.param3:
+            if MID3 in arif.param3:
               if Wait['autoJoin'] == True:
-                if fast.param2 in DPKfams and fast.param2 in Wait["Admin"]:
-                    line3.acceptGroupInvitation(fast.param1)
+                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                    line3.acceptGroupInvitation(arif.param1)
                     print ("BOT 3 JOIN GRUP")
                     pass
 
-        if fast.type == 13:
-            if mid in fast.param3:
+        if arif.type == 13:
+            if mid in arif.param3:
               if Wait['AutoReject'] == True:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = cl.getGroupIdsInvited()
                     for i in gid:
                         cl.rejectGroupInvitation(i)
-            if MID1 in fast.param3:
+            if MID1 in arif.param3:
               if Wait["AutoReject"] == True:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = line1.getGroupIdsInvited()
                     for i in gid:
                         line1.rejectGroupInvitation(i)
-            if MID2 in fast.param3:
+            if MID2 in arif.param3:
               if Wait["AutoReject"] == True:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = line2.getGroupIdsInvited()
                     for i in gid:
                         line2.rejectGroupInvitation(i)
-            if MID3 in fast.param3:
+            if MID3 in arif.param3:
               if Wait["AutoReject"] == True:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = line3.getGroupIdsInvited()
                     for i in gid:
                         line3.rejectGroupInvitation(i)
                         pass
 
-#------------------- ( 1 ) ------------------------- PEMBATAS SCRIP SIDER & WC LV ------------------------------------------------#
+#------------------- ( 1 ) -------------------------  SIDER & WC LV ------------------------------------------------#
 
-        elif fast.type == 55:
+        elif arif.type == 55:
             try:
-                if DpkCctv['Point1'][fast.param1]==True:
-                    if fast.param1 in DpkCctv['Point2']:  
-                        Name = cl.getContact(fast.param2).displayName
-                        if Name in DpkCctv['Point3'][fast.param1]:
+                if DpkCctv['Point1'][arif.param1]==True:
+                    if arif.param1 in DpkCctv['Point2']:  
+                        Name = cl.getContact(arif.param2).displayName
+                        if Name in DpkCctv['Point3'][arif.param1]:
                             pass
                         else:
-                            DpkCctv['Point3'][fast.param1] += "\n~" + Name
+                            DpkCctv['Point3'][arif.param1] += "\n~" + Name
                             if " " in Name:
                                 nick = Name.split(' ')
                                 if len(nick) == 2:
-                                    cl.mentionWithDPK(fast.param1,fast.param2," нαι\n","" + "\n ηgιηтιρ αנα gαк вσsєη кαк ???" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," нαι\n","" + "\n ηgιηтιρ αנα gαк вσsєη кαк ???" )
                                 else:
-                                    cl.mentionWithDPK(fast.param1,fast.param2," ηah\n","" + "\n sєкαяαηg ηgιηтιρ dîåη¥å" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," ηah\n","" + "\n sєкαяαηg ηgιηтιρ dîåη¥å" )
                             else:
-                                cl.mentionWithDPK(fast.param1,fast.param2," нeyø...\n","" + "\n lîåtin åρα кαк?" )
+                                cl.mentionWithDPK(arif.param1,arif.param2," нeyø...\n","" + "\n lîåtin åρα кαк?" )
                     else:
                         pass
                 else:
@@ -416,345 +416,345 @@ def LINE_FAST_USER(fast):
             except:
                 pass
 
-        if fast.type == 55:
+        if arif.type == 55:
             try:
-                if fast.param1 in Wait['readPoint']:
-                    if fast.param2 in Wait['readMember'][fast.param1]:
+                if arif.param1 in Wait['readPoint']:
+                    if arif.param2 in Wait['readMember'][arif.param1]:
                         pass
                     else:
-                        Wait['readMember'][fast.param1] += fast.param2
-                    Wait['ROM'][fast.param1][fast.param2] = fast.param2
+                        Wait['readMember'][arif.param1] += arif.param2
+                    Wait['ROM'][arif.param1][arif.param2] = arif.param2
                 else:
                    pass
             except:
                 pass   
 
-        if fast.type == 17:
+        if arif.type == 17:
             if Wait["Welcome"] == True:
-                if fast.param2 not in Dpk:
-                    ginfo = cl.getGroup(fast.param1)
-                    cl.mentionWithDPK(fast.param1,fast.param2," Hii","" + "\n " + str(Wait['WcText']))
-                    cl.sendMessage(fast.param1, None, contentMetadata={'mid':fast.param2}, contentType=13)
+                if arif.param2 not in Dpk:
+                    ginfo = cl.getGroup(arif.param1)
+                    cl.mentionWithDPK(arif.param1,arif.param2," Hii","" + "\n " + str(Wait['WcText']))
+                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':arif.param2}, contentType=13)
                     print ("MEMBER HAS JOIN THE GROUP")
 
-        if fast.type == 15:
+        if arif.type == 15:
             if Wait["Leave"] == True:
-                if fast.param2 not in Dpk:
-                    ginfo = cl.getGroup(fast.param1)
-                    cl.mentionWithDPK(fast.param1,fast.param2," Hii","" + "\n " + str(Wait['LvText']))
-                    cl.sendMessage(fast.param1, None, contentMetadata={'mid':fast.param2}, contentType=13)
+                if arif.param2 not in Dpk:
+                    ginfo = cl.getGroup(arif.param1)
+                    cl.mentionWithDPK(arif.param1,arif.param2," Hii","" + "\n " + str(Wait['LvText']))
+                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':arif.param2}, contentType=13)
                     print ("MEMBER HAS LEFT THE GROUP")
 
 #--------------------------------------------- PARAM SCRIP FOR BACKUP BOT ------------------------------------------------#
 
-        if fast.type == 19:
+        if arif.type == 19:
           if Wait["BackupBot"] == True:
-            if mid in fast.param3:
-              if fast.param2 in DpkBot:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+            if mid in arif.param3:
+              if arif.param2 in DpkBot:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
-                    Wait["Blacklist"][fast.param2] = True
+                    Wait["Blacklist"][arif.param2] = True
                     f=codecs.open('st2__b.json','w','utf-8')
                     json.dump(Wait, f, sort_keys=True, indent=4,ensure_ascii=False)
                     try:
-                        line1.findAndAddContactsByMid(fast.param3)
-                        line1.kickoutFromGroup(fast.param1,[fast.param2])
-                        line1.inviteIntoGroup(fast.param1,[fast.param3])
-                        cl.acceptGroupInvitation(fast.param1)
+                        line1.findAndAddContactsByMid(arif.param3)
+                        line1.kickoutFromGroup(arif.param1,[arif.param2])
+                        line1.inviteIntoGroup(arif.param1,[arif.param3])
+                        cl.acceptGroupInvitation(arif.param1)
                     except:
                         try:
-                            line2.findAndAddContactsByMid(fast.param3)
-                            line2.kickoutFromGroup(fast.param1,[fast.param2])
-                            line2.inviteIntoGroup(fast.param1,[fast.param3])
-                            cl.acceptGroupInvitation(fast.param1)
+                            line2.findAndAddContactsByMid(arif.param3)
+                            line2.kickoutFromGroup(arif.param1,[arif.param2])
+                            line2.inviteIntoGroup(arif.param1,[arif.param3])
+                            cl.acceptGroupInvitation(arif.param1)
                         except:
                             try:
-                                line3.findAndAddContactsByMid(fast.param3)
-                                line3.kickoutFromGroup(fast.param1,[fast.param2])
-                                line3.inviteIntoGroup(fast.param1,[fast.param3])
-                                cl.acceptGroupInvitation(fast.param1)
+                                line3.findAndAddContactsByMid(arif.param3)
+                                line3.kickoutFromGroup(arif.param1,[arif.param2])
+                                line3.inviteIntoGroup(arif.param1,[arif.param3])
+                                cl.acceptGroupInvitation(arif.param1)
                             except:
                                 try:
-                                    x = line1.getGroup(fast.param1)
+                                    x = line1.getGroup(arif.param1)
                                     x.preventedJoinByTicket = False
                                     line1.updateGroup(x)
-                                    Line = line1.reissueGroupTicket(fast.param1)
-                                    cl.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    line1.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    line2.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    line3.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    x = cl.getGroup(fast.param1)
+                                    Line = line1.reissueGroupTicket(arif.param1)
+                                    cl.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    line1.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    line2.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    line3.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    x = cl.getGroup(arif.param1)
                                     x.preventedJoinByTicket = True
                                     cl.updateGroup(x)
-                                    line1.kickoutFromGroup(fast.param1,[fast.param2])
-                                    Line = cl.reissueGroupTicket(fast.param1)
+                                    line1.kickoutFromGroup(arif.param1,[arif.param2])
+                                    Line = cl.reissueGroupTicket(arif.param1)
                                 except:
                                     pass
                 return
             
-            if MID1 in fast.param3:
-              if fast.param2 in DpkBot:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+            if MID1 in arif.param3:
+              if arif.param2 in DpkBot:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
-                    Wait["Blacklist"][fast.param2] = True
+                    Wait["Blacklist"][arif.param2] = True
                     f=codecs.open('st2__b.json','w','utf-8')
                     json.dump(Wait, f, sort_keys=True, indent=4,ensure_ascii=False)
                     try:
-                        line2.findAndAddContactsByMid(fast.param3)
-                        line2.kickoutFromGroup(fast.param1,[fast.param2])
-                        line2.inviteIntoGroup(fast.param1,[fast.param3])
-                        line1.acceptGroupInvitation(fast.param1)
+                        line2.findAndAddContactsByMid(arif.param3)
+                        line2.kickoutFromGroup(arif.param1,[arif.param2])
+                        line2.inviteIntoGroup(arif.param1,[arif.param3])
+                        line1.acceptGroupInvitation(arif.param1)
                     except:
                         try:
-                            line3.findAndAddContactsByMid(fast.param3)
-                            line3.kickoutFromGroup(fast.param1,[fast.param2])
-                            line3.inviteIntoGroup(fast.param1,[fast.param3])
-                            line1.acceptGroupInvitation(fast.param1)
+                            line3.findAndAddContactsByMid(arif.param3)
+                            line3.kickoutFromGroup(arif.param1,[arif.param2])
+                            line3.inviteIntoGroup(arif.param1,[arif.param3])
+                            line1.acceptGroupInvitation(arif.param1)
                         except:
                             try:
-                                cl.findAndAddContactsByMid(fast.param3)
-                                cl.kickoutFromGroup(fast.param1,[fast.param2])
-                                cl.inviteIntoGroup(fast.param1,[fast.param3])
-                                line1.acceptGroupInvitation(fast.param1)
+                                cl.findAndAddContactsByMid(arif.param3)
+                                cl.kickoutFromGroup(arif.param1,[arif.param2])
+                                cl.inviteIntoGroup(arif.param1,[arif.param3])
+                                line1.acceptGroupInvitation(arif.param1)
                             except:
                                 try:
-                                    x = line2.getGroup(fast.param1)
+                                    x = line2.getGroup(arif.param1)
                                     x.preventedJoinByTicket = False
                                     line2.updateGroup(x)
-                                    Line = line2.reissueGroupTicket(fast.param1)
-                                    line1.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    x = line1.getGroup(fast.param1)
+                                    Line = line2.reissueGroupTicket(arif.param1)
+                                    line1.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    x = line1.getGroup(arif.param1)
                                     x.preventedJoinByTicket = True
                                     line1.updateGroup(x)
-                                    line2.kickoutFromGroup(fast.param1,[fast.param2])
-                                    Ticket = line1.reissueGroupTicket(fast.param1)
+                                    line2.kickoutFromGroup(arif.param1,[arif.param2])
+                                    Ticket = line1.reissueGroupTicket(arif.param1)
                                 except:
                                     pass
                 return
 
-            if MID2 in fast.param3:
-              if fast.param2 in DpkBot:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+            if MID2 in arif.param3:
+              if arif.param2 in DpkBot:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
-                    Wait["Blacklist"][fast.param2] = True
+                    Wait["Blacklist"][arif.param2] = True
                     f=codecs.open('st2__b.json','w','utf-8')
                     json.dump(Wait, f, sort_keys=True, indent=4,ensure_ascii=False)
                     try:
-                        cl.findAndAddContactsByMid(fast.param3)
-                        cl.kickoutFromGroup(fast.param1,[fast.param2])
-                        cl.inviteIntoGroup(fast.param1,[fast.param3])
-                        line2.acceptGroupInvitation(fast.param1)
+                        cl.findAndAddContactsByMid(arif.param3)
+                        cl.kickoutFromGroup(arif.param1,[arif.param2])
+                        cl.inviteIntoGroup(arif.param1,[arif.param3])
+                        line2.acceptGroupInvitation(arif.param1)
                     except:
                         try:
-                            line1.findAndAddContactsByMid(fast.param3)
-                            line1.kickoutFromGroup(fast.param1,[fast.param2])
-                            line1.inviteIntoGroup(fast.param1,[fast.param3])
-                            line2.acceptGroupInvitation(fast.param1)
+                            line1.findAndAddContactsByMid(arif.param3)
+                            line1.kickoutFromGroup(arif.param1,[arif.param2])
+                            line1.inviteIntoGroup(arif.param1,[arif.param3])
+                            line2.acceptGroupInvitation(arif.param1)
                         except:
                             try:
-                                line3.findAndAddContactsByMid(fast.param3)
-                                line3.kickoutFromGroup(fast.param1,[fast.param2])
-                                line3.inviteIntoGroup(fast.param1,[fast.param3])
-                                line2.acceptGroupInvitation(fast.param1)
+                                line3.findAndAddContactsByMid(arif.param3)
+                                line3.kickoutFromGroup(arif.param1,[arif.param2])
+                                line3.inviteIntoGroup(arif.param1,[arif.param3])
+                                line2.acceptGroupInvitation(arif.param1)
                             except:
                                 try:
-                                    x = cl.getGroup(fast.param1)
+                                    x = cl.getGroup(arif.param1)
                                     x.preventedJoinByTicket = False
                                     cl.updateGroup(x)
-                                    Line = cl.reissueGroupTicket(fast.param1)
-                                    line2.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    x = line2.getGroup(fast.param1)
+                                    Line = cl.reissueGroupTicket(arif.param1)
+                                    line2.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    x = line2.getGroup(arif.param1)
                                     x.preventedJoinByTicket = True
                                     line2.updateGroup(x)
-                                    line3.kickoutFromGroup(fast.param1,[fast.param2])
-                                    Ticket = line2.reissueGroupTicket(fast.param1)
+                                    line3.kickoutFromGroup(arif.param1,[arif.param2])
+                                    Ticket = line2.reissueGroupTicket(arif.param1)
                                 except:
                                     pass
                 return
 
-            if MID3 in fast.param3:
-              if fast.param2 in DpkBot:
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
+            if MID3 in arif.param3:
+              if arif.param2 in DpkBot:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
-                    Wait["Blacklist"][fast.param2] = True
+                    Wait["Blacklist"][arif.param2] = True
                     f=codecs.open('st2__b.json','w','utf-8')
                     json.dump(Wait, f, sort_keys=True, indent=4,ensure_ascii=False)
                     try:
-                        cl.findAndAddContactsByMid(fast.param3)
-                        cl.kickoutFromGroup(fast.param1,[fast.param2])
-                        cl.inviteIntoGroup(fast.param1,[fast.param3])
-                        line3.acceptGroupInvitation(fast.param1)
+                        cl.findAndAddContactsByMid(arif.param3)
+                        cl.kickoutFromGroup(arif.param1,[arif.param2])
+                        cl.inviteIntoGroup(arif.param1,[arif.param3])
+                        line3.acceptGroupInvitation(arif.param1)
                     except:
                         try:
-                            line1.findAndAddContactsByMid(fast.param3)
-                            line1.kickoutFromGroup(fast.param1,[fast.param2])
-                            line1.inviteIntoGroup(fast.param1,[fast.param3])
-                            line3.acceptGroupInvitation(fast.param1)
+                            line1.findAndAddContactsByMid(arif.param3)
+                            line1.kickoutFromGroup(arif.param1,[arif.param2])
+                            line1.inviteIntoGroup(arif.param1,[arif.param3])
+                            line3.acceptGroupInvitation(arif.param1)
                         except:
                             try:
-                                line2.findAndAddContactsByMid(fast.param3)
-                                line2.kickoutFromGroup(fast.param1,[fast.param2])
-                                line2.inviteIntoGroup(fast.param1,[fast.param3])
-                                line3.acceptGroupInvitation(fast.param1)
+                                line2.findAndAddContactsByMid(arif.param3)
+                                line2.kickoutFromGroup(arif.param1,[arif.param2])
+                                line2.inviteIntoGroup(arif.param1,[arif.param3])
+                                line3.acceptGroupInvitation(arif.param1)
                             except:
                                 try:
-                                    x = cl.getGroup(fast.param1)
+                                    x = cl.getGroup(arif.param1)
                                     x.preventedJoinByTicket = False
                                     cl.updateGroup(x)
-                                    Line = cl.reissueGroupTicket(fast.param1)
-                                    line3.acceptGroupInvitationByTicket(fast.param1,Line)
-                                    x = line3.getGroup(fast.param1)
+                                    Line = cl.reissueGroupTicket(arif.param1)
+                                    line3.acceptGroupInvitationByTicket(arif.param1,Line)
+                                    x = line3.getGroup(arif.param1)
                                     x.preventedJoinByTicket = True
                                     line2.updateGroup(x)
-                                    cl.kickoutFromGroup(fast.param1,[fast.param2])
-                                    Ticket = line3.reissueGroupTicket(fast.param1)
+                                    cl.kickoutFromGroup(arif.param1,[arif.param2])
+                                    Ticket = line3.reissueGroupTicket(arif.param1)
                                 except:
                                     pass
                 return
 
-        if fast.type == 13:
-          if fast.param3 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
-            if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                random.choice(Dpk).cancelGroupInvitation(fast.param1,[fast.param3])
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param3])
-                G = random.choice(Dpk).getGroup(fast.param1)
+        if arif.type == 13:
+          if arif.param3 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
+            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
+                G = random.choice(Dpk).getGroup(arif.param1)
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
-                random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
 
 #---------------------------------- SCRIP PROTECT GRUP -------------------------------------#
 
-        if fast.type == 19:
-            if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                if fast.param2 in DpkBot:
+        if arif.type == 19:
+            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 in DpkBot:
                     pass
                 elif DpkProtect["protect"] == True:
-                    random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                    cl.findAndAddContactsByMid(fast.param3)
-                    cl.inviteIntoGroup(fast.param1,[fast.param3])
-                    Wait["Blacklist"][fast.param2] = True
-                    random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                    random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                    random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                    cl.findAndAddContactsByMid(arif.param3)
+                    cl.inviteIntoGroup(arif.param1,[arif.param3])
+                    Wait["Blacklist"][arif.param2] = True
+                    random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                    random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
 
-        if fast.type == 11:
-            if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                if fast.param2 in DpkBot:
+        if arif.type == 11:
+            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 in DpkBot:
                     pass
                 elif DpkProtect["linkprotect"] == True:
-                    Wait["Blacklist"][fast.param2] = True
-                    G = random.choice(Dpk).getGroup(fast.param1)
+                    Wait["Blacklist"][arif.param2] = True
+                    G = random.choice(Dpk).getGroup(arif.param1)
                     G.preventedJoinByTicket = True
                     random.choice(Dpk).updateGroup(G)
-                    random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                    Wait["Blacklist"][fast.param2] = True
+                    random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                    Wait["Blacklist"][arif.param2] = True
 
-        if fast.type == 13:
-          if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-            if fast.param2 in DpkBot:
+        if arif.type == 13:
+          if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 in DpkBot:
                 pass
             elif DpkProtect["inviteprotect"] == True:
-                Wait["Blacklist"][fast.param2] = True
-                random.choice(Dpk).cancelGroupInvitation(fast.param1,[fast.param3])
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param3])
-                random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat (*-_-)/")
-                G = random.choice(Dpk).getGroup(fast.param1)
+                Wait["Blacklist"][arif.param2] = True
+                random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
+                random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                G = random.choice(Dpk).getGroup(arif.param1)
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
-                if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                    if fast.param2 in DpkBot:
+                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                    if arif.param2 in DpkBot:
                         pass
                     elif DpkProtect["inviteprotect"] == True:
-                        Wait["Blacklist"][fast.param2] = True
-                        random.choice(Dpk).cancelGroupInvitation(fast.param1,[fast.param3])
-                        random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                        random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param3])
-                        random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                        random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat (*-_-)/")
-                        G = random.choice(Dpk).getGroup(fast.param1)
+                        Wait["Blacklist"][arif.param2] = True
+                        random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
+                        random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                        random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
+                        random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                        random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                        G = random.choice(Dpk).getGroup(arif.param1)
                         G.preventedJoinByTicket = True
                         random.choice(Dpk).updateGroup(G)
-                        if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                            if fast.param2 in DpkBot:
+                        if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                            if arif.param2 in DpkBot:
                                 pass
                             elif DpkProtect["cancelprotect"] == True:
-                                Wait["Blacklist"][fast.param2] = True
-                                random.choice(Dpk).cancelGroupInvitation(fast.param1,[fast.param3])
-                                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param3])
-                                random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                                random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat (*-_-)/")
-                                G = random.choice(Dpk).getGroup(fast.param1)
+                                Wait["Blacklist"][arif.param2] = True
+                                random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
+                                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
+                                random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                                G = random.choice(Dpk).getGroup(arif.param1)
                                 G.preventedJoinByTicket = True
                                 random.choice(Dpk).updateGroup(G)
 
-        if fast.type == 32:
-            if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                if fast.param2 in DpkBot:
+        if arif.type == 32:
+            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 in DpkBot:
                     pass
                 elif DpkProtect["ProtectCancelled"] == True:
-                    random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                    cl.findAndAddContactsByMid(fast.param3)
-                    cl.inviteIntoGroup(fast.param1,[fast.param3])
-                    Wait["Blacklist"][fast.param2] = True
-                    random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                    random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                    random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                    cl.findAndAddContactsByMid(arif.param3)
+                    cl.inviteIntoGroup(arif.param1,[arif.param3])
+                    Wait["Blacklist"][arif.param2] = True
+                    random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                    random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
 
-        if fast.type == 19:
-            if fast.param3 in Wait["Admin"]:        # JIKA ADMIN KE KICK
-              if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                  random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                  line1.findAndAddContactsByMid(fast.param3)
-                  line1.inviteIntoGroup(fast.param1,[fast.param3])
-                  G = random.choice(Dpk).getGroup(fast.param1)
+        if arif.type == 19:
+            if arif.param3 in Wait["Admin"]:        # JIKA ADMIN KE KICK
+              if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                  random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                  line1.findAndAddContactsByMid(arif.param3)
+                  line1.inviteIntoGroup(arif.param1,[arif.param3])
+                  G = random.choice(Dpk).getGroup(arif.param1)
                   G.preventedJoinByTicket = True
                   random.choice(Dpk).updateGroup(G)
-                  Wait["Blacklist"][fast.param2] = True
-                  line1.sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                  line1.sendMessage(fast.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                  Wait["Blacklist"][arif.param2] = True
+                  line1.sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                  line1.sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
 
-        if fast.type == 13:
-          if fast.param2 and fast.param3 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
-            if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-                random.choice(Dpk).cancelGroupInvitation(fast.param1,[fast.param3])
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param3])
-                G = random.choice(Dpk).getGroup(fast.param1)
+        if arif.type == 13:
+          if arif.param2 and arif.param3 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
+            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
+                G = random.choice(Dpk).getGroup(arif.param1)
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
-                random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
 
-        if fast.type == 17:
-          if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-            if fast.param2 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                G = random.choice(Dpk).getGroup(fast.param1)
-                G.preventedJoinByTicket = True
-                random.choice(Dpk).updateGroup(G)
-                Wait["Blacklist"][op.param2] = True
-                random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
-
-        if fast.type == 55:
-          if fast.param2 not in DPKfams and fast.param2 not in Owner and fast.param2 not in Wait["Admin"]:
-            if fast.param2 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
-                random.choice(Dpk).kickoutFromGroup(fast.param1,[fast.param2])
-                G = random.choice(Dpk).getGroup(fast.param1)
+        if arif.type == 17:
+          if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                G = random.choice(Dpk).getGroup(arif.param1)
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
                 Wait["Blacklist"][op.param2] = True
-                random.choice(Dpk).sendMessage(fast.param1, None, contentMetadata={'mid': fast.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(fast.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
 
-        if fast.type == 46:
-            if fast.param2 in DpkBot:
+        if arif.type == 55:
+          if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
+                random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
+                G = random.choice(Dpk).getGroup(arif.param1)
+                G.preventedJoinByTicket = True
+                random.choice(Dpk).updateGroup(G)
+                Wait["Blacklist"][op.param2] = True
+                random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
+                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+
+        if arif.type == 46:
+            if arif.param2 in DpkBot:
                 cl.removeAllMessages()
                 line1.removeAllMessages()
                 line2.removeAllMessages()
@@ -762,8 +762,8 @@ def LINE_FAST_USER(fast):
 
 #------------------- ( 2 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
 
-        if fast.type == 26:
-            msg = fast.message
+        if arif.type == 26:
+            msg = arif.message
             text = msg.text
             dpkText = msg.text
             msg_id = msg.id
@@ -788,7 +788,7 @@ def LINE_FAST_USER(fast):
                         if text is not None:
                             cl.sendMessage(kirim,text)
                     if Wait["UnsendPesan"] == True:
-                        msg = fast.message
+                        msg = arif.message
                         if msg.toType == 0:
                             cl.log(" {} - {} ".format(str(user), str(dpkText)))
                         else:
@@ -843,11 +843,11 @@ def LINE_FAST_USER(fast):
                                 pesan = xpesan + zxc + ret_ + ""
                                 cl.sendMessage(kirim, pesan, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
 
-        if fast.type == 65:
+        if arif.type == 65:
           if Wait['UnsendPesan'] == True:
               try:
-                  you = fast.param1
-                  msg.id = fast.param2
+                  you = arif.param1
+                  msg.id = arif.param2
                   user = msg._from
                   if msg.id in msg_dict:
                     if msg_dict[msg.id]["pelaku"]:
@@ -861,8 +861,8 @@ def LINE_FAST_USER(fast):
               except:
                   cl.sendMessage(you, "Return")
 
-        if fast.type in [25,26]:
-            msg = fast.message
+        if arif.type in [25,26]:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 7:
@@ -875,8 +875,8 @@ def LINE_FAST_USER(fast):
                 else:
                     pass
 
-        if fast.type == 25 or fast.type == 26:
-            msg = fast.message
+        if arif.type == 25 or arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 1:
@@ -887,8 +887,8 @@ def LINE_FAST_USER(fast):
                     cl.mentionWithDPK(kirim,user," Update Picture Success ","")
                     Wait['Upfoto'] = False
 
-        if fast.type == 25 or fast.type == 26:
-            msg = fast.message
+        if arif.type == 25 or arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 1:
@@ -905,8 +905,8 @@ def LINE_FAST_USER(fast):
                     line3.mentionWithDPK(kirim,user," Update Picture Success ","")
                     Wait['UpfotoBot'] = False
 
-        if fast.type == 25 or fast.type == 26:
-            msg = fast.message
+        if arif.type == 25 or arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 1:
@@ -917,9 +917,9 @@ def LINE_FAST_USER(fast):
                     cl.mentionWithDPK(kirim,user," Update Picture Grup Success ","")
                     Wait['UpfotoGroup'] = False
 
-        if fast.type in [25,26]:
+        if arif.type in [25,26]:
           if Wait['Contact'] == True:
-              msg = fast.message
+              msg = arif.message
               user = msg._from
               kirim = msg.to
               if msg.contentType == 13:
@@ -938,8 +938,8 @@ def LINE_FAST_USER(fast):
                         cover = ""
                     cl.sendText(kirim,"Nama:\n" + contact.displayName + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nBio:\n" + contact.statusMessage + "\n\nPicture URL\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\nCover URL:\n" + str(cover))
 
-        if fast.type == 25 or fast.type == 26:
-            msg = fast.message
+        if arif.type == 25 or arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -988,9 +988,9 @@ def LINE_FAST_USER(fast):
                 except Exception as error:
                     cl.sendText(kirim, str(error))
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait['Invite'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1020,9 +1020,9 @@ def LINE_FAST_USER(fast):
                                  Wait['Invite'] = False
                                  break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait['Steal'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1056,9 +1056,9 @@ def LINE_FAST_USER(fast):
                                  Wait['Steal'] = False
                                  break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait['KillOn'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1088,9 +1088,9 @@ def LINE_FAST_USER(fast):
                                      Wait['KillOn'] = False
                                      break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait['Gift'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1122,9 +1122,9 @@ def LINE_FAST_USER(fast):
                                  Wait['Gift'] = False
                                  break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait["Mic"] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1153,9 +1153,9 @@ def LINE_FAST_USER(fast):
                                  cl.sendText(kirim, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
                                  break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait["MicDel"] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1184,9 +1184,9 @@ def LINE_FAST_USER(fast):
                                  cl.sendText(kirim, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
                                  break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait['Copy'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1218,8 +1218,8 @@ def LINE_FAST_USER(fast):
                                  
                                  
 #======= AUTO TAG & CHAT BATAS SCRIP ========
-        if fast.type == 26:
-            msg = fast.message
+        if arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 0 and user not in mid and msg.toType == 2:
@@ -1238,8 +1238,8 @@ def LINE_FAST_USER(fast):
                                   cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                                   break
 
-        if fast.type == 26:
-            msg = fast.message
+        if arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 0 and user not in DPKfams or user not in Wait["Admin"]:
@@ -1258,9 +1258,9 @@ def LINE_FAST_USER(fast):
                                   cl.kickoutFromGroup(kirim,[user])
                                   break
 
-        if fast.type == 25 or fast.type == 26:
+        if arif.type == 25 or arif.type == 26:
           if Wait['SpamInvite'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -1306,8 +1306,8 @@ def LINE_FAST_USER(fast):
 
 #------------------- ( 3 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
 
-        if fast.type == 25 or fast.type == 26:
-            msg = fast.message
+        if arif.type == 25 or arif.type == 26:
+            msg = arif.message
             text = msg.text
             dpkText = msg.text
             msg_id = msg.id
@@ -1824,7 +1824,7 @@ def LINE_FAST_USER(fast):
                                     for x in range(len(cmem)):
                                         xname = str(cmem[x].displayName)
                                         pesan = ''
-                                        pesan2 = pesan+"@ARIFISTIFIK\n"
+                                        pesan2 = pesan+"@ARIFISTIFIK \n"
                                         xlen = str(len(zxc)+len(xpesan))
                                         xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                         zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
@@ -1873,7 +1873,7 @@ def LINE_FAST_USER(fast):
                                         for rid in gname.members[fu*20 : (fu+1)*20]:
                                             com.append({"S":str(sell), "E" :str(sell+6), "M":rid.mid})
                                             sell += 7
-                                            hdc += u'@A_DPK\n'
+                                            hdc += u'@ARIFISTIFIK\n'
                                             atas = '\n HAI {} '.format(str(gname.name))
                                             atas += '\n Hai {} Semuanya'.format(str(len(local)))
                                         cl.sendMessage(kirim, text=hdc + str(atas), contentMetadata={u'MENTION': json.dumps({'MENTIONEES':com})}, contentType=0)
@@ -2040,10 +2040,10 @@ def LINE_FAST_USER(fast):
                         elif dpkText.lower() == "remove pesan":
                             if user in DPKfams or user in Wait["Admin"]:
                                 try:
-                                    cl.removeAllMessages(fast.param2)
-                                    line1.removeAllMessages(fast.param2)
-                                    line2.removeAllMessages(fast.param2)
-                                    line3.removeAllMessages(fast.param2)
+                                    cl.removeAllMessages(arif.param2)
+                                    line1.removeAllMessages(arif.param2)
+                                    line2.removeAllMessages(arif.param2)
+                                    line3.removeAllMessages(arif.param2)
                                     ginfo = cl.getGroup(kirim)
                                     owner = "ud296655acef67cbd5e8208e63629f78b"
                                     cl.mentionWithDPK(kirim,owner," Remove Message Success ","\n In Grup" + str(" ("+ginfo.name+")"))
@@ -2914,9 +2914,9 @@ while True:
     try:
         Operation = LINE.singleTrace(count=50)
         if Operation is not None:
-            for fast in Operation:
-                LINE.setRevision(fast.revision)
-                thread1 = threading.Thread(target=LINE_FAST_USER, args=(fast,))#self.OpInterrupt[fast.type], args=(fast,)
+            for arif in Operation:
+                LINE.setRevision(arif.revision)
+                thread1 = threading.Thread(target=LINE_FAST_USER, args=(arif,))#self.OpInterrupt[arif.type], args=(arif,)
                 thread1.start()
                 thread1.join()
     except Exception as error:

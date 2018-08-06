@@ -244,7 +244,7 @@ Help ="""╔═══════════════════
 ╠☬➣malaysia:
 ╠☬➣jawa:
 ╠═══════════════════
-╠☬➣  ƛƦƖƑƖƧƬƖƑƖƘ  ☬➣   ⏩⏩
+╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣   ⏩
 ╚═══════════════════
 """""
 
@@ -263,45 +263,45 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-def LINE_FAST_USER(fast):
+def LINE_FAST_USER(arif):
     try:
-        if fast.type == 0:
+        if arif.type == 0:
             return
-        if fast.type == 13:
-            if SELFBOT in fast.param3:
+        if arif.type == 13:
+            if SELFBOT in arif.param3:
               if Wait['autoJoin'] == True:
-                    cl.acceptGroupInvitation(fast.param1)
+                    cl.acceptGroupInvitation(arif.param1)
                     print ("ANDA JOIN DI GRUP")
                     pass
 
-        if fast.type == 13:
-            if SELFBOT in fast.param3:
+        if arif.type == 13:
+            if SELFBOT in arif.param3:
               if Wait['AutoReject'] == True:
-                if fast.param2 not in DPKfams and fast.param2 not in Wait["Admin"]:
+                if arif.param2 not in DPKfams and arif.param2 not in Wait["Admin"]:
                     gid = cl.getGroupIdsInvited()
                     for i in gid:
                         cl.rejectGroupInvitation(i)
                         pass
 
-#------------------- ( 1 ) ------------------------- PEMBATAS SCRIP SIDER & WC LV ------------------------------------------------#
+#------------------- ( 1 ) -------------------------  SIDER & WC LV ------------------------------------------------#
 
-        elif fast.type == 55:
+        elif arif.type == 55:
             try:
-                if DpkCctv['Point1'][fast.param1]==True:
-                    if fast.param1 in DpkCctv['Point2']:  
-                        Name = cl.getContact(fast.param2).displayName
-                        if Name in DpkCctv['Point3'][fast.param1]:
+                if DpkCctv['Point1'][arif.param1]==True:
+                    if arif.param1 in DpkCctv['Point2']:  
+                        Name = cl.getContact(arif.param2).displayName
+                        if Name in DpkCctv['Point3'][arif.param1]:
                             pass
                         else:
-                            DpkCctv['Point3'][fast.param1] += "\n~" + Name
+                            DpkCctv['Point3'][arif.param1] += "\n~" + Name
                             if " " in Name:
                                 nick = Name.split(' ')
                                 if len(nick) == 2:
-                                    cl.mentionWithDPK(fast.param1,fast.param2," Hii\n","" + "\n Nyimak yah kak?" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," Hii\n","" + "\n Nyimak yah kak?" )
                                 else:
-                                    cl.mentionWithDPK(fast.param1,fast.param2," Nah\n","" + "\n Nongol Sini Chat kak ??" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," Nah\n","" + "\n Nongol Sini Chat kak ??" )
                             else:
-                                cl.mentionWithDPK(fast.param1,fast.param2," Hey\n","" + "\n What Are You Doing?" )
+                                cl.mentionWithDPK(arif.param1,arif.param2," Hey\n","" + "\n What Are You Doing?" )
                     else:
                         pass
                 else:
@@ -309,43 +309,43 @@ def LINE_FAST_USER(fast):
             except:
                 pass
 
-        if fast.type == 55:
+        if arif.type == 55:
             try:
-                if fast.param1 in Wait['readPoint']:
-                    if fast.param2 in Wait['readMember'][fast.param1]:
+                if arif.param1 in Wait['readPoint']:
+                    if arif.param2 in Wait['readMember'][arif.param1]:
                         pass
                     else:
-                        Wait['readMember'][fast.param1] += fast.param2
-                    Wait['ROM'][fast.param1][fast.param2] = fast.param2
+                        Wait['readMember'][arif.param1] += arif.param2
+                    Wait['ROM'][arif.param1][arif.param2] = arif.param2
                 else:
                    pass
             except:
                 pass   
 
-        if fast.type == 17:
+        if arif.type == 17:
             if Wait["Welcome"] == True:
-                if fast.param2 not in Dpk:
-                    ginfo = cl.getGroup(fast.param1)
-                    cl.mentionWithDPK(fast.param1,fast.param2," Hii","" + "\n " + str(Wait['WcText']))
-                    cl.sendMessage(fast.param1, None, contentMetadata={'mid':fast.param2}, contentType=13)
+                if arif.param2 not in Dpk:
+                    ginfo = cl.getGroup(arif.param1)
+                    cl.mentionWithDPK(arif.param1,arif.param2," Hii","" + "\n " + str(Wait['WcText']))
+                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':arif.param2}, contentType=13)
                     print ("MEMBER HAS JOIN THE GROUP")
 
-        if fast.type == 15:
+        if arif.type == 15:
             if Wait["Leave"] == True:
-                if fast.param2 not in Dpk:
-                    ginfo = cl.getGroup(fast.param1)
-                    cl.mentionWithDPK(fast.param1,fast.param2," Hii","" + "\n " + str(Wait['LvText']))
-                    cl.sendMessage(fast.param1, None, contentMetadata={'mid':fast.param2}, contentType=13)
+                if arif.param2 not in Dpk:
+                    ginfo = cl.getGroup(arif.param1)
+                    cl.mentionWithDPK(arif.param1,arif.param2," Hii","" + "\n " + str(Wait['LvText']))
+                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':arif.param2}, contentType=13)
                     print ("MEMBER HAS LEFT THE GROUP")
 
-        if fast.type == 46:
-            if fast.param2 in DpkBot:
+        if arif.type == 46:
+            if arif.param2 in DpkBot:
                 cl.removeAllMessages()
 
-#------------------- ( 2 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
+#------------------- ( 2 ) -------------------------  ------------------------------------------------#
 
-        if fast.type == 26:
-            msg = fast.message
+        if arif.type == 26:
+            msg = arif.message
             text = msg.text
             dpkText = msg.text
             msg_id = msg.id
@@ -367,7 +367,7 @@ def LINE_FAST_USER(fast):
                         if text is not None:
                             cl.sendMessage(kirim,text)
                     if Wait["UnsendPesan"] == True:
-                        msg = fast.message
+                        msg = arif.message
                         if msg.toType == 0:
                             cl.log(" {} - {} ".format(str(user), str(dpkText)))
                         else:
@@ -424,11 +424,11 @@ def LINE_FAST_USER(fast):
                               url = msg.contentMetadata["postEndUrl"]
                               cl.likePost(url[25:58], url[66:], likeType=1001)
 
-        if fast.type == 65:
+        if arif.type == 65:
           if Wait['UnsendPesan'] == True:
               try:
-                  you = fast.param1
-                  msg.id = fast.param2
+                  you = arif.param1
+                  msg.id = arif.param2
                   user = msg._from
                   if msg.id in msg_dict:
                     if msg_dict[msg.id]["pelaku"]:
@@ -442,8 +442,8 @@ def LINE_FAST_USER(fast):
               except:
                   cl.sendMessage(you, "Return")
 
-        if fast.type in [25,26]:
-            msg = fast.message
+        if arif.type in [25,26]:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 7:
@@ -456,8 +456,8 @@ def LINE_FAST_USER(fast):
                 else:
                     pass
 
-        if fast.type == 25:
-            msg = fast.message
+        if arif.type == 25:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 1:
@@ -468,8 +468,8 @@ def LINE_FAST_USER(fast):
                     cl.mentionWithDPK(kirim,user," Update Picture Success ","")
                     Wait['Upfoto'] = False
 
-        if fast.type == 25:
-            msg = fast.message
+        if arif.type == 25:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 1:
@@ -480,29 +480,29 @@ def LINE_FAST_USER(fast):
                     cl.mentionWithDPK(kirim,user," Update Picture Grup Success ","")
                     Wait['UpfotoGroup'] = False
 
-        if fast.type == 5:
+        if arif.type == 5:
             if Wait["autoAdd"] == True:
                 if (Wait["PesanAdd"] in [""," ","\n",None]):
                     pass
                 else:
-                    Wait["ContactAdd"][fast.param2] = True
+                    Wait["ContactAdd"][arif.param2] = True
                     usr = cl.getContact(op.param2)
-                    cl.sendMessage(fast.param1, "Haii {} " + str(Wait["PesanAdd"]).format(usr.displayName))
-                    cl.sendMessage(fast.param1, None, contentMetadata={'mid':SELFBOT}, contentType=13)
+                    cl.sendMessage(arif.param1, "Haii {} " + str(Wait["PesanAdd"]).format(usr.displayName))
+                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':SELFBOT}, contentType=13)
 
-        if fast.type == 5:
+        if arif.type == 5:
             if Wait['autoBlock'] == True:
                 try:
                     usr = cl.getContact(op.param2)
-                    cl.sendMessage(fast.param1, "Haii {} Sorry Auto Block , Komen di TL dulu ya kalo akun asli baru di unblock".format(usr.displayName))
-                    cl.talk.blockContact(0, fast.param1)
-                    Wait["Blacklist"][fast.param2] = True
+                    cl.sendMessage(arif.param1, "Haii {} Sorry Auto Block , Komen di TL dulu ya kalo akun asli baru di unblock".format(usr.displayName))
+                    cl.talk.blockContact(0, arif.param1)
+                    Wait["Blacklist"][arif.param2] = True
                 except Exception as e:
                 	print (e)
 
-        if fast.type in [25,26]:
+        if arif.type in [25,26]:
           if Wait['Contact'] == True:
-              msg = fast.message
+              msg = arif.message
               user = msg._from
               kirim = msg.to
               if msg.contentType == 13:
@@ -521,9 +521,9 @@ def LINE_FAST_USER(fast):
                         cover = ""
                     cl.sendText(kirim,"Nama:\n" + contact.displayName + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nBio:\n" + contact.statusMessage + "\n\nPicture URL\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\nCover URL:\n" + str(cover))
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait['Invite'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -553,9 +553,9 @@ def LINE_FAST_USER(fast):
                                  Wait['Invite'] = False
                                  break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait['Steal'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -589,9 +589,9 @@ def LINE_FAST_USER(fast):
                                  Wait['Steal'] = False
                                  break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait['KillOn'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -621,9 +621,9 @@ def LINE_FAST_USER(fast):
                                      Wait['KillOn'] = False
                                      break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait['Gift'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -652,9 +652,9 @@ def LINE_FAST_USER(fast):
                                  Wait['Gift'] = False
                                  break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait["Mic"] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -683,9 +683,9 @@ def LINE_FAST_USER(fast):
                                  cl.sendText(kirim, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
                                  break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait["MicDel"] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -714,9 +714,9 @@ def LINE_FAST_USER(fast):
                                  cl.sendText(kirim, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
                                  break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait['Copy'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -748,8 +748,8 @@ def LINE_FAST_USER(fast):
                                  
                                  
 #======= AUTO TAG & CHAT BATAS SCRIP ========
-        if fast.type == 26:
-            msg = fast.message
+        if arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 0 and user not in SELFBOT and msg.toType == 2:
@@ -767,8 +767,8 @@ def LINE_FAST_USER(fast):
                                   cl.mentionWithDPK(kirim,user,"","" +str(ret_))
                                   break
 
-        if fast.type == 26:
-            msg = fast.message
+        if arif.type == 26:
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 0 and user not in DPKfams or user not in Wait["Admin"]:
@@ -787,9 +787,9 @@ def LINE_FAST_USER(fast):
                                   cl.kickoutFromGroup(kirim,[user])
                                   break
 
-        if fast.type == 25:
+        if arif.type == 25:
           if Wait['SpamInvite'] == True:
-            msg = fast.message
+            msg = arif.message
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
@@ -821,10 +821,10 @@ def LINE_FAST_USER(fast):
                                  break
 
 
-#------------------- ( 3 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
+#------------------- ( 3 ) -------------------------  ------------------------------------------------#
 
-        if fast.type == 25 or fast.type == 26:
-            msg = fast.message
+        if arif.type == 25 or arif.type == 26:
+            msg = arif.message
             text = msg.text
             dpkText = msg.text
             msg_id = msg.id
@@ -868,7 +868,7 @@ def LINE_FAST_USER(fast):
                         elif dpkText.lower() == "my team":
                             if user in DPKfams or user in Wait["Admin"]:
                                 dpk = ""
-                                sekawan = ""
+                                fams = ""
                                 wa = 0
                                 wi = 0
                                 for m_id in Owner:
@@ -878,8 +878,8 @@ def LINE_FAST_USER(fast):
                                 for m_id in Wait["Admin"]:
                                     wi = wi + 1
                                     end = '\n'
-                                    sekawan += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
-                                cl.sendText(kirim,"ARIFISTIFIK\n\nOwner:\n"+dpk+"\nAdmin:\n"+sekawan+"\n( %s ) TEAM SEKAWAN" %(str(len(Owner)+len(Wait["Admin"]))))                                
+                                    fams += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
+                                cl.sendText(kirim,"ARIFISTIFIK\n\nOwner:\n"+dpk+"\nAdmin:\n"+fams+"\n( %s ) TEAM DRAGON" %(str(len(Owner)+len(Wait["Admin"]))))                                
 
                         elif dpkText.lower() == "leaveall grup":
                             if user in DPKfams or user in Wait["Admin"]:
@@ -1419,7 +1419,7 @@ def LINE_FAST_USER(fast):
                         elif dpkText.lower() == "remove pesan":
                             if user in DPKfams or user in Wait["Admin"]:
                                 try:
-                                    cl.removeAllMessages(fast.param2)
+                                    cl.removeAllMessages(arif.param2)
                                     ginfo = cl.getGroup(kirim)
                                     cl.mentionWithDPK(kirim,user," Remove Message Success ","\n In Grup" + str(" ("+ginfo.name+")"))
                                 except:
@@ -2273,9 +2273,9 @@ while True:
     try:
         Operation = LINE.singleTrace(count=50)
         if Operation is not None:
-            for fast in Operation:
-                LINE.setRevision(fast.revision)
-                thread1 = threading.Thread(target=LINE_FAST_USER, args=(fast,))#self.OpInterrupt[fast.type], args=(fast,)
+            for arif in Operation:
+                LINE.setRevision(arif.revision)
+                thread1 = threading.Thread(target=LINE_FAST_USER, args=(arif,))#self.OpInterrupt[arif.type], args=(arif,)
                 thread1.start()
                 thread1.join()
     except Exception as error:
