@@ -869,7 +869,7 @@ def LINE_FAST_USER(arif):
                         elif dpkText.lower() == "my team":
                             if user in DpkFamily or user in Wait["Admin"]:
                                 dpk = ""
-                                sekawan = ""
+                                family = ""
                                 wa = 0
                                 wi = 0
                                 for m_id in Owner:
@@ -879,8 +879,8 @@ def LINE_FAST_USER(arif):
                                 for m_id in Wait["Admin"]:
                                     wi = wi + 1
                                     end = '\n'
-                                    sekawan += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
-                                cl.sendText(kirim,"DPK FAMILY\n\nOwner:\n"+dpk+"\nAdmin:\n"+sekawan+"\n( %s ) TEAM FAMILY" %(str(len(Owner)+len(Wait["Admin"]))))                                
+                                    family += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
+                                cl.sendText(kirim,"DPK FAMILY\n\nOwner:\n"+dpk+"\nAdmin:\n"+family+"\n( %s ) TEAM FAMILY" %(str(len(Owner)+len(Wait["Admin"]))))                                
 
                         elif dpkText.lower() == "leaveall grup":
                             if user in DpkFamily or user in Wait["Admin"]:

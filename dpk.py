@@ -1,4 +1,4 @@
-from ARIFISTIFIK import *
+from GENERATOR import *
 from datetime import datetime
 from time import sleep
 from bs4 import BeautifulSoup
@@ -8,33 +8,33 @@ from multiprocessing import Pool, Process
 from ffmpy import FFmpeg
 import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast, pytz, wikipedia, pafy, youtube_dl, atexit
 
-print ("\n\n ---  START LOGIN TO ✍Ð₱₭ ฿Ø₮ ---\n")
+print ("\n\n ---  WELCOME TO DPK FAMILY  ---\n")
 
-#cl = LINE()
-cl = LINE(authTokenDPK="EvHkngrC42BFD7piAiVb.0PzLwS72Fl1EGGJMnIN3IW.n1DfgexSLbx0SRcKLvwEWA8jyBVMUfSlPX4gVqF3Bf4=")
+cl = LINE()
+#cl = LINE(authTokenDPK="YOUR TOKEN")
 cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
 channel = LINEChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
 cl.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-#line1 = LINE()
-line1 = LINE(authTokenDPK="EvUSNiHdBFIksB35Upff.zsjptOGse28bSLj1PuTA7W.zn5fuMcQEaR3TbJcHVrLR7YV1NqmF0CMFCMl6N8WHtk=")
+line1 = LINE()
+#line1 = LINE(authTokenDPK="YOUR TOKEN")
 line1.log("YOUR TOKEN : {}".format(str(line1.authToken)))
 channel = LINEChannel(line1,line1.server.CHANNEL_ID['LINE_TIMELINE'])
 line1.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-#line2 = LINE()
-line2 = LINE(authTokenDPK="EvObvAgAgIgIjbq7Ojhe.ER7E8i7845TKzN3C6OKW3G.2Jaa5OobZrVLZ82P4jQLQcvXL70u+ug+svKJv49dc4g=")
+line2 = LINE()
+#line2 = LINE(authTokenDPK="YOUR TOKEN")
 line2.log("YOUR TOKEN : {}".format(str(line2.authToken)))
 channel = LINEChannel(line2,line2.server.CHANNEL_ID['LINE_TIMELINE'])
 line2.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-#line3 = LINE()
-line3 = LINE(authTokenDPK="Evu2VMUGTcEJPZF2Mfs1.vhYs8JJrCSZTWWlRYI//mq.iuLB11hhOZkTfwL22XL6jhtelTLPiRy70p2KJ/13YK0=")
+line3 = LINE()
+#line3 = LINE(authTokenDPK="YOUR TOKEN")
 line3.log("YOUR TOKEN : {}".format(str(line3.authToken)))
 channel = LINEChannel(line3,line3.server.CHANNEL_ID['LINE_TIMELINE'])
 line3.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-print ("✍Ð₱₭ ฿Ø₮ LOGIN SUCCESS")
+print ("DPK LOGIN SUCCESS ")
 
 clProfile = cl.getProfile()
 clSettings = cl.getSettings()
@@ -42,12 +42,12 @@ LINE = LINEPoll(cl)
 
 Dpk = [cl,line1,line2,line3]
 mid = cl.profile.mid
-MID1 = line1.profile.mid
-MID2 = line2.profile.mid
-MID3 = line3.profile.mid
-DpkBot=[mid,MID1,MID2,MID3]
+Amid = line1.profile.mid
+Bmid = line2.profile.mid
+Cmid = line3.profile.mid
+DpkBot=[mid,Amid,Bmid,Cmid]
 Owner=["ud296655acef67cbd5e8208e63629f78b","u65224f4e8812136f01b25275a54b5aef"]
-DPKfams = DpkBot + Dpk + Owner
+DpkFamily = DpkBot + Dpk + Owner
 
 contact = cl.getProfile()
 backup = cl.getProfile()
@@ -56,7 +56,7 @@ backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 
 Wait = {
-    "UnsendPesan":True,
+    "UnsendPesan":False,
     "SpamInvite":False,
     "Contact":False,
     "GName":"ARIFISTIFIK",
@@ -72,7 +72,7 @@ Wait = {
     "Invite":False,
     "Copy":False,
     "autoAdd":True,
-    "PesanAdd":"⏩HAYO KETAHUAN LO ADD GUA 😊⏪",
+    "PesanAdd":"Terima Kasih Sudah Add Saya",
     "ContactAdd":{},
     "autoBlock":False,
     "autoJoin":True,
@@ -80,12 +80,12 @@ Wait = {
     "AutoReject":False,
     "autoRead":False,
     "IDSticker":False,
-    "Timeline":True,
+    "Timeline":False,
     "Welcome":False,
     "BackupBot":True,
-    "WcText": "ƜЄԼƇƠMЄ ƬƠ MƳ ƑƛMƧ \n Jåňĝąņ ņăķăl ¥ä...?😊ørāņg ňyå bäîķ-băïk ði§īņî\yuķ ķ3ñålåň bïăř bån¥åķ ťëmen-nŷå😅",
+    "WcText": "Welcome My Friend",
     "Leave":False,
-    "WvText": "MƯŇĢĶÏÑ ÅĶŰÑ ÐÏÄ ĻÏMỊŤ...😢",
+    "WvText": "See You My Friend",
     "Mic":False,
     "MicDel":False,
     "Adminadd":False,
@@ -164,7 +164,8 @@ DpkCctv={
     "Point3":{}
 }
 
-Help ="""╔═══════════════════
+Help ="""
+╔═══════════════════
 ╠☬➣  MËÑÜ ĦÉĹP  ☬➣  ⏩⏩
 ╠═══════════════════
 ╠☬➣ [ ŤŘÅÑ$ĻĀŤØŘ ]⏩⏩⏩
@@ -243,6 +244,7 @@ Help ="""╔═══════════════════
 ╠═══════════════════
 ╠☬➣ dpk join
 ╠☬➣ dpk bye
+╠☬➣ bye me
 ╠☬➣ leaveall grup
 ╠☬➣ kick [on,off->kickall]
 ╠☬➣ invite on/off
@@ -251,7 +253,7 @@ Help ="""╔═══════════════════
 ╠☬➣ lurking on/off/reset
 ╠☬➣ lurking read
 ╠☬➣ sider on/off
-╠☬➣ tagall
+╠☬➣ mentionall
 ╠☬➣ welcome on/off
 ╠☬➣ changewelcome: [teks]
 ╠☬➣ leave on/off
@@ -294,7 +296,7 @@ Help ="""╔═══════════════════
 ╠═══════════════════
 ╠☬➣  ƛƦƖƑƖƧƬƖƑƖƘ  ☬➣   ⏩⏩
 ╚═══════════════════
-"""
+"""""
 
 #------------------------------------------------ SCRIP DEF ----------------------------------------------------------#
 
@@ -343,22 +345,22 @@ def LINE_FAST_USER(arif):
         if arif.type == 13:
             if mid in arif.param3:
               if Wait['autoJoin'] == True:
-                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                if arif.param2 in DpkFamily and arif.param2 in Wait["Admin"]:
                     cl.acceptGroupInvitation(arif.param1)
                     print ("ANDA JOIN DI GRUP")
-            if MID1 in arif.param3:
+            if Amid in arif.param3:
               if Wait['autoJoin'] == True:
-                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                if arif.param2 in DpkFamily and arif.param2 in Wait["Admin"]:
                     line1.acceptGroupInvitation(arif.param1)
                     print ("BOT 1 JOIN GRUP")
-            if MID2 in arif.param3:
+            if Bmid in arif.param3:
               if Wait['autoJoin'] == True:
-                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                if arif.param2 in DpkFamily and arif.param2 in Wait["Admin"]:
                     line2.acceptGroupInvitation(arif.param1)
                     print ("BOT 2 JOIN GRUP")
-            if MID3 in arif.param3:
+            if Cmid in arif.param3:
               if Wait['autoJoin'] == True:
-                if arif.param2 in DPKfams and arif.param2 in Wait["Admin"]:
+                if arif.param2 in DpkFamily and arif.param2 in Wait["Admin"]:
                     line3.acceptGroupInvitation(arif.param1)
                     print ("BOT 3 JOIN GRUP")
                     pass
@@ -366,31 +368,31 @@ def LINE_FAST_USER(arif):
         if arif.type == 13:
             if mid in arif.param3:
               if Wait['AutoReject'] == True:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = cl.getGroupIdsInvited()
                     for i in gid:
                         cl.rejectGroupInvitation(i)
-            if MID1 in arif.param3:
+            if Amid in arif.param3:
               if Wait["AutoReject"] == True:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = line1.getGroupIdsInvited()
                     for i in gid:
                         line1.rejectGroupInvitation(i)
-            if MID2 in arif.param3:
+            if Bmid in arif.param3:
               if Wait["AutoReject"] == True:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = line2.getGroupIdsInvited()
                     for i in gid:
                         line2.rejectGroupInvitation(i)
-            if MID3 in arif.param3:
+            if Cmid in arif.param3:
               if Wait["AutoReject"] == True:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     gid = line3.getGroupIdsInvited()
                     for i in gid:
                         line3.rejectGroupInvitation(i)
                         pass
 
-#------------------- ( 1 ) -------------------------  SIDER & WC LV ------------------------------------------------#
+#------------------- ( 1 ) ------------------------- PEMBATAS SCRIP SIDER & WC LV ------------------------------------------------#
 
         elif arif.type == 55:
             try:
@@ -404,11 +406,11 @@ def LINE_FAST_USER(arif):
                             if " " in Name:
                                 nick = Name.split(' ')
                                 if len(nick) == 2:
-                                    cl.mentionWithDPK(arif.param1,arif.param2," нαι\n","" + "\n ηgιηтιρ αנα gαк вσsєη кαк ???" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," Hii\n","" + "\n Nyimak yah kak?" )
                                 else:
-                                    cl.mentionWithDPK(arif.param1,arif.param2," ηah\n","" + "\n sєкαяαηg ηgιηтιρ dîåη¥å" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," Nah\n","" + "\n Nongol Sini Chat kak ??" )
                             else:
-                                cl.mentionWithDPK(arif.param1,arif.param2," нeyø...\n","" + "\n lîåtin åρα кαк?" )
+                                cl.mentionWithDPK(arif.param1,arif.param2," Hey\n","" + "\n What Are You Doing?" )
                     else:
                         pass
                 else:
@@ -451,7 +453,7 @@ def LINE_FAST_USER(arif):
           if Wait["BackupBot"] == True:
             if mid in arif.param3:
               if arif.param2 in DpkBot:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
                     Wait["Blacklist"][arif.param2] = True
@@ -493,9 +495,9 @@ def LINE_FAST_USER(arif):
                                     pass
                 return
             
-            if MID1 in arif.param3:
+            if Amid in arif.param3:
               if arif.param2 in DpkBot:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
                     Wait["Blacklist"][arif.param2] = True
@@ -534,9 +536,9 @@ def LINE_FAST_USER(arif):
                                     pass
                 return
 
-            if MID2 in arif.param3:
+            if Bmid in arif.param3:
               if arif.param2 in DpkBot:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
                     Wait["Blacklist"][arif.param2] = True
@@ -575,9 +577,9 @@ def LINE_FAST_USER(arif):
                                     pass
                 return
 
-            if MID3 in arif.param3:
+            if Cmid in arif.param3:
               if arif.param2 in DpkBot:
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     pass
                 else:
                     Wait["Blacklist"][arif.param2] = True
@@ -618,7 +620,7 @@ def LINE_FAST_USER(arif):
 
         if arif.type == 13:
           if arif.param3 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
-            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                 random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
@@ -626,12 +628,12 @@ def LINE_FAST_USER(arif):
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
                 random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!!, PLEASE..JANGAN MENGIKUTI JEJAKNYA.\n")
 
 #---------------------------------- SCRIP PROTECT GRUP -------------------------------------#
 
         if arif.type == 19:
-            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                 if arif.param2 in DpkBot:
                     pass
                 elif DpkProtect["protect"] == True:
@@ -640,10 +642,10 @@ def LINE_FAST_USER(arif):
                     cl.inviteIntoGroup(arif.param1,[arif.param3])
                     Wait["Blacklist"][arif.param2] = True
                     random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                    random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                    random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!! (*-_-)/")
 
         if arif.type == 11:
-            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                 if arif.param2 in DpkBot:
                     pass
                 elif DpkProtect["linkprotect"] == True:
@@ -655,7 +657,7 @@ def LINE_FAST_USER(arif):
                     Wait["Blacklist"][arif.param2] = True
 
         if arif.type == 13:
-          if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+          if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
             if arif.param2 in DpkBot:
                 pass
             elif DpkProtect["inviteprotect"] == True:
@@ -664,11 +666,11 @@ def LINE_FAST_USER(arif):
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
                 random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!! (*-_-)/")
                 G = random.choice(Dpk).getGroup(arif.param1)
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
-                if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                     if arif.param2 in DpkBot:
                         pass
                     elif DpkProtect["inviteprotect"] == True:
@@ -677,11 +679,11 @@ def LINE_FAST_USER(arif):
                         random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                         random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
                         random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                        random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                        random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!! (*-_-)/")
                         G = random.choice(Dpk).getGroup(arif.param1)
                         G.preventedJoinByTicket = True
                         random.choice(Dpk).updateGroup(G)
-                        if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+                        if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                             if arif.param2 in DpkBot:
                                 pass
                             elif DpkProtect["cancelprotect"] == True:
@@ -689,13 +691,13 @@ def LINE_FAST_USER(arif):
                                 random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
                                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
                                 random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                                random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!! (*-_-)/")
                                 G = random.choice(Dpk).getGroup(arif.param1)
                                 G.preventedJoinByTicket = True
                                 random.choice(Dpk).updateGroup(G)
 
         if arif.type == 32:
-            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                 if arif.param2 in DpkBot:
                     pass
                 elif DpkProtect["ProtectCancelled"] == True:
@@ -704,11 +706,11 @@ def LINE_FAST_USER(arif):
                     cl.inviteIntoGroup(arif.param1,[arif.param3])
                     Wait["Blacklist"][arif.param2] = True
                     random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                    random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                    random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!! (*-_-)/")
 
         if arif.type == 19:
             if arif.param3 in Wait["Admin"]:        # JIKA ADMIN KE KICK
-              if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+              if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                   random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                   line1.findAndAddContactsByMid(arif.param3)
                   line1.inviteIntoGroup(arif.param1,[arif.param3])
@@ -717,11 +719,11 @@ def LINE_FAST_USER(arif):
                   random.choice(Dpk).updateGroup(G)
                   Wait["Blacklist"][arif.param2] = True
                   line1.sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                  line1.sendMessage(arif.param1, "Masuk dalam daftar orang bejat (*-_-)/")
+                  line1.sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!! (*-_-)/")
 
         if arif.type == 13:
           if arif.param2 and arif.param3 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
-            if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+            if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
                 random.choice(Dpk).cancelGroupInvitation(arif.param1,[arif.param3])
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param3])
@@ -729,10 +731,10 @@ def LINE_FAST_USER(arif):
                 G.preventedJoinByTicket = True
                 random.choice(Dpk).updateGroup(G)
                 random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!!, PLEASE..JANGAN MENGIKUTI JEJAKNYA.\n")
 
         if arif.type == 17:
-          if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+          if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
             if arif.param2 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                 G = random.choice(Dpk).getGroup(arif.param1)
@@ -740,10 +742,10 @@ def LINE_FAST_USER(arif):
                 random.choice(Dpk).updateGroup(G)
                 Wait["Blacklist"][op.param2] = True
                 random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!!, PLEASE..JANGAN MENGIKUTI JEJAKNYA.\n")
 
         if arif.type == 55:
-          if arif.param2 not in DPKfams and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
+          if arif.param2 not in DpkFamily and arif.param2 not in Owner and arif.param2 not in Wait["Admin"]:
             if arif.param2 in Wait["Blacklist"]: # AUTO KICK BLACKLIST
                 random.choice(Dpk).kickoutFromGroup(arif.param1,[arif.param2])
                 G = random.choice(Dpk).getGroup(arif.param1)
@@ -751,7 +753,7 @@ def LINE_FAST_USER(arif):
                 random.choice(Dpk).updateGroup(G)
                 Wait["Blacklist"][op.param2] = True
                 random.choice(Dpk).sendMessage(arif.param1, None, contentMetadata={'mid': arif.param2}, contentType=13)
-                random.choice(Dpk).sendMessage(arif.param1, "Masuk dalam daftar orang bejat, Please suruh dia tobat....\n")
+                random.choice(Dpk).sendMessage(arif.param1, "USER MASUK DALAM DAFTAR ORANG BEJAT...!!!, PLEASE..JANGAN MENGIKUTI JEJAKNYA.\n")
 
         if arif.type == 46:
             if arif.param2 in DpkBot:
@@ -830,7 +832,7 @@ def LINE_FAST_USER(arif):
                                 xpesan = 'Pengirim: '
                                 xteam = str(dia.displayName)
                                 pesan = ''
-                                pesan2 = pesan+"@ARIFISTIFIK\n"
+                                pesan2 = pesan+"@DPK_ARIFISTIFIK\n"
                                 xlen = str(len(zxc)+len(xpesan))
                                 xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                 zx = {'S':xlen, 'E':xlen2, 'M':dia.mid}
@@ -893,7 +895,7 @@ def LINE_FAST_USER(arif):
             kirim = msg.to
             if msg.contentType == 1:
               if Wait['UpfotoBot'] == True:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     path1 = line1.downloadObjectMsg(msg.id)
                     path2 = line2.downloadObjectMsg(msg.id)
                     path3 = line3.downloadObjectMsg(msg.id)
@@ -911,7 +913,7 @@ def LINE_FAST_USER(arif):
             kirim = msg.to
             if msg.contentType == 1:
               if Wait['UpfotoGroup'] == True:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     path = cl.downloadObjectMsg(msg.id)
                     cl.updateGroupPicture(kirim, path)
                     cl.mentionWithDPK(kirim,user," Update Picture Grup Success ","")
@@ -944,7 +946,7 @@ def LINE_FAST_USER(arif):
             kirim = msg.to
             if msg.contentType == 13:
                 try:
-                    if user in DPKfams or user in Wait["Admin"]:
+                    if user in DpkFamily or user in Wait["Admin"]:
                       if Wait["Ban"] == True:
                         if msg.contentMetadata["mid"] in Wait["Blacklist"]:
                             name = msg.contentMetadata["displayName"]
@@ -963,7 +965,7 @@ def LINE_FAST_USER(arif):
                             Wait['Unban'] = False
                         else:
                             name = msg.contentMetadata["displayName"]
-                            cl.sendMessage(kirim, name + str(" Nothing in Blacklist"))
+                            cl.sendMessage(kirim, name + str(" Tidak ada yang masuk dalam daftar orang bejat bos😁"))
                             Wait['Unban'] = False
                       if Wait["Adminadd"] == True:
                         if msg.contentMetadata["mid"] in Wait["Admin"]:
@@ -994,7 +996,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     invite = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1026,7 +1028,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1062,7 +1064,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1078,7 +1080,7 @@ def LINE_FAST_USER(arif):
                         pass
                     else:
                         for target in targets:
-                            if target not in DPKfams:
+                            if target not in DpkFamily:
                                 try:
                                     cl.kickoutFromGroup(kirim,[target])
                                     Wait['KillOn'] = False
@@ -1094,7 +1096,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1128,7 +1130,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1159,7 +1161,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1190,7 +1192,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1227,7 +1229,8 @@ def LINE_FAST_USER(arif):
                     if Wait['AutoRespon'] == True:
                         contact = cl.getContact(user)
                         cName = contact.displayName
-                        balas = [cName + "\n" + str(Wait['DpkRespon'])]
+                        balas = [cName + "\n" + str(Wait['MentionText'])]
+                        balas1 = [cName + "\n" + str(Wait['Dpkrespon'])]
                         ret_ = "" + random.choice(balas)
                         name = re.findall(r'@(\w+)', msg.text)
                         mention = ast.literal_eval(msg.contentMetadata["MENTION"])
@@ -1235,14 +1238,13 @@ def LINE_FAST_USER(arif):
                         for mention in mentionees:
                               if mention['M'] in mid:
                                   cl.mentionWithDPK(kirim,user,"","" +str(ret_))
-                                  cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                                   break
 
         if arif.type == 26:
             msg = arif.message
             user = msg._from
             kirim = msg.to
-            if msg.contentType == 0 and user not in DPKfams or user not in Wait["Admin"]:
+            if msg.contentType == 0 and user not in DpkFamily or user not in Wait["Admin"]:
                 if "MENTION" in msg.contentMetadata.keys() != None:
                     if Wait['KickRespon'] == True:
                         contact = cl.getContact(user)
@@ -1264,7 +1266,7 @@ def LINE_FAST_USER(arif):
             user = msg._from
             kirim = msg.to
             if msg.contentType == 13:
-                if user in DPKfams or user in Wait["Admin"]:
+                if user in DpkFamily or user in Wait["Admin"]:
                     korban = msg.contentMetadata["displayName"]
                     invite = msg.contentMetadata["mid"]
                     groups = cl.getGroup(kirim)
@@ -1329,16 +1331,16 @@ def LINE_FAST_USER(arif):
                             cl.sendMessage(0, user)
 
                         elif dpkText.lower() == "me":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 cl.sendMessage(kirim, None, contentMetadata={'mid': mid}, contentType=13)
                                 cl.mentionWithDPK(kirim,mid," Hay","")
 
                         elif dpkText.lower() == "help":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                  cl.sendMessage(kirim, str(Help))
 
                         elif dpkText.lower() == "speed":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 no = time.time()
                                 cl.sendText("u805e9f30ea4da7b64a14e0f9cea0767c", ' ')
                                 elapsed_time = time.time() - no
@@ -1357,28 +1359,28 @@ def LINE_FAST_USER(arif):
                                 line3.sendText(kirim, "%s" % (elapsed_time))
 
                         elif dpkText.lower() == "responsename":
-                            if user in DPKfams or user in Wait["Admin"]:
-                                dpk1 = cl.getContact(mid).displayName
-                                dpk2 = line1.getContact(MID1).displayName
-                                dpk3 = line2.getContact(MID2).displayName
-                                dpk4 = line3.getContact(MID3).displayName
+                            if user in DpkFamily or user in Wait["Admin"]:
+                                team1 = cl.getContact(mid).displayName
+                                team2 = line1.getContact(Amid).displayName
+                                team3 = line2.getContact(Bmid).displayName
+                                team4 = line3.getContact(Cmid).displayName
                                 owner = "ud296655acef67cbd5e8208e63629f78b"
-                                cl.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+dpk1+")"))
-                                line1.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+dpk2+")"))
-                                line2.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+dpk3+")"))
-                                line3.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+dpk4+")"))
+                                cl.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+team1+")"))
+                                line1.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+team2+")"))
+                                line2.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+team3+")"))
+                                line3.mentionWithDPK(kirim,owner," Ready On ","" + str(" ("+team4+")"))
 
                         elif dpkText.lower() == "my bot":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                cl.sendMessage(kirim, None, contentMetadata={'mid': mid}, contentType=13)
-                               cl.sendMessage(kirim, None, contentMetadata={'mid': MID1}, contentType=13)
-                               cl.sendMessage(kirim, None, contentMetadata={'mid': MID2}, contentType=13)
-                               cl.sendMessage(kirim, None, contentMetadata={'mid': MID3}, contentType=13)
+                               cl.sendMessage(kirim, None, contentMetadata={'mid': Amid}, contentType=13)
+                               cl.sendMessage(kirim, None, contentMetadata={'mid': Bmid}, contentType=13)
+                               cl.sendMessage(kirim, None, contentMetadata={'mid': Cmid}, contentType=13)
 
                         elif dpkText.lower() == "my team":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 dpk = ""
-                                fams = ""
+                                family = ""
                                 wa = 0
                                 wi = 0
                                 for m_id in Owner:
@@ -1388,11 +1390,11 @@ def LINE_FAST_USER(arif):
                                 for m_id in Wait["Admin"]:
                                     wi = wi + 1
                                     end = '\n'
-                                    fams += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
-                                cl.sendText(kirim,"DPK FAMS\n\nOwner:\n"+dpk+"\nAdmin:\n"+fams+"\n( %s ) TEAM FAMS" %(str(len(Owner)+len(Wait["Admin"]))))                                
+                                    family += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
+                                cl.sendText(kirim,"DPK FAMILY\n\nOwner:\n"+dpk+"\nAdmin:\n"+family+"\n( %s ) TEAM FAMILY" %(str(len(Owner)+len(Wait["Admin"]))))                                
 
                         elif dpkText.lower() == "dpk join":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 X = cl.getGroup(kirim)
                                 X.preventedJoinByTicket = False
                                 cl.updateGroup(X)
@@ -1408,17 +1410,23 @@ def LINE_FAST_USER(arif):
                                 cl.updateGroup(X)
 
                         elif dpkText.lower() == "dpk bye":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 ginfo = cl.getGroup(kirim)
                                 owner = "ud296655acef67cbd5e8208e63629f78b"
                                 line1.mentionWithDPK(kirim,owner," Oke ","\n Good Bye" + str(" ("+ginfo.name+")"))
                                 line3.leaveGroup(kirim)
                                 line2.leaveGroup(kirim)
                                 line1.leaveGroup(kirim)
+
+                        elif dpkText.lower() == "bye me":
+                            if user in DpkFamily or user in Wait["Admin"]:
+                                ginfo = cl.getGroup(kirim)
+                                owner = "ud296655acef67cbd5e8208e63629f78b"
+                                line1.mentionWithDPK(kirim,owner," Oke ","\n Good Bye" + str(" ("+ginfo.name+")"))
                                 cl.leaveGroup(kirim)
 
                         elif dpkText.lower() == "leaveall grup":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 gid = cl.getGroupIdsJoined()
                                 gid = line1.getGroupIdsJoined()
                                 gid = line2.getGroupIdsJoined()
@@ -1431,16 +1439,16 @@ def LINE_FAST_USER(arif):
                                     print ("Kicker Leave All group")
 
                         elif dpkText in ["Kick on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["KickOn"] = True
                                 cl.sendText(kirim,"Status:\n{''cancel'':0,''kick'':1}")
                         elif dpkText in ["Kick off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["KickOn"] = False
                                 cl.sendText(kirim,"Status:\n{''cancel'':0,''kick'':0}")
 
                         elif "Kickall" in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                               if msg.toType == 2:
                                 if Wait["KickOn"]:
                                     _name = msg.text.replace("Kickall","")
@@ -1453,7 +1461,7 @@ def LINE_FAST_USER(arif):
                                         cl.sendText(kirim,"Target Not found.")
                                     else:
                                         for target in targets:
-                                          if target not in DPKfams and target not in Wait["Admin"]:
+                                          if target not in DpkFamily and target not in Wait["Admin"]:
                                             try:
                                                 klist=[cl,line1,line2,line3]
                                                 kicker=random.choice(klist)
@@ -1463,7 +1471,7 @@ def LINE_FAST_USER(arif):
                                                 cl.sendText(kirim, str(error))
 
                         elif "Spam " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 txt = dpkText.split(" ")
                                 jmlh = int(txt[2])
                                 teks = dpkText.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
@@ -1481,7 +1489,7 @@ def LINE_FAST_USER(arif):
                                         cl.sendText(kirim, "Maksimal 500 SpamTeks!")
 
                         elif "Cekmid: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 ardian = dpkText.replace("Cekmid: ","")
                                 cl.sendMessage(kirim, None, contentMetadata={'mid': ardian}, contentType=13)
                                 contact = cl.getContact(ardian)
@@ -1498,7 +1506,7 @@ def LINE_FAST_USER(arif):
                                     pass
 
                         elif ("Banlock " in dpkText):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
@@ -1512,61 +1520,61 @@ def LINE_FAST_USER(arif):
                                         pass
 
                         elif dpkText.lower() == "banlist":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 if Wait["Blacklist"] == {}:
-                                    cl.sendText(kirim,"ORANG BEJAT SUDAH TOBAT JADI  DOSANYA TERAMPUNI BOS")
+                                    cl.sendText(kirim,"Tidak ada yang masuk dalam daftar orang bejat bos😁")
                                 else:
-                                    mc = "DAFTAR ORANG-ORANG BEJAT NI BOS "
+                                    mc = "DAFTAR ORANG BEJAT "
                                     num=1
                                     ragets = cl.getContacts(Wait["Blacklist"])
                                     for mi_d in ragets:
                                         mc+="\n%i. %s" % (num, mi_d.displayName)
                                         num=(num+1)
-                                    mc+="\n\n Total %i ORANG BEJAT " % len(ragets)
+                                    mc+="\n\n Total %i Blacklist " % len(ragets)
                                     cl.sendText(kirim, mc)
 
                         elif dpkText in ["Contact ban"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                               if Wait["Blacklist"] == {}:
-                                  cl.sendText(kirim,"Tidak Ada Yang masuk dalam daftar orang bejat")
+                                  cl.sendText(kirim,"Tidak Ada Blacklist")
                               else:
-                                  cl.sendText(kirim,"Contact Yang masuk dalam daftar orang bejat")
+                                  cl.sendText(kirim,"Contact Blacklist")
                                   h = ""
                                   for i in Wait["Blacklist"]:
                                       h = cl.getContact(i)
                                       cl.sendMessage(kirim, None, contentMetadata={'mid': i}, contentType=13)
 
                         elif dpkText in ["Clear ban"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Blacklist"] = {}
-                                cl.sendText(kirim,"Aku sudah memaafkan orang-orang bajat itu..")
+                                cl.sendText(kirim,"Succes clear Blacklist is nothing??")
                                 print ("Clear Ban")
 
                         elif dpkText in ["Ban:on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Ban"] = True
-                                cl.sendText(kirim,"Kirimkan kontak orang bejat yang dimaksud...")
+                                cl.sendText(kirim,"Send Contact to BlackList..")
                         elif dpkText in ["Unban:on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Unban"] = True
-                                cl.sendText(kirim,"Kirimkan kontak orang bejat yang sudah tobat...")
+                                cl.sendText(kirim,"Send Contact to UnBlackList..")
 
                         elif dpkText.lower() == 'link on':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 if msg.toType == 2:
                                     group = cl.getGroup(kirim)
                                     group.preventedJoinByTicket = False
                                     cl.updateGroup(group)
 
                         elif dpkText.lower() == 'link off':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 if msg.toType == 2:
                                     group = cl.getGroup(kirim)
                                     group.preventedJoinByTicket = True
                                     cl.updateGroup(group)
 
                         elif dpkText.lower() == 'gurl':
-                          if user in DPKfams or user in Wait["Admin"]:
+                          if user in DpkFamily or user in Wait["Admin"]:
                             if msg.toType == 2:
                                 grup = cl.getGroup(kirim)
                                 if grup.preventedJoinByTicket == False:
@@ -1576,7 +1584,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, "Ketik Link on Dulu kaka")
 
                         elif dpkText.lower() == 'gcreator':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     group = cl.getGroup(kirim)
                                     GS = group.creator.mid
@@ -1589,7 +1597,7 @@ def LINE_FAST_USER(arif):
                                     cl.mentionWithDPK(kirim,W,"Group Creator","")
 
                         elif "invite gcreator" == dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     group = cl.getGroup(kirim)
                                     GS = group.creator.mid
@@ -1608,7 +1616,7 @@ def LINE_FAST_USER(arif):
                                     cl.mentionWithDPK(kirim,user,"Invite Done","")
 
                         elif dpkText.lower() == 'ginfo':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 group = cl.getGroup(kirim)
                                 try:
                                     gCreator = group.creator.displayName
@@ -1635,7 +1643,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, str(cuki))
 
                         elif dpkText in ["Memberlist"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 kontak = cl.getGroup(kirim)
                                 group = kontak.members
                                 num=1
@@ -1647,7 +1655,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendText(kirim, msgs)
 
                         elif dpkText in ["Blocklist"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 blockedlist = cl.getBlockedContactIds()
                                 kontak = cl.getContacts(blockedlist)
                                 num=1
@@ -1659,7 +1667,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendText(kirim, msgs)
 
                         elif dpkText in ["Friendlist mid"]: 
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 gruplist = cl.getAllContactIds()
                                 kontak = cl.getContacts(gruplist)
                                 num=1
@@ -1671,13 +1679,13 @@ def LINE_FAST_USER(arif):
                                 cl.sendText(kirim, msgs)
 
                         elif "Grup id" in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 saya = dpkText.replace('Grup id','')
                                 gid = cl.getGroup(kirim)
                                 cl.sendText(kirim, "ID Grup : \n" + gid.id + "\nName Grup : \n" + str(gid.name))
 
                         elif 'mid ' in dpkText.lower():
-                          if user in DPKfams or user in Wait["Admin"]:
+                          if user in DpkFamily or user in Wait["Admin"]:
                               try:
                                   key = eval(msg.contentMetadata["MENTION"])
                                   u = key["MENTIONEES"][0]["M"]
@@ -1687,7 +1695,7 @@ def LINE_FAST_USER(arif):
                                   cl.sendText(kirim, str(e))
 
                         elif "Profile" in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key1 = key["MENTIONEES"][0]["M"]
                                 contact = cl.getContact(key1)
@@ -1702,7 +1710,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, str(error))
 
                         elif dpkText.lower() == 'lurking on':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1745,7 +1753,7 @@ def LINE_FAST_USER(arif):
                                         cl.sendMessage(kirim, "Set reading point:\n" + readTime)
                                         
                         elif dpkText.lower() == 'lurking off':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1770,7 +1778,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, "Delete reading point:\n" + readTime)
                 
                         elif dpkText.lower() == 'lurking reset':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1796,7 +1804,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, "Lurking on dulu kaka..")
                                     
                         elif dpkText.lower() == 'lurking read':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1824,7 +1832,7 @@ def LINE_FAST_USER(arif):
                                     for x in range(len(cmem)):
                                         xname = str(cmem[x].displayName)
                                         pesan = ''
-                                        pesan2 = pesan+"@ARIFISTIFIK \n"
+                                        pesan2 = pesan+"@DPK_ARIFISTIFIK\n"
                                         xlen = str(len(zxc)+len(xpesan))
                                         xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                         zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
@@ -1840,7 +1848,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim,"Lurking on dulu kaka ??")
 
                         elif dpkText.lower() == 'sider on':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     del DpkCctv['Point2'][kirim]
                                     del DpkCctv['Point3'][kirim]
@@ -1853,15 +1861,23 @@ def LINE_FAST_USER(arif):
                                 cl.sendText(kirim,"Sider Set to On..")
 
                         elif dpkText.lower() == 'sider off':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 if kirim in DpkCctv['Point2']:
                                     DpkCctv['Point1'][kirim]=False
                                     cl.sendText(kirim, DpkCctv['Point3'][kirim])
                                 else:
                                     cl.sendText(kirim, "Off not Going")
 
-                        elif dpkText.lower().startswith("tagall"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                        elif dpkText.lower() == 'sider off':
+                            if user in DpkFamily or user in Wait["Admin"]:
+                                if kirim in DpkCctv['Point2']:
+                                    DpkCctv['Point1'][kirim]=False
+                                    cl.sendText(kirim, DpkCctv['Point3'][kirim])
+                                else:
+                                    cl.sendText(kirim, "Off not Going")
+
+                        elif dpkText.lower().startswith("mentionall"):
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 gname = cl.getGroup(kirim)
                                 local = [contact.mid for contact in gname.members]
                                 try:
@@ -1873,26 +1889,26 @@ def LINE_FAST_USER(arif):
                                         for rid in gname.members[fu*20 : (fu+1)*20]:
                                             com.append({"S":str(sell), "E" :str(sell+6), "M":rid.mid})
                                             sell += 7
-                                            hdc += u'@ARIFISTIFIK\n'
-                                            atas = '\n HAI {} '.format(str(gname.name))
-                                            atas += '\n Hai {} Semuanya'.format(str(len(local)))
+                                            hdc += u'@DPK_ARIFISTIFIK\n'
+                                            atas = '\n Halo {} '.format(str(gname.name))
+                                            atas += '\n Halo {} Family'.format(str(len(local)))
                                         cl.sendMessage(kirim, text=hdc + str(atas), contentMetadata={u'MENTION': json.dumps({'MENTIONEES':com})}, contentType=0)
                                 except Exception as error:
                                     cl.sendMessage(kirim, str(error))
 
                         elif dpkText in ["Welcome on"]:
-                          if user in DPKfams or user in Wait["Admin"]:
-                            if user in DPKfams:
+                          if user in DpkFamily or user in Wait["Admin"]:
+                            if user in DpkFamily:
                                 Wait['Welcome'] = True
                                 cl.sendText(kirim,"Cek Welcome Already ON")
                         elif dpkText in ["Welcome off"]:
-                          if user in DPKfams or user in Wait["Admin"]:
-                            if user in DPKfams:
+                          if user in DpkFamily or user in Wait["Admin"]:
+                            if user in DpkFamily:
                                 Wait['Welcome'] = False
                                 cl.sendText(kirim,"Cek Welcome Already Off")
 
                         elif "changewelcome: " in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 teks = dpkText.split(": ")
                                 data = dpkText.replace(teks[0] + ": ","")
                                 try:
@@ -1902,16 +1918,16 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim,"Name Error")
 
                         elif dpkText in ["Leave on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Leave'] = True
                                 cl.sendText(kirim,"Cek Leave Already ON")
                         elif dpkText in ["Leave off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Leave'] = False
                                 cl.sendText(kirim,"Cek Leave Already Off")
 
                         elif "changeleave: " in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 teks = dpkText.split(": ")
                                 data = dpkText.replace(teks[0] + ": ","")
                                 try:
@@ -1921,13 +1937,13 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim,"Name Error")
 
                         elif dpkText.lower() == "runtime":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 eltime = time.time() - mulai                                
                                 opn = " "+waktu(eltime)
-                                cl.sendText(kirim,"Connect to DPK FAMS\nBot Active\n" + opn)                
+                                cl.sendText(kirim,"Connect to DPK FAMILY\nBot Active\n" + opn)                
 
                         elif "Broadcast: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 bc = msg.text.replace("Broadcast: ","")
                                 gid = cl.getGroupIdsJoined()
                                 owner = "ud296655acef67cbd5e8208e63629f78b"
@@ -1935,7 +1951,7 @@ def LINE_FAST_USER(arif):
                                     cl.mentionWithDPK(i,owner," BROADCAST BY:","\n" + str(" ("+bc+")"))
 
                         elif "Contactbc: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 bc = msg.text.replace("Contactbc: ","")
                                 gid = cl.getAllContactIds()
                                 owner = "ud296655acef67cbd5e8208e63629f78b"
@@ -1943,7 +1959,7 @@ def LINE_FAST_USER(arif):
                                     cl.mentionWithDPK(i,owner," BROADCAST BY:","\n" + str(" ("+bc+")"))
 
                         elif "adminadd " in dpkText.lower():
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
@@ -1977,7 +1993,7 @@ def LINE_FAST_USER(arif):
                                             cl.sendText(kirim, str(error))
 
                         elif "changename: " in dpkText.lower():
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 name = dpkText.split(": ")
                                 change = dpkText.replace(name[0] + ": ","")
                                 cll = cl.getProfile()
@@ -1987,7 +2003,7 @@ def LINE_FAST_USER(arif):
                                 cl.mentionWithDPK(kirim,owner," Update Name Success","\n Change to " + str(change))
 
                         elif "changebio: " in dpkText.lower():
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 proses = dpkText.split(": ")
                                 teks = dpkText.replace(proses[0] + ": ","")
                                 no1 = cl.getProfile()
@@ -1996,7 +2012,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendText(kirim,"My Bio Change To : " + teks)
 
                         elif "changenameall: " in dpkText.lower():
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 name = dpkText.split(": ")
                                 change = dpkText.replace(name[0] + ": ","")
                                 cll = cl.getProfile()
@@ -2017,7 +2033,7 @@ def LINE_FAST_USER(arif):
                                 line3.mentionWithDPK(kirim,user," Update Name Success","\n Change to " + str(change))
 
                         elif "changebioall: " in dpkText.lower():
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 proses = dpkText.split(": ")
                                 teks = dpkText.replace(proses[0] + ": ","")
                                 no = cl.getProfile()
@@ -2038,7 +2054,7 @@ def LINE_FAST_USER(arif):
                                 line3.sendText(kirim,"My Bio Change To : " + teks)
 
                         elif dpkText.lower() == "remove pesan":
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     cl.removeAllMessages(arif.param2)
                                     line1.removeAllMessages(arif.param2)
@@ -2054,19 +2070,19 @@ def LINE_FAST_USER(arif):
                                     pass
 
                         elif dpkText.lower() == 'restart':
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 cl.sendText(kirim, 'Restarting Server Prosses..')
                                 print ("Restarting Server")
                                 restart_program()
 
                         elif dpkText.lower() == 'bot logout':
-                            if user in DPKfams:
+                            if user in DpkFamily:
                                 cl.mentionWithDPK(kirim,user," Akses Off","")
                                 print ("Selfbot Off")
                                 exit(1)
 
                         elif "kick " in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
@@ -2085,7 +2101,7 @@ def LINE_FAST_USER(arif):
                                             cl.sendText(kirim, str(error))
 
                         elif dpkText.lower() == 'my grup':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 groups = cl.groups
                                 ret_ = "GRUP JOIN"
                                 no = 0 + 1
@@ -2096,8 +2112,8 @@ def LINE_FAST_USER(arif):
                                 ret_ += "\n\nTOTAL {} GRUP JOIN".format(str(len(groups)))
                                 cl.sendText(kirim, str(ret_))
 
-                        elif dpkText.lower() == 'bot1 grup':
-                            if user in DPKfams or user in Wait["Admin"]:
+                        elif dpkText.lower() == 'r1 grup':
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 groups = line1.groups
                                 ret_ = "GRUP JOIN"
                                 no = 0 + 1
@@ -2108,8 +2124,8 @@ def LINE_FAST_USER(arif):
                                 ret_ += "\n\nTOTAL {} GRUP JOIN".format(str(len(groups)))
                                 line1.sendText(kirim, str(ret_))
 
-                        elif dpkText.lower() == 'bot2 grup':
-                            if user in DPKfams or user in Wait["Admin"]:
+                        elif dpkText.lower() == 'r2 grup':
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 groups = line2.groups
                                 ret_ = "GRUP JOIN"
                                 no = 0 + 1
@@ -2120,8 +2136,8 @@ def LINE_FAST_USER(arif):
                                 ret_ += "\n\nTOTAL {} GRUP JOIN".format(str(len(groups)))
                                 line2.sendText(kirim, str(ret_))
 
-                        elif dpkText.lower() == 'bot3 grup':
-                            if user in DPKfams or user in Wait["Admin"]:
+                        elif dpkText.lower() == 'r3 grup':
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 groups = line3.groups
                                 ret_ = "GRUP JOIN"
                                 no = 0 + 1
@@ -2133,7 +2149,7 @@ def LINE_FAST_USER(arif):
                                 line3.sendText(kirim, str(ret_))
 
                         elif dpkText.lower().startswith("rejectall grup"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 ginvited = cl.getGroupIdsInvited()
                                 ginvited = line1.getGroupIdsInvited()
                                 ginvited = line2.getGroupIdsInvited()
@@ -2155,7 +2171,7 @@ def LINE_FAST_USER(arif):
                                     line3.sendMessage(kirim, "Nothing Invited")
 
                         elif dpkText.lower() == 'status':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     hasil = "╔══════[ Status ]"
                                     if Wait["autoAdd"] == True: hasil += "\n╠ Auto Add 🔵[on]"
@@ -2202,7 +2218,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, str(error))
 
                         elif dpkText in ["Allprotect on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     DpkProtect['protect'] = True
                                     DpkProtect['linkprotect'] = True
@@ -2214,7 +2230,7 @@ def LINE_FAST_USER(arif):
                                 except Exception as e:
                                     cl.sendText(kirim, str(error))
                         elif dpkText in ["Allprotect off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     DpkProtect['protect'] = False
                                     DpkProtect['linkprotect'] = False
@@ -2227,127 +2243,127 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(error))
 
                         elif dpkText in ["Backup on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['BackupBot'] = True
                                 cl.sendText(kirim,"Backup Bot Ready On")
                         elif dpkText in ["Backup off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['BackupBot'] = False
                                 cl.sendText(kirim,"Backup Bot Nonactive")
 
                         elif dpkText in ["Unsend on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['UnsendPesan'] = True
                                 cl.sendText(kirim,"Cek UnsendMessage Set to on..")
                         elif dpkText in ["Unsend off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['UnsendPesan'] = False
                                 cl.sendText(kirim,"Cek UnsendMessage Set to off..")
 
                         elif dpkText in ["Changepp on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Upfoto'] = True
                                 cl.sendText(kirim,"Send Pict For UpPict")
                         elif dpkText in ["Changepp off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Upfoto'] = False
                                 cl.sendText(kirim,"Send Pict Already Off")
 
                         elif dpkText in ["Changeppbot on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['UpfotoBot'] = True
                                 line1.sendText(kirim,"Send Pict For UpPict")
                                 line2.sendText(kirim,"Send Pict For UpPict")
                                 line3.sendText(kirim,"Send Pict For UpPict")
                         elif dpkText in ["Changeppbot off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['UpfotoBot'] = False
                                 line1.sendText(kirim,"Send Pict Already Off")
                                 line2.sendText(kirim,"Send Pict Already Off")
                                 line3.sendText(kirim,"Send Pict Already Off")
 
                         elif dpkText in ["Cfotogrup on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['UpfotoGrup'] = True
                                 cl.sendText(kirim,"Send Pict For Change Foto Grup")
                         elif dpkText in ["Cfotogrup off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['UpfotoGrup'] = False
                                 cl.sendText(kirim,"Send Pict Already Off")
 
                         elif dpkText in ["Timeline on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Timeline'] = True
                                 cl.sendText(kirim,"Cek Post Set to on..")
                         elif dpkText in ["Timeline off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Timeline'] = False
                                 cl.sendText(kirim,"Cek Post Set to off..")
 
                         elif dpkText in ["Autojoin on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['autoJoin'] = True
                                 cl.sendText(kirim,"Join Set To On..")
                         elif dpkText in ["Autojoin off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['autoJoin'] = False
                                 cl.sendText(kirim,"Join Set To Off..")
 
                         elif dpkText in ["Autoreject on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['AutoReject'] = True
                                 cl.sendText(msg.to,"Reject Set To On..")
                         elif dpkText in ["Autoreject off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['AutoReject'] = False
                                 cl.sendText(msg.to,"Reject Set To Off..")
 
                         elif dpkText in ["Admin:add-on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Adminadd"] = True
                                 cl.sendText(kirim,"Send Contact to added Admin..")
                         elif dpkText in ["Admin:add-off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Adminadd"] = False
                                 cl.sendText(kirim,"Send Contact to added Admin in Off..")
 
                         elif dpkText in ["Admin:del-on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["AdminDel"] = True
                                 cl.sendText(kirim,"Send Contact to Dellete Admin..")
                         elif dpkText in ["Admin:del-off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["AdminDel"] = False
                                 cl.sendText(kirim,"Send Contact to Dellete Admin in Off..")
 
                         elif dpkText in ["Gift:on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Gift"] = True
                                 cl.sendText(kirim,"Send Contact to send Gift..")
                         elif dpkText in ["Gift:off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Gift"] = False
                                 cl.sendText(kirim,"Send Contact to Gift in Off..")
 
                         elif dpkText in ["Spaminvite on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["SpamInvite"] = True
                                 cl.sendText(kirim,"Send Contact to spam grup..")
                         elif dpkText in ["Spaminvite off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Gift"] = False
                                 cl.sendText(kirim,"Send Contact to send grup Off..")
 
                         elif dpkText in ["Auto jointicket on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["AutojoinTicket"] = True
                                 cl.sendText(kirim,"Join Ticket Set To On")
                         elif dpkText in ["Auto jointicket off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["AutojoinTicket"] = False
                                 cl.sendText(kirim,"Join Ticket Set To Off")
                         elif '/ti/g/' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 link_re = re.compile('(?:line\:\/|line\.me\/R)\/ti\/g\/([a-zA-Z0-9_-]+)?')
                                 links = link_re.findall(msg.text)
                                 n_links=[]
@@ -2361,16 +2377,16 @@ def LINE_FAST_USER(arif):
                                         cl.sendText(kirim,"Success Masuk %s" % str(group.name))
 
                         elif dpkText in ["Copy on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Copy'] = True
                                 cl.sendText(kirim,"Send Contact For Copy User")
                         elif dpkText in ["Copy off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Copy'] = False
                                 cl.sendText(kirim,"Send Contact Already Off")
 
                         elif dpkText.lower().startswith("clone "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -2385,7 +2401,7 @@ def LINE_FAST_USER(arif):
                                         cl.sendMessage(kirim, "Berhasil mengclone profile {}".format(contact.displayName))
 
                         elif dpkText.lower() == 'comeback':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     clProfile.displayName = str(ProfileMe["displayName"])
                                     clProfile.statusMessage = str(ProfileMe["statusMessage"])
@@ -2397,51 +2413,51 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, "Error Come Back")
 
                         elif dpkText in ["Steal on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Steal'] = True
                                 cl.sendText(kirim,"Send Contact For Cek Contact")
                         elif dpkText in ["Steal off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Steal'] = False
                                 cl.sendText(kirim,"Send Contact Already Off")
 
                         elif dpkText in ["Contact on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Contact'] = True
                                 cl.sendText(kirim,"Contact Set to on")
                         elif dpkText in ["Contact off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Contact'] = False
                                 cl.sendText(kirim,"Contact Already Off")
 
                         elif dpkText in ["Invite on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Invite'] = True
                                 cl.sendText(kirim,"Send Contact For Invite Target")
                         elif dpkText in ["Invite off"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait['Invite'] = False
                                 cl.sendText(kirim,"Send Contact Set Off")
 
                         elif dpkText.lower() == 'kill on':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["KillOn"] = True
                                 cl.sendMessage(kirim, "SendContact For Kick Taget")
                         elif dpkText.lower() == 'kill off':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["KillOn"] = False
                                 cl.sendMessage(kirim, "SendContact For Kick Taget in Off")
 
                         elif dpkText in ["Mic:add-on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Target["Mic"] = True
                                 cl.sendText(kirim,"Send Contact To Clone Message User")
                         elif dpkText in ["Mic:del-on"]:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 Target["MicDel"] = True
                                 cl.sendText(kirim,"Send Contact Dellete Clone Message User")
                         elif "mimic" in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 mic = dpkText.replace(sep[0] + " ","")
                                 if mic == "on":
@@ -2454,7 +2470,7 @@ def LINE_FAST_USER(arif):
                                         cl.sendText(kirim,"Mimic Message off")
 
                         elif dpkText.lower() == 'mimiclist':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 if Mozilla["mimic"]["target"] == {}:
                                     cl.sendText(kirim,"Tidak Ada Target")
                                 else:
@@ -2464,7 +2480,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim,mc + "\nFinish")
 
                         elif dpkText.lower() == 'refresh':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     Wait['Mic'] = False
                                     Wait['MicDel'] = False
@@ -2495,56 +2511,24 @@ def LINE_FAST_USER(arif):
                                 except Exception as e:
                                     cl.sendText(kirim, str(error))
 
-                        elif dpkText.lower() == 'bot on':
-                            if user in DPKfams or user in Wait["Admin"]:
-                                try:
-                                    Wait['Mic'] = False
-                                    Wait['MicDel'] = False
-                                    Wait['Gift'] = True
-                                    Wait['Steal'] = False
-                                    Wait['Invite'] = False
-                                    Wait['Contact'] = False
-                                    Wait['Copy'] = False
-                                    Wait['autoJoin'] = True
-                                    Wait['autoAdd'] = True
-                                    Wait['AutojoinTicket'] = True
-                                    Wait['UnsendPesan'] = True
-                                    Wait['AutoReject'] = False
-                                    Wait['Timeline'] = False
-                                    Wait['Upfoto'] = False
-                                    Wait['UpfotoBot'] = False
-                                    Wait['UpfotoGrup'] = False
-                                    Wait['Adminadd'] = False
-                                    Wait['AdminDel'] = False
-                                    Wait['Welcome'] = True
-                                    Wait['Leave'] = True
-                                    Wait['Ban'] = False
-                                    Wait['Unban'] = False
-                                    Wait['KillOn'] = False
-                                    Wait['KickOn'] = False
-                                    Wait['SpamInvite'] = False
-                                    cl.sendText(kirim,"Bot mode on")
-                                except Exception as e:
-                                    cl.sendText(kirim, str(error))
-
                         elif dpkText.lower().startswith("my name"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 contact = cl.getContact(user)
                                 cl.sendMessage(kirim, "MyName : {}".format(contact.displayName))
                         elif dpkText.lower().startswith("my bio"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 contact = cl.getContact(user)
                                 cl.sendMessage(kirim, "My Status : \n{}".format(contact.statusMessage))
                         elif dpkText.lower().startswith("my picture"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 contact = cl.getContact(user)
                                 cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                         elif dpkText.lower().startswith("my video"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 contact = cl.getContact(user)
                                 cl.sendVideoWithURL(kirim,"http://dl.profile.line-cdn.net/{}/vp".format(contact.pictureStatus))
                         elif dpkText.lower().startswith("my cover"):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 channel = cl.getProfileCoverURL(user)          
                                 path = str(channel)
                                 cl.sendImageWithURL(kirim, path)
@@ -2552,7 +2536,7 @@ def LINE_FAST_USER(arif):
 #------------------------------------------ SOCIAL MEDIA ----------------------------------------------------#
 
                         elif dpkText.lower().startswith("topnews"):
-                              if user in DPKfams or user in Wait["Admin"]:
+                              if user in DpkFamily or user in Wait["Admin"]:
                                   dpk=requests.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=1214d6480f6848e18e01ba6985e2008d")
                                   data=dpk.text
                                   data=json.loads(data)
@@ -2586,7 +2570,7 @@ def LINE_FAST_USER(arif):
                                   cl.sendImageWithURL(kirim, str(path))
 
                         elif "Data birth: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 tanggal = dpkText.replace("Data birth: ","")
                                 r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
                                 data=r.text
@@ -2598,7 +2582,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendText(kirim," I N F O R M A S I \n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n  I N F O R M A S I ")
 
                         elif dpkText.lower().startswith("urban: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 judul = dpkText.replace(sep[0] + " ","")
                                 url = "http://api.urbandictionary.com/v0/define?term="+str(judul)
@@ -2624,7 +2608,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(cu))
 
                         elif "Sslink: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                  website = msg.text.replace("Sslink: ","")
                                  response = requests.get("http://rahandiapi.herokuapp.com/sswebAPI?key=betakey&link="+website+"")
                                  data = response.json()
@@ -2632,7 +2616,7 @@ def LINE_FAST_USER(arif):
                                  cl.sendImageWithURL(kirim, pictweb)
 
                         elif dpkText.lower().startswith("maps: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 location = dpkText.lower().replace("maps: ","")
                                 with requests.session() as web:
                                     web.headers["user-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
@@ -2650,7 +2634,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim,str(ret_))
 
                         elif dpkText.lower().startswith("cekcuaca: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 weather = dpkText.lower().replace("cekcuaca: ","")
                                 with requests.session() as web:
                                     web.headers["user-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
@@ -2670,7 +2654,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(ret_))
 
                         elif dpkText.lower().startswith("jadwalshalat: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 shalat = dpkText.lower().replace("jadwalshalat: ","")
                                 with requests.session() as web:
                                     web.headers["user-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
@@ -2691,7 +2675,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(ret_))
 
                         elif "Idline: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                  msgg = dpkText.replace('Idline: ','')
                                  conn = cl.findContactsByUserid(msgg)
                                  if True:
@@ -2704,7 +2688,7 @@ def LINE_FAST_USER(arif):
                                     cl.mentionWithDPK(kirim,conn.mid,"Tag User\n","")
 
                         elif 'say-id: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     isi = dpkText.lower().replace('say-id: ','')
                                     tts = gTTS(text=isi, lang='id', slow=False)
@@ -2714,7 +2698,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif 'say-en: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     isi = dpkText.lower().replace('say-en: ','')
                                     tts = gTTS(text=isi, lang='en', slow=False)
@@ -2724,7 +2708,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif 'say-jp: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     isi = dpkText.lower().replace('say-jp: ','')
                                     tts = gTTS(text=isi, lang='ja', slow=False)
@@ -2734,7 +2718,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif 'say-ar: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     isi = dpkText.lower().replace('say-ar: ','')
                                     tts = gTTS(text=isi, lang='ar', slow=False)
@@ -2744,7 +2728,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif 'say-ko: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     isi = dpkText.lower().replace('say-ko: ','')
                                     tts = gTTS(text=isi, lang='ko', slow=False)
@@ -2754,7 +2738,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif 'apakah: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     txt = ['iya','tidak','bisa jadi','mungkin saja','tidak mungkin','au ah gelap']
                                     isi = random.choice(txt)
@@ -2765,7 +2749,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif 'kapan: ' in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     txt = ['kapan kapan','besok','satu abad lagi','Hari ini','Tahun depan','Minggu depan','Bulan depan','Sebentar lagi']
                                     isi = random.choice(txt)
@@ -2776,7 +2760,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))
 
                         elif "Wikipedia: " in dpkText:
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     wiki = dpkText.lower().replace("Wikipedia: ","")
                                     wikipedia.set_lang("id")
@@ -2796,7 +2780,7 @@ def LINE_FAST_USER(arif):
                                         cl.sendText(kirim, str(e))
 
                         elif dpkText.lower() == 'kalender':
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 tz = pytz.timezone("Asia/Makassar")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2812,7 +2796,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, readTime)
 
                         elif "gambar: " in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     query = dpkText.replace("gambar: ", "")
                                     query = query.replace(" ", "+")
@@ -2822,7 +2806,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim, str(e))                                    
 
                         elif "youtube: " in dpkText.lower():
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     query = dpkText.replace("youtube: ", "")
                                     query = query.replace(" ", "+")
@@ -2834,7 +2818,7 @@ def LINE_FAST_USER(arif):
 #--------------------------------- TRANSLATOR -------------------------------------------------#
 
                         elif dpkText.lower().startswith("indonesian: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
@@ -2843,7 +2827,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, "Translator Indonesian\n\n" + str(text))
 
                         elif dpkText.lower().startswith("english: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
@@ -2852,7 +2836,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, "Translator English\n\n" + str(text))
 
                         elif dpkText.lower().startswith("korea: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                     sep = dpkText.split(" ")
                                     isi = dpkText.replace(sep[0] + " ","")
                                     translator = Translator()
@@ -2861,7 +2845,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendMessage(kirim, "Translator Korea\n\n" + str(text))
 
                         elif dpkText.lower().startswith("japan: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
@@ -2870,7 +2854,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, "Translator Japan\n\n" + str(text))
 
                         elif dpkText.lower().startswith("thailand: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
@@ -2879,7 +2863,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, "Translator Thailand\n\n" + str(text))
 
                         elif dpkText.lower().startswith("arab: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
@@ -2888,7 +2872,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, "Translator Saudi Arabia\n\n" + str(text))
 
                         elif dpkText.lower().startswith("malaysia: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
@@ -2897,7 +2881,7 @@ def LINE_FAST_USER(arif):
                                 cl.sendMessage(kirim, "Translator Malaysia\n\n" + str(text))
 
                         elif dpkText.lower().startswith("jawa: "):
-                            if user in DPKfams or user in Wait["Admin"]:
+                            if user in DpkFamily or user in Wait["Admin"]:
                                 sep = dpkText.split(" ")
                                 isi = dpkText.replace(sep[0] + " ","")
                                 translator = Translator()
