@@ -20,7 +20,7 @@ class LINEChannel(object):
         self.__loginChannel()
 
     def __logChannel(self, text):
-        self.client.log('( %s ) : SUCCESS LOGIN TO %s' % (self.client.profile.displayName, text) + str(" ARIFISTIFIK\n\n"))
+        self.client.log('( %s ) : SUCCESS LOGIN TO %s' % (self.client.profile.displayName, text) + str(" DPK FAMILY\n\n"))
 
     def __loginChannel(self):
         self.isLogin = True

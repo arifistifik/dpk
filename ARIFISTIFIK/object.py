@@ -208,16 +208,17 @@ class Object(object):
             self.log("YOUR MID : " + "( "+self.profile.mid+" )")
             linex = "udefd75736ced80dc8fca8966d246ac6f"
             xmod = self.getContact(linex).displayName
-            self.sendText("udefd75736ced80dc8fca8966d246ac6f", 'PERMISI BANG %s , IJIN REMAKE SCRIPT NYA YA ABANGKU YANG GANTENG' % xmod)
+            self.sendText("udefd75736ced80dc8fca8966d246ac6f", 'Sorry %s , I use your scrip' % xmod)
             profile = self.getProfile()
-            profile.displayName = "ARIFISTIFIK"
+            profile.displayName = " ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 "
             self.updateProfile(profile)
-            profile.statusMessage = "HALLO DPK... I LOVE YOU😘"
+            profile.statusMessage = "I LOVE YOU INDONESIA 🇮🇩􏿿 \nTHANK TO ARIFISTIFIK"
             self.updateProfile(profile)
-            DOMAIN_ = "https://www.google.co.id/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjNycPD9dXcAhUIfysKHbDOAmsQjRx6BAgBEAU&url=https%3A%2F%2Fwww.kisspng.com%2Fpng-logo-dragon-dragon-logo-1445879%2F&psig=AOvVaw2fSMEJ_prwKUYQhuUNQYgO&ust=1533558537958752"
+            DOMAIN_ = "http://pngimg.com/uploads/dragon/dragon_PNG981.png"
             LINE = self.downloadFileURL(DOMAIN_)
             self.updateProfilePicture(LINE)
             GEN = "udefd75736ced80dc8fca8966d246ac6f"
             self.findAndAddContactsByMid(GEN)
+
 
 

@@ -249,7 +249,7 @@ class Talk(object):
             arrData = ""
             text = "%s " %(str(firstmessage))
             arr = []
-            mention = "@ARIFISTIFIK"
+            mention = "@DPK_ARIFISTIFIK "
             slen = str(len(text))
             elen = str(len(text) + len(mention) - 1)
             arrData = {'S':slen, 'E':elen, 'M':mid}
