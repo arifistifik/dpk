@@ -39,7 +39,8 @@ Wait = {
     "SpamInvite":False,
     "Contact":False,
     "GName":"ARIFISTIFIK",
-    "AutoRespon":False,
+    "AutoRespon":True,
+    "MentionText":"dîh ηgëtåg äķü mülü... Kămư kë§ëÞîåη ¥åk...???",
     "KickRespon":False,
     "KillOn":False,
     "KickOn":False,
@@ -264,7 +265,7 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-def LINE_FAST_USER(arif):
+def LINE_ARIF_USER(arif):
     try:
         if arif.type == 0:
             return
@@ -410,7 +411,7 @@ def LINE_FAST_USER(arif):
                               xpesan = 'Pengirim: '
                               ardian = str(dia.displayName)
                               pesan = ''
-                              pesan2 = pesan+"@DPK_ARIFISTIFIK\n"
+                              pesan2 = pesan+"@A_DPK\n"
                               xlen = str(len(zxc)+len(xpesan))
                               xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                               zx = {'S':xlen, 'E':xlen2, 'M':dia.mid}
@@ -857,7 +858,7 @@ def LINE_FAST_USER(arif):
                         elif dpkText.lower() == "speed":
                             if user in DpkFamily or user in Wait["Admin"]:
                                 no = time.time()
-                                cl.sendText("ud296655acef67cbd5e8208e63629f78b", ' ')
+                                cl.sendText("u65224f4e8812136f01b25275a54b5aef", ' ')
                                 elapsed_time = time.time() - no
                                 cl.sendText(kirim, "%s" % (elapsed_time))
 
@@ -1248,7 +1249,7 @@ def LINE_FAST_USER(arif):
                                     for x in range(len(cmem)):
                                         xname = str(cmem[x].displayName)
                                         pesan = ''
-                                        pesan2 = pesan+"@DPK_ARIFISTIFIK\n"
+                                        pesan2 = pesan+"@A_DPK\n"
                                         xlen = str(len(zxc)+len(xpesan))
                                         xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                         zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
@@ -2276,7 +2277,7 @@ while True:
         if Operation is not None:
             for arif in Operation:
                 LINE.setRevision(arif.revision)
-                thread1 = threading.Thread(target=LINE_FAST_USER, args=(arif,))#self.OpInterrupt[arif.type], args=(arif,)
+                thread1 = threading.Thread(target=LINE_ARIF_USER, args=(arif,))#self.OpInterrupt[arif.type], args=(arif,)
                 thread1.start()
                 thread1.join()
     except Exception as error:

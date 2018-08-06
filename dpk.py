@@ -1,4 +1,4 @@
-from GENERATOR import *
+from ARIFISTIFIK import *
 from datetime import datetime
 from time import sleep
 from bs4 import BeautifulSoup
@@ -10,26 +10,26 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 
 print ("\n\n ---  WELCOME TO DPK FAMILY  ---\n")
 
-cl = LINE()
-#cl = LINE(authTokenDPK="YOUR TOKEN")
+#cl = LINE()
+cl = LINE(authTokenDPK="EvoeHfOYgRrnGxtrKQOb.0PzLwS72Fl1EGGJMnIN3IW.Y4VNWohP0J/M6BypC/wyKkOPasr4ls1797ZO2stJBfI=")
 cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
 channel = LINEChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
 cl.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-line1 = LINE()
-#line1 = LINE(authTokenDPK="YOUR TOKEN")
+#line1 = LINE()
+line1 = LINE(authTokenDPK="EvqOEGF1QuDXArLGq2Bf.zsjptOGse28bSLj1PuTA7W.d29LGyh7k9cNYtYcHto/SXIcvbKy2gD6OxI3XCLXunI=")
 line1.log("YOUR TOKEN : {}".format(str(line1.authToken)))
 channel = LINEChannel(line1,line1.server.CHANNEL_ID['LINE_TIMELINE'])
 line1.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-line2 = LINE()
-#line2 = LINE(authTokenDPK="YOUR TOKEN")
+#line2 = LINE()
+line2 = LINE(authTokenDPK="Evfq4VFstNLvdeOVQtC7.L9FHe7uzKTCG1RQIn1TiTW.eEOotTp+15b0y59j2wLw3j/CC3CtoVKMZirLZ3eLLaI=")
 line2.log("YOUR TOKEN : {}".format(str(line2.authToken)))
 channel = LINEChannel(line2,line2.server.CHANNEL_ID['LINE_TIMELINE'])
 line2.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-line3 = LINE()
-#line3 = LINE(authTokenDPK="YOUR TOKEN")
+#line3 = LINE()
+line3 = LINE(authTokenDPK="EvuOsxl4MC7Hqf6FZyse.ER7E8i7845TKzN3C6OKW3G.8Obsdur6aB5Iz7AwFMkw5/Hccd7z/NzNYinXv85veIY=")
 line3.log("YOUR TOKEN : {}".format(str(line3.authToken)))
 channel = LINEChannel(line3,line3.server.CHANNEL_ID['LINE_TIMELINE'])
 line3.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
@@ -61,7 +61,7 @@ Wait = {
     "Contact":False,
     "GName":"ARIFISTIFIK",
     "AutoRespon":True,
-    "DpkRespon":"dîh ηgëtåg äķü mülü... Kămư kë§ëÞîåη ¥åk...???",
+    "MentionText":"dîh ηgëtåg äķü mülü... Kămư kë§ëÞîåη ¥åk...???",
     "KickRespon":False,
     "KillOn":False,
     "KickOn":False,
@@ -832,7 +832,7 @@ def LINE_FAST_USER(arif):
                                 xpesan = 'Pengirim: '
                                 xteam = str(dia.displayName)
                                 pesan = ''
-                                pesan2 = pesan+"@DPK_ARIFISTIFIK\n"
+                                pesan2 = pesan+"@A_DPK\n"
                                 xlen = str(len(zxc)+len(xpesan))
                                 xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                 zx = {'S':xlen, 'E':xlen2, 'M':dia.mid}
@@ -1230,7 +1230,6 @@ def LINE_FAST_USER(arif):
                         contact = cl.getContact(user)
                         cName = contact.displayName
                         balas = [cName + "\n" + str(Wait['MentionText'])]
-                        balas1 = [cName + "\n" + str(Wait['Dpkrespon'])]
                         ret_ = "" + random.choice(balas)
                         name = re.findall(r'@(\w+)', msg.text)
                         mention = ast.literal_eval(msg.contentMetadata["MENTION"])
@@ -1342,19 +1341,19 @@ def LINE_FAST_USER(arif):
                         elif dpkText.lower() == "speed":
                             if user in DpkFamily or user in Wait["Admin"]:
                                 no = time.time()
-                                cl.sendText("u805e9f30ea4da7b64a14e0f9cea0767c", ' ')
+                                cl.sendText("udefd75736ced80dc8fca8966d246ac6f", ' ')
                                 elapsed_time = time.time() - no
                                 cl.sendText(kirim, "%s" % (elapsed_time))
                                 no1 = time.time()
-                                line1.sendText("u805e9f30ea4da7b64a14e0f9cea0767c", ' ')
+                                line1.sendText("udefd75736ced80dc8fca8966d246ac6f", ' ')
                                 elapsed_time = time.time() - no1
                                 line1.sendText(kirim, "%s" % (elapsed_time))
                                 no2 = time.time()
-                                line2.sendText("u805e9f30ea4da7b64a14e0f9cea0767c", ' ')
+                                line2.sendText("udefd75736ced80dc8fca8966d246ac6f", ' ')
                                 elapsed_time = time.time() - no2
                                 line2.sendText(kirim, "%s" % (elapsed_time))
                                 no3 = time.time()
-                                line3.sendText("u805e9f30ea4da7b64a14e0f9cea0767c", ' ')
+                                line3.sendText("udefd75736ced80dc8fca8966d246ac6f", ' ')
                                 elapsed_time = time.time() - no3
                                 line3.sendText(kirim, "%s" % (elapsed_time))
 
@@ -1832,7 +1831,7 @@ def LINE_FAST_USER(arif):
                                     for x in range(len(cmem)):
                                         xname = str(cmem[x].displayName)
                                         pesan = ''
-                                        pesan2 = pesan+"@DPK_ARIFISTIFIK\n"
+                                        pesan2 = pesan+"@A_DPK\n"
                                         xlen = str(len(zxc)+len(xpesan))
                                         xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                         zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
@@ -1889,7 +1888,7 @@ def LINE_FAST_USER(arif):
                                         for rid in gname.members[fu*20 : (fu+1)*20]:
                                             com.append({"S":str(sell), "E" :str(sell+6), "M":rid.mid})
                                             sell += 7
-                                            hdc += u'@DPK_ARIFISTIFIK\n'
+                                            hdc += u'@A_DPK\n'
                                             atas = '\n Halo {} '.format(str(gname.name))
                                             atas += '\n Halo {} Family'.format(str(len(local)))
                                         cl.sendMessage(kirim, text=hdc + str(atas), contentMetadata={u'MENTION': json.dumps({'MENTIONEES':com})}, contentType=0)
