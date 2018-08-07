@@ -10,26 +10,26 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 
 print ("\n\n ---  WELCOME TO DPK FAMILY  ---\n")
 
-#cl = LINE()
-cl = LINE(authTokenDPK="EvoeHfOYgRrnGxtrKQOb.0PzLwS72Fl1EGGJMnIN3IW.Y4VNWohP0J/M6BypC/wyKkOPasr4ls1797ZO2stJBfI=")
+cl = LINE()
+#cl = LINE(authTokenDPK="EvoeHfOYgRrnGxtrKQOb.0PzLwS72Fl1EGGJMnIN3IW.Y4VNWohP0J/M6BypC/wyKkOPasr4ls1797ZO2stJBfI=")
 cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
 channel = LINEChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
 cl.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-#line1 = LINE()
-line1 = LINE(authTokenDPK="EvqOEGF1QuDXArLGq2Bf.zsjptOGse28bSLj1PuTA7W.d29LGyh7k9cNYtYcHto/SXIcvbKy2gD6OxI3XCLXunI=")
+line1 = LINE()
+#line1 = LINE(authTokenDPK="EvqOEGF1QuDXArLGq2Bf.zsjptOGse28bSLj1PuTA7W.d29LGyh7k9cNYtYcHto/SXIcvbKy2gD6OxI3XCLXunI=")
 line1.log("YOUR TOKEN : {}".format(str(line1.authToken)))
 channel = LINEChannel(line1,line1.server.CHANNEL_ID['LINE_TIMELINE'])
 line1.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-#line2 = LINE()
-line2 = LINE(authTokenDPK="Evfq4VFstNLvdeOVQtC7.L9FHe7uzKTCG1RQIn1TiTW.eEOotTp+15b0y59j2wLw3j/CC3CtoVKMZirLZ3eLLaI=")
+line2 = LINE()
+#line2 = LINE(authTokenDPK="Evfq4VFstNLvdeOVQtC7.L9FHe7uzKTCG1RQIn1TiTW.eEOotTp+15b0y59j2wLw3j/CC3CtoVKMZirLZ3eLLaI=")
 line2.log("YOUR TOKEN : {}".format(str(line2.authToken)))
 channel = LINEChannel(line2,line2.server.CHANNEL_ID['LINE_TIMELINE'])
 line2.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-#line3 = LINE()
-line3 = LINE(authTokenDPK="EvuOsxl4MC7Hqf6FZyse.ER7E8i7845TKzN3C6OKW3G.8Obsdur6aB5Iz7AwFMkw5/Hccd7z/NzNYinXv85veIY=")
+line3 = LINE()
+#line3 = LINE(authTokenDPK="EvuOsxl4MC7Hqf6FZyse.ER7E8i7845TKzN3C6OKW3G.8Obsdur6aB5Iz7AwFMkw5/Hccd7z/NzNYinXv85veIY=")
 line3.log("YOUR TOKEN : {}".format(str(line3.authToken)))
 channel = LINEChannel(line3,line3.server.CHANNEL_ID['LINE_TIMELINE'])
 line3.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
@@ -39,6 +39,7 @@ print ("DPK LOGIN SUCCESS ")
 clProfile = cl.getProfile()
 clSettings = cl.getSettings()
 LINE = LINEPoll(cl)
+call = cl
 
 Dpk = [cl,line1,line2,line3]
 mid = cl.profile.mid
@@ -68,16 +69,17 @@ Wait = {
     "Upfoto":False,
     "UpfotoBot":False,
     "UpfotoGroup":False,
+    "limit": 5,
     "Steal":False,
     "Invite":False,
     "Copy":False,
     "autoAdd":True,
     "PesanAdd":"Terima Kasih Sudah Add Saya",
     "ContactAdd":{},
-    "autoBlock":False,
+    "autoBlock":True,
     "autoJoin":True,
     "AutojoinTicket":False,
-    "AutoReject":False,
+    "AutoReject":True,
     "autoRead":False,
     "IDSticker":False,
     "Timeline":False,
@@ -219,47 +221,48 @@ Help ="""
 ╠☬➣ bot logout
 ╠☬➣ kick [@]
 ╠☬➣ status
-╠☬➣ allprotect on/off
-╠☬➣ backup on/off
-╠☬➣ unsend on/off
-╠☬➣ changepp on/off
-╠☬➣ changeppbot on/off
-╠☬➣ timeline on/off
-╠☬➣ autojoin on/off
-╠☬➣ autoreject on/off
-╠☬➣ auto jointicket on/off
-╠☬➣ gift:on/off
-╠☬➣ copy on/off
+╠☬➣ allprotect [on/off]
+╠☬➣ backup [on/off]
+╠☬➣ unsend [on/off]
+╠☬➣ changepp [on/off]
+╠☬➣ changeppbot [on/off]
+╠☬➣ timeline [on/off]
+╠☬➣ autojoin [on/off]
+╠☬➣ autoreject [on/off]
+╠☬➣ auto jointicket [on/off]
+╠☬➣ gift:[on/off]
+╠☬➣ copy [on/off]
 ╠☬➣ clone [@]
 ╠☬➣ comeback
-╠☬➣ steal on/off
-╠☬➣ contact on/off
+╠☬➣ steal [on/off]
+╠☬➣ contact [on/off]
 ╠☬➣ mic:add-on
 ╠☬➣ mic:del-on
-╠☬➣ mimic on/off
+╠☬➣ mimic [on/off]
 ╠☬➣ mimiclist
 ╠☬➣ refresh
 ╠═══════════════════
 ╠☬➣ [ GŘØƯP ÇŐMMÅÑÐ ]   ⏩
 ╠═══════════════════
+╠☬➣ gcall
 ╠☬➣ dpk join
 ╠☬➣ dpk bye
 ╠☬➣ bye me
 ╠☬➣ leaveall grup
 ╠☬➣ kick [on,off->kickall]
-╠☬➣ invite on/off
-╠☬➣ kill on/off
+╠☬➣ invite [on/off]
+╠☬➣ kill [on/off]
 ╠☬➣ rejectall grup
-╠☬➣ lurking on/off/reset
+╠☬➣ lurking [on/off/reset]
 ╠☬➣ lurking read
-╠☬➣ sider on/off
+╠☬➣ sider [on/off]
 ╠☬➣ mentionall
-╠☬➣ welcome on/off
+╠☬➣ welcome [on/off]
 ╠☬➣ changewelcome: [teks]
-╠☬➣ leave on/off
+╠☬➣ leave [on/off]
 ╠☬➣ changeleave: [teks]
 ╠☬➣ memberlist
-╠☬➣ link on/off
+╠☬➣ link [on/off]
 ╠☬➣ my grup
 ╠☬➣ bot1 grup
 ╠☬➣ bot2 grup
@@ -269,8 +272,8 @@ Help ="""
 ╠☬➣ invite gcreator
 ╠☬➣ ginfo
 ╠☬➣ grup id
-╠☬➣ cfotogrup on/off
-╠☬➣ spaminvite on/off
+╠☬➣ cfotogrup [on/off]
+╠☬➣ spaminvite [on/off]
 ╠═══════════════════
 ╠☬➣ [ MËĐÏÄ ÇŐMMÅÑÐ ]   ⏩
 ╠═══════════════════
@@ -1487,12 +1490,31 @@ def LINE_FAST_USER(arif):
                                     else:
                                         cl.sendText(kirim, "Maksimal 500 SpamTeks!")
 
+                        elif "Gcall" in dpkText:
+                            if user in DpkFamily or user in Wait["Admin"]:
+                              if msg.toType == 2:
+                                    group = cl.getGroup(to)
+                                    members = [mem.mid for mem in group.members]
+                                    call.acquireGroupCallRoute(to)
+                                    call.inviteIntoGroupCall(to, contactIds=members)
+                                    jmlh = int(Wait["limit"])
+                                    cl.sendText(to, "Success melakukan panggilan group")
+                                    if jmlh <= 1000:
+                                      for x in range(jmlh):
+                                         try:
+                                            call.acquireGroupCallRoute(to)
+                                            call.inviteIntoGroupCall(to, contactIds=members)
+                                         except Exception as e:
+                                            cl.sendMessage(msg.to,str(e))
+                                    else:
+                                    	cl.sendMessage(msg.to,"Jumlah melebihi batas")
+                            	
                         elif "Cekmid: " in dpkText:
                             if user in DpkFamily or user in Wait["Admin"]:
-                                ardian = dpkText.replace("Cekmid: ","")
-                                cl.sendMessage(kirim, None, contentMetadata={'mid': ardian}, contentType=13)
-                                contact = cl.getContact(ardian)
-                                ganteng = cl.getProfileCoverURL(ardian)
+                                arifqu = dpkText.replace("Cekmid: ","")
+                                cl.sendMessage(kirim, None, contentMetadata={'mid': arifqu}, contentType=13)
+                                contact = cl.getContact(arifqu)
+                                ganteng = cl.getProfileCoverURL(arifqu)
                                 path = str(ganteng)
                                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
                                 try:
@@ -2509,7 +2531,6 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim,"Refresh Success")
                                 except Exception as e:
                                     cl.sendText(kirim, str(error))
-                                    
 
                         elif dpkText.lower().startswith("my name"):
                             if user in DpkFamily or user in Wait["Admin"]:
@@ -2687,16 +2708,24 @@ def LINE_FAST_USER(arif):
                                     cl.sendImageWithURL(kirim, cover)
                                     cl.mentionWithDPK(kirim,conn.mid,"Tag User\n","")
 
+                        elif "my token" in dpkText:
+                            if user in DpkFamily or user in Wait["Admin"]:
+                                 if True:
+                                 	cl.sendMessage(kirim,"CL\n"+cl.authToken)
+                                 	cl.sendMessage(kirim,"LINE1\n"+line1.authToken)
+                                 	cl.sendMessage(kirim,"LINE2\n"+line2.authToken)
+                                 	cl.sendMessage(kirim,"LINE3\n"+line3.authToken)
+
                         elif 'say-id: ' in dpkText.lower():
                             if user in DpkFamily or user in Wait["Admin"]:
-                                try:i
+                                try:
                                     isi = dpkText.lower().replace('say-id: ','')
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp.mp3')
                                     cl.sendAudio(kirim, 'temp.mp3')
                                 except Exception as e:
                                     cl.sendText(kirim, str(e))
-                                    
+
                         elif 'say-en: ' in dpkText.lower():
                             if user in DpkFamily or user in Wait["Admin"]:
                                 try:
