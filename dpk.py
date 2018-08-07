@@ -2509,6 +2509,7 @@ def LINE_FAST_USER(arif):
                                     cl.sendText(kirim,"Refresh Success")
                                 except Exception as e:
                                     cl.sendText(kirim, str(error))
+                                    
 
                         elif dpkText.lower().startswith("my name"):
                             if user in DpkFamily or user in Wait["Admin"]:
@@ -2688,14 +2689,14 @@ def LINE_FAST_USER(arif):
 
                         elif 'say-id: ' in dpkText.lower():
                             if user in DpkFamily or user in Wait["Admin"]:
-                                try:
+                                try:i
                                     isi = dpkText.lower().replace('say-id: ','')
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp.mp3')
                                     cl.sendAudio(kirim, 'temp.mp3')
                                 except Exception as e:
                                     cl.sendText(kirim, str(e))
-
+                                    
                         elif 'say-en: ' in dpkText.lower():
                             if user in DpkFamily or user in Wait["Admin"]:
                                 try:
