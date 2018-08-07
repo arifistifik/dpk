@@ -11,7 +11,7 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 print ("\n\n ---  WELCOME  ---\n")
 
 #cl = LINE()
-cl = LINE(authTokenDPK="EvS7KTi4AGSKRQt7s1tb.0PzLwS72Fl1EGGJMnIN3IW.BmwD5GRg/2ZrKmfxxX4IqCxvPk2gnd/iKjIlpd1zg4U=")
+cl = LINE(authTokenDPK="EvBoSHd3NymRnF3lzZdb.0PzLwS72Fl1EGGJMnIN3IW.1U1vPtTqpd/BytwfeUSD95WRIubQG5rPQeunnLZ9/sk=")
 cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
 channel = LINEChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
 cl.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
@@ -21,6 +21,7 @@ print ("✍Ð₱₭ ฿Ø₮ LOGIN SUCCESS")
 clProfile = cl.getProfile()
 clSettings = cl.getSettings()
 LINE = LINEPoll(cl)
+call = cl
 
 Dpk = [cl]
 mid = cl.profile.mid
@@ -47,24 +48,25 @@ Wait = {
     "Upfoto":False,
     "UpfotoBot":False,
     "UpfotoGroup":False,
+    "limit": 5,
     "Steal":False,
     "Invite":False,
     "Copy":False,
     "autoAdd":True,
-    "PesanAdd":"Terima Kasih Sudah Add Saya",
+    "PesanAdd":"KENAPA BARU SEKARANG KAMU ADD AKU? 😅",
     "ContactAdd":{},
     "autoBlock":False,
-    "autoJoin":True,
+    "autoJoin":False,
     "AutojoinTicket":False,
-    "AutoReject":False,
+    "AutoReject":True,
     "autoRead":False,
     "IDSticker":False,
     "Timeline":False,
     "Welcome":False,
     "BackupBot":True,
-    "WcText": "Welcome My Friend",
-    "Leave":False,
-    "LvText": "See You My Friend",
+    "WcText": "\nSELAMAT DATANG 😊😊😊\nYUK MULAI KENALAN MA YANG LAIN😅",
+    "Leave":True,
+    "LvText": "SAMPAI JUMPA LAGI KAWAN 😘",
     "Mic":False,
     "MicDel":False,
     "Adminadd":False,
@@ -137,114 +139,133 @@ Help ="""
 ╔═══════════════════
 ╠☬➣  MËÑÜ ĦÉĹP  ☬➣  ⏩⏩
 ╠═══════════════════
-╠☬➣me
-╠☬➣my name
-╠☬➣my bio
-╠☬➣my picture
-╠☬➣my cover
-╠☬➣my video
-╠☬➣speed
-╠☬➣rename
-╠☬➣my bot
-╠☬➣my team
-╠☬➣stealname [@]
-╠☬➣stealbio [@]
-╠☬➣stealpict [@]
-╠☬➣stealcover [@]
-╠☬➣stealvideo [@]
-╠☬➣stealmid [@]
-╠☬➣profile [@]
-╠☬➣spam on [jmlah teks]
-╠☬➣cekmid: [mid]
-╠☬➣banlock [@]
-╠☬➣banlist
-╠☬➣contact ban
-╠☬➣clear ban
-╠☬➣blocklist
-╠☬➣friendlist
-╠☬➣friendlist mid
-╠☬➣runtime
-╠☬➣broadcast:
-╠☬➣contactbc:
-╠☬➣adminadd [@]
-╠☬➣admindel [@]
-╠☬➣admin:add-on
-╠☬➣admin:del-on
-╠☬➣changename:
-╠☬➣changebio:
-╠☬➣remove pesan
-╠☬➣restart
-╠☬➣bot logout
-╠☬➣kick [@]
-╠☬➣status
-╠☬➣unsend on/off
-╠☬➣changepp on/off
-╠☬➣timeline on/off
-╠☬➣autojoin on/off
-╠☬➣autoreject on/off
-╠☬➣auto jointicket on/off
-╠☬➣gift:on/off
-╠☬➣copy on/off
-╠☬➣clone [@]
-╠☬➣comeback
-╠☬➣steal on/off
-╠☬➣contact on/off
-╠☬➣mic:add-on
-╠☬➣mic:del-on
-╠☬➣mimic on/off
-╠☬➣mimiclist
-╠☬➣refresh
-╠☬➣leaveall grup
-╠☬➣kick [on,off->kickall]
-╠☬➣invite on/off
-╠☬➣kill on/off
-╠☬➣rejectall grup
-╠☬➣lurking on/off/reset
-╠☬➣lurking read
-╠☬➣sider on/off
-╠☬➣mentionall
-╠☬➣welcome on/off
+╠☬➣me      🇮🇩                     🇮🇩
+╠☬➣my name          🇮🇩
+╠☬➣my bio        🇮🇩
+╠☬➣my picture                    🇮🇩
+╠☬➣my cover      🇮🇩
+╠☬➣my video                 🇮🇩
+╠☬➣speed        🇮🇩
+╠☬➣rename              🇮🇩
+╠☬➣my bot                          🇮🇩
+╠☬➣my team   🇮🇩
+╠☬➣stealname [@]        🇮🇩
+╠☬➣stealbio [@]  🇮🇩
+╠☬➣stealpict [@]                 🇮🇩
+╠☬➣stealcover [@]🇮🇩
+╠☬➣stealvideo [@]          🇮🇩
+╠☬➣stealmid [@]🇮🇩
+╠☬➣profile [@]                      🇮🇩
+╠☬➣cekmid: [mid]    🇮🇩
+╠☬➣banlock [@] 🇮🇩
+╠☬➣banlist                        🇮🇩
+╠☬➣contact ban 🇮🇩
+╠☬➣clear ban              🇮🇩
+╠☬➣blocklist    🇮🇩
+╠☬➣friendlist                      🇮🇩
+╠☬➣friendlist mid   🇮🇩
+╠☬➣runtime      🇮🇩
+╠☬➣broadcast:                🇮🇩
+╠☬➣contactbc:       🇮🇩
+╠☬➣adminadd [@]              🇮🇩
+╠☬➣admindel [@]      🇮🇩
+╠☬➣changename:🇮🇩
+╠☬➣changebio:                   🇮🇩
+╠☬➣remove pesan 🇮🇩
+╠☬➣restart                     🇮🇩
+╠☬➣bot logout 🇮🇩
+╠☬➣kick [@]                        🇮🇩
+╠☬➣status    🇮🇩
+╠☬➣clone [@]                     🇮🇩
+╠☬➣comeback🇮🇩
+╠☬➣mimiclist   🇮🇩
+╠☬➣refresh                        🇮🇩
+╠☬➣leaveall grup              🇮🇩
+╠☬➣rejectall grup   🇮🇩
+╠☬➣lurking read           🇮🇩
+╠☬➣mentionall    🇮🇩
 ╠☬➣changewelcome:
-╠☬➣leave on/off
 ╠☬➣changeleave:
-╠☬➣memberlist
-╠☬➣link on/off
-╠☬➣my grup
-╠☬➣gurl
-╠☬➣gcreator
-╠☬➣invite gcreator
-╠☬➣ginfo
-╠☬➣grup id
-╠☬➣cfotogrup on/off
-╠☬➣spaminvite on/off
-╠☬➣announce
-╠☬➣topnews
-╠☬➣data birth:
-╠☬➣urban:
-╠☬➣sslink:
-╠☬➣maps:
-╠☬➣cekcuaca:
-╠☬➣jadwalshalat:
-╠☬➣idline:
-╠☬➣say-id:
-╠☬➣say-en:
-╠☬➣say-jp:
-╠☬➣say-ar:
-╠☬➣say-ko:
-╠☬➣apakah:
-╠☬➣kapan:
-╠☬➣wikipedia:
-╠☬➣kalender
-╠☬➣image:
-╠☬➣youtube:
-╠☬➣indonesian:
-╠☬➣english:
-╠☬➣korea:
-╠☬➣japan:
-╠☬➣thailand:
-╠☬➣arab:
-╠☬➣malaysia:
-╠☬➣jawa:
+╠☬➣memberlist                🇮🇩
+╠☬➣my grup    🇮🇩
+╠☬➣gcall              
+╠☬➣gurl                🇮🇩
+╠☬➣gcreator    🇮🇩
+╠☬➣invite gcreator    🇮🇩
+╠☬➣ginfo    🇮🇩
+╠☬➣grup id                🇮🇩
+╠☬➣announce    🇮🇩
+╠═══════════════════
+╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣   ⏩
+╚═══════════════════
+"""""
+
+Helpbot ="""
+╔═══════════════════
+╠☬➣  ĦÉĹP  BŐŤŞ°☬➣ ⏩⏩
+╠═══════════════════
+╠☬➣spam on [jmlah teks]
+╠☬➣admin:add-on             🇮🇩
+╠☬➣admin:del-on      🇮🇩
+╠☬➣unsend [on/off]    🇮🇩
+╠☬➣changepp [on/off]
+╠☬➣timeline [on/off]         🇮🇩
+╠☬➣autojoin [on/off]
+╠☬➣autoreject [on/off]
+╠☬➣auto jointicket [on/off]
+╠☬➣gift:[on/off]                🇮🇩
+╠☬➣copy [on/off] 🇮🇩
+╠☬➣steal [on/off]        🇮🇩
+╠☬➣contact [on/off]         🇮🇩
+╠☬➣mic:add-on  🇮🇩
+╠☬➣mic:del-on            🇮🇩
+╠☬➣mimic [on/off]            🇮🇩
+╠☬➣kick [on,off->kickall]   🇮🇩
+╠☬➣invite on/off     🇮🇩
+╠☬➣kill [on/off]               🇮🇩
+╠☬➣lurking [on/off/reset]
+╠☬➣sider [on/off]    🇮🇩
+╠☬➣welcome [on/off]    🇮🇩
+╠☬➣leave [on/off]    🇮🇩
+╠☬➣link [on/off]    🇮🇩
+╠☬➣cfotogrup [on/off]
+╠☬➣spaminvite [on/off]    🇮🇩
+╠═══════════════════
+╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣  ⏩
+╚═══════════════════
+"""""
+
+Helpmedia ="""
+╔═══════════════════
+╠☬➣  MËÑÜ M€ÐĪÄ  ☬➣⏩⏩
+╠═══════════════════
+╠☬➣ topnews
+╠☬➣ data birth:
+╠☬➣ urban:
+╠☬➣ sslink:
+╠☬➣ maps:
+╠☬➣ cekcuaca:
+╠☬➣ jadwalshalat:
+╠☬➣ idline:
+╠☬➣ say-id:
+╠☬➣ say-en:
+╠☬➣ say-jp:
+╠☬➣ say-ar:
+╠☬➣ say-ko:
+╠☬➣ apakah:
+╠☬➣ kapan:
+╠☬➣ wikipedia:
+╠☬➣ kalender
+╠☬➣ image:
+╠☬➣ youtube:
+╠☬➣ indonesian:
+╠☬➣ english:
+╠☬➣ korea:
+╠☬➣ japan:
+╠☬➣ thailand:
+╠☬➣ arab:
+╠☬➣ malaysia:
+╠☬➣ jawa:
 ╠═══════════════════
 ╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣   ⏩
 ╚═══════════════════
@@ -409,7 +430,7 @@ def LINE_ARIF_USER(arif):
                               zxc = ""
                               zx2 = []
                               xpesan = 'Pengirim: '
-                              ardian = str(dia.displayName)
+                              arifqu = str(dia.displayName)
                               pesan = ''
                               pesan2 = pesan+"@A_DPK\n"
                               xlen = str(len(zxc)+len(xpesan))
@@ -767,6 +788,7 @@ def LINE_ARIF_USER(arif):
                         for mention in mentionees:
                               if mention['M'] in mid:
                                   cl.mentionWithDPK(kirim,user,"","" +str(ret_))
+                                  cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                                   break
 
         if arif.type == 26:
@@ -855,6 +877,14 @@ def LINE_ARIF_USER(arif):
                             if user in DpkFamily or user in Wait["Admin"]:
                                  cl.sendMessage(kirim, str(Help))
 
+                        elif dpkText.lower() == "help bot":
+                            if user in DpkFamily or user in Wait["Admin"]:
+                                 cl.sendMessage(kirim, str(Helpbot))
+
+                        elif dpkText.lower() == "help media":
+                            if user in DpkFamily or user in Wait["Admin"]:
+                                 cl.sendMessage(kirim, str(Helpmedia))
+
                         elif dpkText.lower() == "speed":
                             if user in DpkFamily or user in Wait["Admin"]:
                                 no = time.time()
@@ -939,12 +969,31 @@ def LINE_ARIF_USER(arif):
                                     else:
                                         cl.sendText(kirim, "Maksimal 500 SpamTeks!")
 
+                        elif "Gcall" in dpkText:
+                            if user in DpkFamily or user in Wait["Admin"]:
+                              if msg.toType == 2:
+                                    group = cl.getGroup(to)
+                                    members = [mem.mid for mem in group.members]
+                                    call.acquireGroupCallRoute(to)
+                                    call.inviteIntoGroupCall(to, contactIds=members)
+                                    jmlh = int(Wait["limit"])
+                                    cl.sendText(to, "Success melakukan panggilan group")
+                                    if jmlh <= 1000:
+                                      for x in range(jmlh):
+                                         try:
+                                            call.acquireGroupCallRoute(to)
+                                            call.inviteIntoGroupCall(to, contactIds=members)
+                                         except Exception as e:
+                                            cl.sendMessage(msg.to,str(e))
+                                    else:
+                                    	cl.sendMessage(msg.to,"Jumlah melebihi batas")
+                            	
                         elif dpkText.lower().startswith("cekmid: "):
                             if user in DpkFamily or user in Wait["Admin"]:
-                                ardian = dpkText.replace("Cekmid: ","")
-                                cl.sendMessage(kirim, None, contentMetadata={'mid': ardian}, contentType=13)
-                                contact = cl.getContact(ardian)
-                                ganteng = cl.getProfileCoverURL(ardian)
+                                arifqu = dpkText.replace("Cekmid: ","")
+                                cl.sendMessage(kirim, None, contentMetadata={'mid': arifqu}, contentType=13)
+                                contact = cl.getContact(arifqu)
+                                ganteng = cl.getProfileCoverURL(arifqu)
                                 path = str(ganteng)
                                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
                                 try:
