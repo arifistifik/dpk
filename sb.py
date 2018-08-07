@@ -10,8 +10,8 @@ import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, st
 
 print ("\n\n ---  WELCOME  ---\n")
 
-#cl = LINE()
-cl = LINE(authTokenDPK="EvBoSHd3NymRnF3lzZdb.0PzLwS72Fl1EGGJMnIN3IW.1U1vPtTqpd/BytwfeUSD95WRIubQG5rPQeunnLZ9/sk=")
+cl = LINE()
+#cl = LINE(authTokenDPK="EvBoSHd3NymRnF3lzZdb.0PzLwS72Fl1EGGJMnIN3IW.1U1vPtTqpd/BytwfeUSD95WRIubQG5rPQeunnLZ9/sk=")
 cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
 channel = LINEChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
 cl.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
