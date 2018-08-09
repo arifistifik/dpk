@@ -792,7 +792,7 @@ def LINE_ARIF_USER(arif):
                               if mention['M'] in mid:
 #                                  cl.mentionWithDPK(kirim,user,"","" +str(ret_))
                                   cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
-                                  cl.sendMessage(msg.to, wait["MentionText"])
+                                  cl.sendMessage(kirim, wait["MentionText"])
                                   break
 
         if arif.type == 26:
