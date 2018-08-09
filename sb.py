@@ -53,7 +53,7 @@ Wait = {
     "Invite":False,
     "Copy":False,
     "autoAdd":True,
-    "PesanAdd":"KENAPA BARU SEKARANG KAMU ADD AKU? 😅",
+    "PesanAdd":"ᴋᴇɴᴀᴘᴀ ʙᴀʀᴜ sᴇᴋᴀʀᴀɴɢ ᴋᴀᴍᴜ ᴀᴅᴅ ᴀᴋᴜ? 😅",
     "ContactAdd":{},
     "autoBlock":False,
     "autoJoin":False,
@@ -64,9 +64,9 @@ Wait = {
     "Timeline":False,
     "Welcome":False,
     "BackupBot":True,
-    "WcText": "\nSELAMAT DATANG 😊😊😊\nYUK MULAI KENALAN MA YANG LAIN😅",
+    "WcText": "\nsᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ 😊😊😊\nʏᴜᴋ ᴍᴜʟᴀɪ ᴋᴇɴᴀʟᴀɴ sᴀᴍᴀ ʏᴀɴɢ ʟᴀɪɴ😅",
     "Leave":True,
-    "LvText": "SAMPAI JUMPA LAGI KAWAN 😘",
+    "LvText": "sᴀᴍᴘᴀɪ ᴊᴜᴍᴘᴀ ʟᴀɢɪ ᴋᴀᴡᴀɴ 😘",
     "Mic":False,
     "MicDel":False,
     "Adminadd":False,
@@ -139,64 +139,64 @@ Help ="""
 ╔═══════════════════
 ╠☬➣  MËÑÜ ĦÉĹP  ☬➣  ⏩⏩
 ╠═══════════════════
-╠☬➣me      🇮🇩                     🇮🇩
-╠☬➣my name          🇮🇩
-╠☬➣my bio        🇮🇩
-╠☬➣my picture                    🇮🇩
-╠☬➣my cover      🇮🇩
-╠☬➣my video                 🇮🇩
-╠☬➣speed        🇮🇩
-╠☬➣rename              🇮🇩
-╠☬➣my bot                          🇮🇩
-╠☬➣my team   🇮🇩
-╠☬➣stealname [@]        🇮🇩
-╠☬➣stealbio [@]  🇮🇩
-╠☬➣stealpict [@]                 🇮🇩
-╠☬➣stealcover [@]🇮🇩
-╠☬➣stealvideo [@]          🇮🇩
-╠☬➣stealmid [@]🇮🇩
-╠☬➣profile [@]                      🇮🇩
-╠☬➣cekmid: [mid]    🇮🇩
-╠☬➣banlock [@] 🇮🇩
-╠☬➣banlist                        🇮🇩
-╠☬➣contact ban 🇮🇩
-╠☬➣clear ban              🇮🇩
-╠☬➣blocklist    🇮🇩
-╠☬➣friendlist                      🇮🇩
-╠☬➣friendlist mid   🇮🇩
-╠☬➣runtime      🇮🇩
-╠☬➣broadcast:                🇮🇩
-╠☬➣contactbc:       🇮🇩
-╠☬➣adminadd [@]              🇮🇩
-╠☬➣admindel [@]      🇮🇩
-╠☬➣changename:🇮🇩
-╠☬➣changebio:                   🇮🇩
-╠☬➣remove pesan 🇮🇩
-╠☬➣restart                     🇮🇩
-╠☬➣bot logout 🇮🇩
-╠☬➣kick [@]                        🇮🇩
-╠☬➣status    🇮🇩
-╠☬➣clone [@]                     🇮🇩
-╠☬➣comeback🇮🇩
-╠☬➣mimiclist   🇮🇩
-╠☬➣refresh                        🇮🇩
-╠☬➣leaveall grup              🇮🇩
-╠☬➣rejectall grup   🇮🇩
-╠☬➣lurking read           🇮🇩
-╠☬➣mentionall    🇮🇩
-╠☬➣changewelcome:
-╠☬➣changeleave:
-╠☬➣memberlist                🇮🇩
-╠☬➣my grup    🇮🇩
-╠☬➣gcall              
-╠☬➣gurl                🇮🇩
-╠☬➣gcreator    🇮🇩
-╠☬➣invite gcreator    🇮🇩
-╠☬➣ginfo    🇮🇩
-╠☬➣grup id                🇮🇩
-╠☬➣announce    🇮🇩
+╠☬➣ᴍᴇ                           
+╠☬➣ᴍʏ ɴᴀᴍᴇ          
+╠☬➣ᴍʏ ʙɪᴏ        
+╠☬➣ᴍʏ ᴘɪᴄᴛᴜʀᴇ                    
+╠☬➣ᴍʏ ᴄᴏᴠᴇʀ      
+╠☬➣ᴍʏ ᴠɪᴅᴇᴏ                 
+╠☬➣sᴘᴇᴇᴅ        
+╠☬➣ʀᴇɴᴀᴍᴇ              
+╠☬➣ᴍʏ ʙᴏᴛ                          
+╠☬➣ᴍʏ ᴛᴇᴀᴍ   
+╠☬➣sᴛᴇᴀʟɴᴀᴍᴇ [@]        
+╠☬➣sᴛᴇᴀʟʙɪᴏ [@]  
+╠☬➣sᴛᴇᴀʟᴘɪᴄᴛ [@]                 
+╠☬➣sᴛᴇᴀʟᴄᴏᴠᴇʀ [@]
+╠☬➣sᴛᴇᴀʟᴠɪᴅᴇᴏ [@]          
+╠☬➣sᴛᴇᴀʟᴍɪᴅ [@]
+╠☬➣ᴘʀᴏғɪʟᴇ [@]                      
+╠☬➣ᴄᴇᴋᴍɪᴅ: [ᴍɪᴅ]    
+╠☬➣ʙᴀɴʟᴏᴄᴋ [@] 
+╠☬➣ʙᴀɴʟɪsᴛ                        
+╠☬➣ᴄᴏɴᴛᴀᴄᴛ ʙᴀɴ 
+╠☬➣ᴄʟᴇᴀʀ ʙᴀɴ              
+╠☬➣ʙʟᴏᴄᴋʟɪsᴛ    
+╠☬➣ғʀɪᴇɴᴅʟɪsᴛ                      
+╠☬➣ғʀɪᴇɴᴅʟɪsᴛ ᴍɪᴅ   
+╠☬➣ʀᴜɴᴛɪᴍᴇ      
+╠☬➣ʙʀᴏᴀᴅᴄᴀsᴛ:                
+╠☬➣ᴄᴏɴᴛᴀᴄᴛʙᴄ:       
+╠☬➣ᴀᴅᴍɪɴᴀᴅᴅ [@]              
+╠☬➣ᴀᴅᴍɪɴᴅᴇʟ [@]      
+╠☬➣ᴄʜᴀɴɢᴇɴᴀᴍᴇ:
+╠☬➣ᴄʜᴀɴɢᴇʙɪᴏ:                   
+╠☬➣ᴅᴇʟ 
+╠☬➣ʀᴇsᴛᴀʀᴛ                     
+╠☬➣ʙᴏᴛ ʟᴏɢᴏᴜᴛ 
+╠☬➣ᴋɪᴄᴋ [@]                        
+╠☬➣sᴛᴀᴛᴜs    
+╠☬➣ᴄʟᴏɴᴇ [@]                     
+╠☬➣ᴄᴏᴍᴇʙᴀᴄᴋ
+╠☬➣ᴍɪᴍɪᴄʟɪsᴛ   
+╠☬➣ʀᴇғʀᴇsʜ                        
+╠☬➣ʟᴇᴀᴠᴇᴀʟʟ ɢʀᴜᴘ              
+╠☬➣ʀᴇᴊᴇᴄᴛᴀʟʟ ɢʀᴜᴘ   
+╠☬➣ʟᴜʀᴋɪɴɢ ʀᴇᴀᴅ           
+╠☬➣ᴍᴇɴᴛɪᴏɴᴀʟʟ    
+╠☬➣ᴄʜᴀɴɢᴇᴡᴇʟᴄᴏᴍᴇ:
+╠☬➣ᴄʜᴀɴɢᴇʟᴇᴀᴠᴇ:
+╠☬➣ᴍᴇᴍʙᴇʀʟɪsᴛ                
+╠☬➣ᴍʏ ɢʀᴜᴘ    
+╠☬➣ɢᴄᴀʟʟ              
+╠☬➣ɢᴜʀʟ                
+╠☬➣ɢᴄʀᴇᴀᴛᴏʀ    
+╠☬➣ɪɴᴠɪᴛᴇ ɢᴄʀᴇᴀᴛᴏʀ    
+╠☬➣ɢɪɴғᴏ    
+╠☬➣ɢʀᴜᴘ ɪᴅ                
+╠☬➣ᴀɴɴᴏᴜɴᴄᴇ    
 ╠═══════════════════
-╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣   ⏩
+╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟􏿿 ☬➣   ⏩
 ╚═══════════════════
 """""
 
@@ -204,34 +204,34 @@ Helpbot ="""
 ╔═══════════════════
 ╠☬➣  ĦÉĹP  BŐŤŞ°☬➣ ⏩⏩
 ╠═══════════════════
-╠☬➣spam on [jmlah teks]
-╠☬➣admin:add-on             🇮🇩
-╠☬➣admin:del-on      🇮🇩
-╠☬➣unsend [on/off]    🇮🇩
-╠☬➣changepp [on/off]
-╠☬➣timeline [on/off]         🇮🇩
-╠☬➣autojoin [on/off]
-╠☬➣autoreject [on/off]
-╠☬➣auto jointicket [on/off]
-╠☬➣gift:[on/off]                🇮🇩
-╠☬➣copy [on/off] 🇮🇩
-╠☬➣steal [on/off]        🇮🇩
-╠☬➣contact [on/off]         🇮🇩
-╠☬➣mic:add-on  🇮🇩
-╠☬➣mic:del-on            🇮🇩
-╠☬➣mimic [on/off]            🇮🇩
-╠☬➣kick [on,off->kickall]   🇮🇩
-╠☬➣invite on/off     🇮🇩
-╠☬➣kill [on/off]               🇮🇩
-╠☬➣lurking [on/off/reset]
-╠☬➣sider [on/off]    🇮🇩
-╠☬➣welcome [on/off]    🇮🇩
-╠☬➣leave [on/off]    🇮🇩
-╠☬➣link [on/off]    🇮🇩
-╠☬➣cfotogrup [on/off]
-╠☬➣spaminvite [on/off]    🇮🇩
+╠☬➣sᴘᴀᴍ ᴏɴ [ᴊᴍʟᴀʜ ᴛᴇᴋs]
+╠☬➣ᴀᴅᴍɪɴ:ᴀᴅᴅ-ᴏɴ             
+╠☬➣ᴀᴅᴍɪɴ:ᴅᴇʟ-ᴏɴ      
+╠☬➣ᴜɴsᴇɴᴅ [ᴏɴ/ᴏғғ]    
+╠☬➣ᴄʜᴀɴɢᴇᴘᴘ [ᴏɴ/ᴏғғ]
+╠☬➣ᴛɪᴍᴇʟɪɴᴇ [ᴏɴ/ᴏғғ]         
+╠☬➣ᴀᴜᴛᴏᴊᴏɪɴ [ᴏɴ/ᴏғғ]
+╠☬➣ᴀᴜᴛᴏʀᴇᴊᴇᴄᴛ [ᴏɴ/ᴏғғ]
+╠☬➣ᴀᴜᴛᴏ ᴊᴏɪɴᴛɪᴄᴋᴇᴛ [ᴏɴ/ᴏғғ]
+╠☬➣ɢɪғᴛ:[ᴏɴ/ᴏғғ]                
+╠☬➣ᴄᴏᴘʏ [ᴏɴ/ᴏғғ] 
+╠☬➣sᴛᴇᴀʟ [ᴏɴ/ᴏғғ]        
+╠☬➣ᴄᴏɴᴛᴀᴄᴛ [ᴏɴ/ᴏғғ]         
+╠☬➣ᴍɪᴄ:ᴀᴅᴅ-ᴏɴ  
+╠☬➣ᴍɪᴄ:ᴅᴇʟ-ᴏɴ            
+╠☬➣ᴍɪᴍɪᴄ [ᴏɴ/ᴏғғ]            
+╠☬➣ᴋɪᴄᴋ [ᴏɴ,ᴏғғ->ᴋɪᴄᴋᴀʟʟ]   
+╠☬➣ɪɴᴠɪᴛᴇ ᴏɴ/ᴏғғ     
+╠☬➣ᴋɪʟʟ [ᴏɴ/ᴏғғ]               
+╠☬➣ʟᴜʀᴋɪɴɢ [ᴏɴ/ᴏғғ/ʀᴇsᴇᴛ]
+╠☬➣sɪᴅᴇʀ [ᴏɴ/ᴏғғ]    
+╠☬➣ᴡᴇʟᴄᴏᴍᴇ [ᴏɴ/ᴏғғ]    
+╠☬➣ʟᴇᴀᴠᴇ [ᴏɴ/ᴏғғ]    
+╠☬➣ʟɪɴᴋ [ᴏɴ/ᴏғғ]    
+╠☬➣ᴄғᴏᴛᴏɢʀᴜᴘ [ᴏɴ/ᴏғғ]
+╠☬➣sᴘᴀᴍɪɴᴠɪᴛᴇ [ᴏɴ/ᴏғғ]    
 ╠═══════════════════
-╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣  ⏩
+╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟􏿿 ☬➣  ⏩
 ╚═══════════════════
 """""
 
@@ -239,35 +239,35 @@ Helpmedia ="""
 ╔═══════════════════
 ╠☬➣  MËÑÜ M€ÐĪÄ  ☬➣⏩⏩
 ╠═══════════════════
-╠☬➣ topnews
-╠☬➣ data birth:
-╠☬➣ urban:
-╠☬➣ sslink:
-╠☬➣ maps:
-╠☬➣ cekcuaca:
-╠☬➣ jadwalshalat:
-╠☬➣ idline:
-╠☬➣ say-id:
-╠☬➣ say-en:
-╠☬➣ say-jp:
-╠☬➣ say-ar:
-╠☬➣ say-ko:
-╠☬➣ apakah:
-╠☬➣ kapan:
-╠☬➣ wikipedia:
-╠☬➣ kalender
-╠☬➣ image:
-╠☬➣ youtube:
-╠☬➣ indonesian:
-╠☬➣ english:
-╠☬➣ korea:
-╠☬➣ japan:
-╠☬➣ thailand:
-╠☬➣ arab:
-╠☬➣ malaysia:
-╠☬➣ jawa:
+╠☬➣ ᴛᴏᴘɴᴇᴡs
+╠☬➣ ᴅᴀᴛᴀ ʙɪʀᴛʜ:
+╠☬➣ ᴜʀʙᴀɴ:
+╠☬➣ ssʟɪɴᴋ:
+╠☬➣ ᴍᴀᴘs:
+╠☬➣ ᴄᴇᴋᴄᴜᴀᴄᴀ:
+╠☬➣ ᴊᴀᴅᴡᴀʟsʜᴀʟᴀᴛ:
+╠☬➣ ɪᴅʟɪɴᴇ:
+╠☬➣ sᴀʏ-ɪᴅ:
+╠☬➣ sᴀʏ-ᴇɴ:
+╠☬➣ sᴀʏ-ᴊᴘ:
+╠☬➣ sᴀʏ-ᴀʀ:
+╠☬➣ sᴀʏ-ᴋᴏ:
+╠☬➣ ᴀᴘᴀᴋᴀʜ:
+╠☬➣ ᴋᴀᴘᴀɴ:
+╠☬➣ ᴡɪᴋɪᴘᴇᴅɪᴀ:
+╠☬➣ ᴋᴀʟᴇɴᴅᴇʀ
+╠☬➣ ɪᴍᴀɢᴇ:
+╠☬➣ ʏᴏᴜᴛᴜʙᴇ:
+╠☬➣ ɪɴᴅᴏɴᴇsɪᴀɴ:
+╠☬➣ ᴇɴɢʟɪsʜ:
+╠☬➣ ᴋᴏʀᴇᴀ:
+╠☬➣ ᴊᴀᴘᴀɴ:
+╠☬➣ ᴛʜᴀɪʟᴀɴᴅ:
+╠☬➣ ᴀʀᴀʙ:
+╠☬➣ ᴍᴀʟᴀʏsɪᴀ:
+╠☬➣ ᴊᴀᴡᴀ:
 ╠═══════════════════
-╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟🇮🇩􏿿 ☬➣   ⏩
+╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟􏿿 ☬➣   ⏩
 ╚═══════════════════
 """""
 
@@ -320,11 +320,14 @@ def LINE_ARIF_USER(arif):
                             if " " in Name:
                                 nick = Name.split(' ')
                                 if len(nick) == 2:
-                                    cl.mentionWithDPK(arif.param1,arif.param2," Hii\n","" + "\n Nyimak yah kak?" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," 「SIDER」\n","" + "\n ηyıмαk yαн kαk?😅" )
+                                    cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                                 else:
-                                    cl.mentionWithDPK(arif.param1,arif.param2," Nah\n","" + "\n Nongol Sini Chat kak ??" )
+                                    cl.mentionWithDPK(arif.param1,arif.param2," 「SIDER」\n","" + "\n ηαн...ησηgσl sıηı cнαт kαk 😊" )
+                                    cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                             else:
-                                cl.mentionWithDPK(arif.param1,arif.param2," Hey\n","" + "\n What Are You Doing?" )
+                                cl.mentionWithDPK(arif.param1,arif.param2," 「SIDER」\n","" + "\n lıαтıη αρα kαk sєяıυs αмαт ?😆" )
+                                cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
                     else:
                         pass
                 else:
@@ -787,8 +790,9 @@ def LINE_ARIF_USER(arif):
                         mentionees = mention['MENTIONEES']
                         for mention in mentionees:
                               if mention['M'] in mid:
-                                  cl.mentionWithDPK(kirim,user,"","" +str(ret_))
+#                                  cl.mentionWithDPK(kirim,user,"","" +str(ret_))
                                   cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
+                                  cl.sendMessage(msg.to, wait["MentionText"])
                                   break
 
         if arif.type == 26:
@@ -1467,7 +1471,7 @@ def LINE_ARIF_USER(arif):
                                 cl.updateProfile(no1)
                                 cl.sendText(kirim,"My Bio Change To : " + teks)
 
-                        elif dpkText.lower() == "remove pesan":
+                        elif dpkText.lower() == "del":
                             if user in DpkFamily or user in Wait["Admin"]:
                                 try:
                                     cl.removeAllMessages(arif.param2)
@@ -1532,34 +1536,34 @@ def LINE_ARIF_USER(arif):
                         elif dpkText.lower() == 'status':
                             if user in DpkFamily or user in Wait["Admin"]:
                                 try:
-                                    hasil = "╔══════[ Status ]══════"
-                                    if Wait["autoAdd"] == True: hasil += "\n╠ Auto Add ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Auto Add ▶Ø🔴F◀"
-                                    if Wait["autoJoin"] == True: hasil += "\n╠ Auto Join ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Auto Join ▶Ø🔴F◀"
-                                    if Wait["AutoReject"] == True: hasil += "\n╠ Auto Reject Room ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Auto Reject Room ▶Ø🔴F◀"
-                                    if Wait["AutojoinTicket"] == True: hasil += "\n╠ Auto Join Ticket ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Auto Join Ticket ▶Ø🔴F◀"
-                                    if Wait["autoRead"] == True: hasil += "\n╠ Auto Read ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Auto Read ▶Ø🔴F◀"
-                                    if Wait["AutoRespon"] == True: hasil += "\n╠ Detect Mention ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Detect Mention ▶Ø🔴F◀"
-                                    if Wait["KickRespon"] == True: hasil += "\n╠ Detect Mention ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Detect Kick Mention ▶Ø🔴F◀"
-                                    if Wait["Contact"] == True: hasil += "\n╠ Check Contact ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Check Contact ▶Ø🔴F◀"
-                                    if Wait["Timeline"] == True: hasil += "\n╠ Check Post Timeline ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Check Post ▶Ø🔴F◀"
-                                    if Wait["IDSticker"] == True: hasil += "\n╠ Check Sticker ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Check Sticker ▶Ø🔴F◀"
-                                    if Wait["UnsendPesan"] == True: hasil += "\n╠ Unsend Message ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Unsend Message ▶Ø🔴F◀"
-                                    if Wait["KickOn"] == True: hasil += "\n╠ Kick All Member ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Kick All Member ▶Ø🔴F◀"
-                                    if Wait["SpamInvite"] == True: hasil += "\n╠ Spam invite via contact ⏩Ø🔵Ň⏪"
-                                    else: hasil += "\n╠ Spam invite Via Contact ▶Ø🔴F◀"
-                                    hasil += "\n╚══════[ Status ]══════"
+                                    hasil = "╔═══════════════════╗\n╠════sᴛᴀᴛᴜs    sᴇᴛᴛɪɴɢs════\n╠═══════════════════╝"
+                                    if Wait["autoAdd"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ᴀᴅᴅ                                🔵"
+                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ᴀᴅᴅ                                🔴"
+                                    if Wait["autoJoin"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ                               🔵"
+                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ                               🔴"
+                                    if Wait["AutoReject"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ʀᴏᴏᴍ                🔵"
+                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ʀᴏᴏᴍ                🔴"
+                                    if Wait["AutojoinTicket"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ ᴛɪᴄᴋᴇᴛ                   🔵"
+                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ ᴛɪᴄᴋᴇᴛ                  🔴"
+                                    if Wait["autoRead"] == True: hasil += "\n ᴀᴜᴛᴏ ʀᴇᴀᴅ                              🔵"
+                                    else: hasil += "\n╠  ᴀᴜᴛᴏ ʀᴇᴀᴅ                              🔴"
+                                    if Wait["AutoRespon"] == True: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴍᴇɴᴛɪᴏɴ                    🔵"
+                                    else: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴍᴇɴᴛɪᴏɴ                    🔴"
+                                    if Wait["KickRespon"] == True: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴋɪᴄᴋ ᴍᴇɴᴛɪᴏɴ.          🔵"
+                                    else: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴋɪᴄᴋ ᴍᴇɴᴛɪᴏɴ.          🔴"
+                                    if Wait["Contact"] == True: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴄᴏɴᴛᴀᴄᴛ                     🔵"
+                                    else: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴄᴏɴᴛᴀᴄᴛ                     🔴"
+                                    if Wait["Timeline"] == True: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴘᴏsᴛ                            🔵"
+                                    else: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴘᴏsᴛ                            🔴"
+                                    if Wait["IDSticker"] == True: hasil += "\n╠ ᴄʜᴇᴄᴋ sᴛɪᴄᴋᴇʀ                      🔵"
+                                    else: hasil += "\n╠ ᴄʜᴇᴄᴋ sᴛɪᴄᴋᴇʀ                      🔴"
+                                    if Wait["UnsendPesan"] == True: hasil += "\n╠ ᴜɴsᴇɴᴅ ᴍᴇssᴀɢᴇ                  🔵"
+                                    else: hasil += "\n╠ ᴜɴsᴇɴᴅ ᴍᴇssᴀɢᴇ                  🔴"
+                                    if Wait["KickOn"] == True: hasil += "\n╠ ᴋɪᴄᴋ ᴀʟʟ ᴍᴇᴍʙᴇʀ                  🔵"
+                                    else: hasil += "\n╠ ᴋɪᴄᴋ ᴀʟʟ ᴍᴇᴍʙᴇʀ                  🔴"
+                                    if Wait["SpamInvite"] == True: hasil += "\n╠ Spam invite via contact 🔵"
+                                    else: hasil += "\n╠ sᴘᴀᴍ ɪɴᴠɪᴛᴇ ᴠɪᴀ ᴄᴏɴᴛᴀᴄᴛ     🔴"
+                                    hasil += "\n╚═══════════════════╝"
                                     cl.sendMessage(kirim, str(hasil))
                                 except Exception as error:
                                     cl.sendMessage(kirim, str(error))
@@ -1618,20 +1622,20 @@ def LINE_ARIF_USER(arif):
                                 Wait['AutoReject'] = False
                                 cl.sendText(msg.to,"Reject Set To Off..")
 
-                        elif dpkText in ["Admin:add-on"]:
+                        elif dpkText in ["admin:on"]:
                             if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Adminadd"] = True
                                 cl.sendText(kirim,"Send Contact to added Admin..")
-                        elif dpkText in ["Admin:add-off"]:
+                        elif dpkText in ["admin:off"]:
                             if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["Adminadd"] = False
                                 cl.sendText(kirim,"Send Contact to added Admin in Off..")
 
-                        elif dpkText in ["Admin:del-on"]:
+                        elif dpkText in ["admindel:on"]:
                             if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["AdminDel"] = True
                                 cl.sendText(kirim,"Send Contact to Dellete Admin..")
-                        elif dpkText in ["Admin:del-off"]:
+                        elif dpkText in ["admindel:off"]:
                             if user in DpkFamily or user in Wait["Admin"]:
                                 Wait["AdminDel"] = False
                                 cl.sendText(kirim,"Send Contact to Dellete Admin in Off..")
