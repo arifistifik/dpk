@@ -1,4 +1,4 @@
-from ARIFISTIFIK import *
+from linepy import *
 from datetime import datetime
 from time import sleep
 from bs4 import BeautifulSoup
@@ -8,65 +8,63 @@ from multiprocessing import Pool, Process
 from ffmpy import FFmpeg
 import time, random, asyncio, timeit, sys, json, codecs, threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast, pytz, wikipedia, pafy, youtube_dl, atexit
 
-print ("\n\n ---  WELCOME  ---\n")
+print ("\nSELAMAT DATANG\n")
 
-cl = LINE()
-#cl = LINE(authTokenDPK="EvBoSHd3NymRnF3lzZdb.0PzLwS72Fl1EGGJMnIN3IW.1U1vPtTqpd/BytwfeUSD95WRIubQG5rPQeunnLZ9/sk=")
-cl.log("YOUR TOKEN : {}".format(str(cl.authToken)))
-channel = LINEChannel(cl,cl.server.CHANNEL_ID['LINE_TIMELINE'])
-cl.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
+client = LINE()
+#client = LINE(authToken="YOUR TOKEN")
+client.log("YOUR TOKEN : {}".format(str(client.authToken)))
+channel = LINEChannel(client,client.server.CHANNEL_ID['LINE_TIMELINE'])
+client.log("CHANNEL TOKEN : " + str(channel.getChannelResult()))
 
-print ("✍Ð₱₭ ฿Ø₮ LOGIN SUCCESS")
+print ("LOGIN SUCCESS LINE")
 
-clProfile = cl.getProfile()
-clSettings = cl.getSettings()
-LINE = LINEPoll(cl)
-call = cl
-
-Dpk = [cl]
-mid = cl.profile.mid
-DpkBot=[mid]
+clientProfile = client.getProfile()
+clientSettings = client.getSettings()
+LINE = LINEPoll(client)
+call = client
+mid = [client]
+myMID = client.profile.mid
+Admin=[myMID]
 Owner=["ud296655acef67cbd5e8208e63629f78b"]
-DpkFamily = DpkBot + Dpk + Owner
+Team = Admin + mid + Owner
 
-contact = cl.getProfile()
-backup = cl.getProfile()
+contact = client.getProfile()
+backup = client.getProfile()
 backup.displayName = contact.displayName
 backup.statusMessage = contact.statusMessage
 backup.pictureStatus = contact.pictureStatus
 
-Wait = {
-    "UnsendPesan":False,
+Connect_to = {
+    "UnsendMessage":False,
     "SpamInvite":False,
+    "limit": 5,
     "Contact":False,
-    "GName":"ARIFISTIFIK",
-    "AutoRespon":True,
-    "MentionText":"dîh ηgëtåg äķü mülü... Kămư kë§ëÞîåη ¥åk...???",
+    "GName":"Arifistifik",
+    "AutoRespon":False,
     "KickRespon":False,
     "KillOn":False,
     "KickOn":False,
     "Upfoto":False,
     "UpfotoBot":False,
     "UpfotoGroup":False,
-    "limit": 5,
     "Steal":False,
     "Invite":False,
     "Copy":False,
     "autoAdd":True,
-    "PesanAdd":"ᴋᴇɴᴀᴘᴀ ʙᴀʀᴜ sᴇᴋᴀʀᴀɴɢ ᴋᴀᴍᴜ ᴀᴅᴅ ᴀᴋᴜ? 😅",
+    "PesanAdd":"Terima Kasih Sudah Add Saya",
     "ContactAdd":{},
     "autoBlock":False,
-    "autoJoin":False,
+    "autoJoin":True,
     "AutojoinTicket":False,
-    "AutoReject":True,
+    "AutoReject":False,
     "autoRead":False,
     "IDSticker":False,
     "Timeline":False,
     "Welcome":False,
     "BackupBot":True,
-    "WcText": "\nsᴇʟᴀᴍᴀᴛ ᴅᴀᴛᴀɴɢ 😊😊😊\nʏᴜᴋ ᴍᴜʟᴀɪ ᴋᴇɴᴀʟᴀɴ sᴀᴍᴀ ʏᴀɴɢ ʟᴀɪɴ😅",
-    "Leave":True,
-    "LvText": "sᴀᴍᴘᴀɪ ᴊᴜᴍᴘᴀ ʟᴀɢɪ ᴋᴀᴡᴀɴ 😘",
+    "WcText": "Welcome My Friend",
+    "Leave":False,
+    "LvText": "See You My Friend",
     "Mic":False,
     "MicDel":False,
     "Adminadd":False,
@@ -79,13 +77,14 @@ Wait = {
     "Blacklist":{},
     "Ban":False,
     "Unban":False,
+    "comment": "autolike by arif",
     "Admin": {
-        "ud296655acef67cbd5e8208e63629f78b":True #MID ADMIN
+        "ud296655acef67cbd5e8208e63629f78b":True #MID ADMIN TARO DISINI
     },
 }
 
 Mozilla = {
-    "userAgent": [
+    "manAgent": [
         "Mozilla/5.0 (X11; U; Linux i586; de; rv:5.0) Gecko/20100101 Firefox/5.0",
         "Mozilla/5.0 (X11; U; Linux amd64; rv:5.0) Gecko/20100101 Firefox/5.0 (Debian)",
         "Mozilla/5.0 (X11; U; Linux amd64; en-US; rv:5.0) Gecko/20110619 Firefox/5.0",
@@ -116,162 +115,174 @@ Mozilla = {
 }
 
 setTime = {}
-setTime = Wait['readTime']
+setTime = Connect_to['readTime']
 mulai = time.time() 
 msg_dict = {}
 
-ProfileMe = {
+myProfile = {
     "displayName": "",
 	"statusMessage": "",
 	"pictureStatus": ""
 }
-ProfileMe["displayName"] = clProfile.displayName
-ProfileMe["statusMessage"] = clProfile.statusMessage
-ProfileMe["pictureStatus"] = clProfile.pictureStatus
+myProfile["displayName"] = clientProfile.displayName
+myProfile["statusMessage"] = clientProfile.statusMessage
+myProfile["pictureStatus"] = clientProfile.pictureStatus
 
-DpkCctv={
+cctv={
     "Point1":{},
     "Point2":{},
     "Point3":{}
 }
 
 Help ="""
-╔═══════════════════
-╠☬➣  MËÑÜ ĦÉĹP  ☬➣  ⏩⏩
-╠═══════════════════
-╠☬➣ᴍᴇ                           
-╠☬➣ᴍʏ ɴᴀᴍᴇ          
-╠☬➣ᴍʏ ʙɪᴏ        
-╠☬➣ᴍʏ ᴘɪᴄᴛᴜʀᴇ                    
-╠☬➣ᴍʏ ᴄᴏᴠᴇʀ      
-╠☬➣ᴍʏ ᴠɪᴅᴇᴏ                 
-╠☬➣sᴘᴇᴇᴅ        
-╠☬➣ʀᴇɴᴀᴍᴇ              
-╠☬➣ᴍʏ ʙᴏᴛ                          
-╠☬➣ᴍʏ ᴛᴇᴀᴍ   
-╠☬➣sᴛᴇᴀʟɴᴀᴍᴇ [@]        
-╠☬➣sᴛᴇᴀʟʙɪᴏ [@]  
-╠☬➣sᴛᴇᴀʟᴘɪᴄᴛ [@]                 
-╠☬➣sᴛᴇᴀʟᴄᴏᴠᴇʀ [@]
-╠☬➣sᴛᴇᴀʟᴠɪᴅᴇᴏ [@]          
-╠☬➣sᴛᴇᴀʟᴍɪᴅ [@]
-╠☬➣ᴘʀᴏғɪʟᴇ [@]                      
-╠☬➣ᴄᴇᴋᴍɪᴅ: [ᴍɪᴅ]    
-╠☬➣ʙᴀɴʟᴏᴄᴋ [@] 
-╠☬➣ʙᴀɴʟɪsᴛ                        
-╠☬➣ᴄᴏɴᴛᴀᴄᴛ ʙᴀɴ 
-╠☬➣ᴄʟᴇᴀʀ ʙᴀɴ              
-╠☬➣ʙʟᴏᴄᴋʟɪsᴛ    
-╠☬➣ғʀɪᴇɴᴅʟɪsᴛ                      
-╠☬➣ғʀɪᴇɴᴅʟɪsᴛ ᴍɪᴅ   
-╠☬➣ʀᴜɴᴛɪᴍᴇ      
-╠☬➣ʙʀᴏᴀᴅᴄᴀsᴛ:                
-╠☬➣ᴄᴏɴᴛᴀᴄᴛʙᴄ:       
-╠☬➣ᴀᴅᴍɪɴᴀᴅᴅ [@]              
-╠☬➣ᴀᴅᴍɪɴᴅᴇʟ [@]      
-╠☬➣ᴄʜᴀɴɢᴇɴᴀᴍᴇ:
-╠☬➣ᴄʜᴀɴɢᴇʙɪᴏ:                   
-╠☬➣ᴅᴇʟ 
-╠☬➣ʀᴇsᴛᴀʀᴛ                     
-╠☬➣ʙᴏᴛ ʟᴏɢᴏᴜᴛ 
-╠☬➣ᴋɪᴄᴋ [@]                        
-╠☬➣sᴛᴀᴛᴜs    
-╠☬➣ᴄʟᴏɴᴇ [@]                     
-╠☬➣ᴄᴏᴍᴇʙᴀᴄᴋ
-╠☬➣ᴍɪᴍɪᴄʟɪsᴛ   
-╠☬➣ʀᴇғʀᴇsʜ                        
-╠☬➣ʟᴇᴀᴠᴇᴀʟʟ ɢʀᴜᴘ              
-╠☬➣ʀᴇᴊᴇᴄᴛᴀʟʟ ɢʀᴜᴘ   
-╠☬➣ʟᴜʀᴋɪɴɢ ʀᴇᴀᴅ           
-╠☬➣ᴍᴇɴᴛɪᴏɴᴀʟʟ    
-╠☬➣ᴄʜᴀɴɢᴇᴡᴇʟᴄᴏᴍᴇ:
-╠☬➣ᴄʜᴀɴɢᴇʟᴇᴀᴠᴇ:
-╠☬➣ᴍᴇᴍʙᴇʀʟɪsᴛ                
-╠☬➣ᴍʏ ɢʀᴜᴘ    
-╠☬➣ɢᴄᴀʟʟ              
-╠☬➣ɢᴜʀʟ                
-╠☬➣ɢᴄʀᴇᴀᴛᴏʀ    
-╠☬➣ɪɴᴠɪᴛᴇ ɢᴄʀᴇᴀᴛᴏʀ    
-╠☬➣ɢɪɴғᴏ    
-╠☬➣ɢʀᴜᴘ ɪᴅ                
-╠☬➣ᴀɴɴᴏᴜɴᴄᴇ    
-╠═══════════════════
-╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟􏿿 ☬➣   ⏩
-╚═══════════════════
-"""""
+╭──────────
+├──────────
+│help
+│help2
+│help3
+│help4
+│help5
+├──────────
+├─[TRANSLATE]
+│indonesian:
+│english:
+│korea:
+│japan:
+│thailand:
+│arab:
+│malaysia:
+│jawa:
+├──────────
+╰──────────
+"""
+Help2 ="""
+╭───────────
+├───────────
+│me
+│status
+│my name
+│my bio
+│my picture
+│my cover
+│my video
+│speed
+│rename
+│my bot
+│my team
+│stealname [@]
+│stealbio [@]
+│stealpict [@]
+│stealcover [@]
+│stealvideo [@]
+│stealmid [@]
+│profile [@]
+│cekmid: [mid]
+│friendlist
+│friendlist mid
+│runtime
+│changename:
+│changebio:
+│remove pesan
+│restart
+│bot logout
+├───────────
+╰───────────
+"""
 
-Helpbot ="""
-╔═══════════════════
-╠☬➣  ĦÉĹP  BŐŤŞ°☬➣ ⏩⏩
-╠═══════════════════
-╠☬➣sᴘᴀᴍ ᴏɴ [ᴊᴍʟᴀʜ ᴛᴇᴋs]
-╠☬➣ᴀᴅᴍɪɴ:ᴀᴅᴅ-ᴏɴ             
-╠☬➣ᴀᴅᴍɪɴ:ᴅᴇʟ-ᴏɴ      
-╠☬➣ᴜɴsᴇɴᴅ [ᴏɴ/ᴏғғ]    
-╠☬➣ᴄʜᴀɴɢᴇᴘᴘ [ᴏɴ/ᴏғғ]
-╠☬➣ᴛɪᴍᴇʟɪɴᴇ [ᴏɴ/ᴏғғ]         
-╠☬➣ᴀᴜᴛᴏᴊᴏɪɴ [ᴏɴ/ᴏғғ]
-╠☬➣ᴀᴜᴛᴏʀᴇᴊᴇᴄᴛ [ᴏɴ/ᴏғғ]
-╠☬➣ᴀᴜᴛᴏ ᴊᴏɪɴᴛɪᴄᴋᴇᴛ [ᴏɴ/ᴏғғ]
-╠☬➣ɢɪғᴛ:[ᴏɴ/ᴏғғ]                
-╠☬➣ᴄᴏᴘʏ [ᴏɴ/ᴏғғ] 
-╠☬➣sᴛᴇᴀʟ [ᴏɴ/ᴏғғ]        
-╠☬➣ᴄᴏɴᴛᴀᴄᴛ [ᴏɴ/ᴏғғ]         
-╠☬➣ᴍɪᴄ:ᴀᴅᴅ-ᴏɴ  
-╠☬➣ᴍɪᴄ:ᴅᴇʟ-ᴏɴ            
-╠☬➣ᴍɪᴍɪᴄ [ᴏɴ/ᴏғғ]            
-╠☬➣ᴋɪᴄᴋ [ᴏɴ,ᴏғғ->ᴋɪᴄᴋᴀʟʟ]   
-╠☬➣ɪɴᴠɪᴛᴇ ᴏɴ/ᴏғғ     
-╠☬➣ᴋɪʟʟ [ᴏɴ/ᴏғғ]               
-╠☬➣ʟᴜʀᴋɪɴɢ [ᴏɴ/ᴏғғ/ʀᴇsᴇᴛ]
-╠☬➣sɪᴅᴇʀ [ᴏɴ/ᴏғғ]    
-╠☬➣ᴡᴇʟᴄᴏᴍᴇ [ᴏɴ/ᴏғғ]    
-╠☬➣ʟᴇᴀᴠᴇ [ᴏɴ/ᴏғғ]    
-╠☬➣ʟɪɴᴋ [ᴏɴ/ᴏғғ]    
-╠☬➣ᴄғᴏᴛᴏɢʀᴜᴘ [ᴏɴ/ᴏғғ]
-╠☬➣sᴘᴀᴍɪɴᴠɪᴛᴇ [ᴏɴ/ᴏғғ]    
-╠═══════════════════
-╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟􏿿 ☬➣  ⏩
-╚═══════════════════
-"""""
+Help3 ="""
+╭──────────
+├──────────
+│berita
+│data birth:
+│urban:
+│sslink:
+│maps:
+│cekcuaca:
+│jadwalshalat:
+│idline:
+│say-id:
+│say-en:
+│say-jp:
+│say-ar:
+│say-ko:
+│apakah:
+│kapan:
+│wikipedia:
+│kalender
+│image:
+│youtube:
+├──────────
+╰──────────
+"""
 
-Helpmedia ="""
-╔═══════════════════
-╠☬➣  MËÑÜ M€ÐĪÄ  ☬➣⏩⏩
-╠═══════════════════
-╠☬➣ ᴛᴏᴘɴᴇᴡs
-╠☬➣ ᴅᴀᴛᴀ ʙɪʀᴛʜ:
-╠☬➣ ᴜʀʙᴀɴ:
-╠☬➣ ssʟɪɴᴋ:
-╠☬➣ ᴍᴀᴘs:
-╠☬➣ ᴄᴇᴋᴄᴜᴀᴄᴀ:
-╠☬➣ ᴊᴀᴅᴡᴀʟsʜᴀʟᴀᴛ:
-╠☬➣ ɪᴅʟɪɴᴇ:
-╠☬➣ sᴀʏ-ɪᴅ:
-╠☬➣ sᴀʏ-ᴇɴ:
-╠☬➣ sᴀʏ-ᴊᴘ:
-╠☬➣ sᴀʏ-ᴀʀ:
-╠☬➣ sᴀʏ-ᴋᴏ:
-╠☬➣ ᴀᴘᴀᴋᴀʜ:
-╠☬➣ ᴋᴀᴘᴀɴ:
-╠☬➣ ᴡɪᴋɪᴘᴇᴅɪᴀ:
-╠☬➣ ᴋᴀʟᴇɴᴅᴇʀ
-╠☬➣ ɪᴍᴀɢᴇ:
-╠☬➣ ʏᴏᴜᴛᴜʙᴇ:
-╠☬➣ ɪɴᴅᴏɴᴇsɪᴀɴ:
-╠☬➣ ᴇɴɢʟɪsʜ:
-╠☬➣ ᴋᴏʀᴇᴀ:
-╠☬➣ ᴊᴀᴘᴀɴ:
-╠☬➣ ᴛʜᴀɪʟᴀɴᴅ:
-╠☬➣ ᴀʀᴀʙ:
-╠☬➣ ᴍᴀʟᴀʏsɪᴀ:
-╠☬➣ ᴊᴀᴡᴀ:
-╠═══════════════════
-╠☬➣  ✍Ð₱₭ ฿Ø₮₰ ⃟􏿿 ☬➣   ⏩
-╚═══════════════════
-"""""
+Help4 ="""
+╭───────────
+├───────────
+│unsend on/off
+│changepp on/off
+│timeline on/off
+│autojoin on/off
+│autoreject on/off
+│auto jointicket on/off
+│gift:on/off
+│copy on/off
+│spam on [jmlah teks]
+│kick [on,off->kickall]
+│invite on/off
+│kill on/off
+│link on/off
+│lurking on/off/reset
+│lurking read
+│sider on/off
+│welcome on/off
+│leave on/off
+│adminadd [@]
+│admindel [@]
+│admin:add-on
+│admin:del-on
+│clone [@]
+│comeback
+│steal on/off
+│contact on/off
+│mic:add-on
+│mic:del-on
+│mimic on/off
+│mimiclist
+├───────────
+╰───────────
+"""
 
-#------------------------------------------------ SCRIP DEF ----------------------------------------------------------#
+Help5 ="""
+╭───────────
+├───────────
+│gcall
+│broadcast:
+│contactbc:
+│leaveall grup
+│rejectall grup
+│mentionall
+│changewelcome:
+│changeleave:
+│memberlist
+│my grup
+│gurl
+│gcreator
+│invite gcreator
+│ginfo
+│grup id
+│cfotogrup on/off
+│spaminvite on/off
+│announce
+│refresh
+│kick [@]
+│banlock [@]
+│banlist
+│contact ban
+│clear ban
+│blocklist
+├───────────
+╰───────────
+"""
 
 def waktu(secs):
     mins, secs = divmod(secs,60)
@@ -286,48 +297,51 @@ def restart_program():
     python = sys.executable
     os.execl(python, python, * sys.argv)
 
-def LINE_ARIF_USER(arif):
+def LINE_OP_TYPE(op):
     try:
-        if arif.type == 0:
+        if op.type == 0:
             return
-        if arif.type == 13:
-            if mid in arif.param3:
-              if Wait['autoJoin'] == True:
-                    cl.acceptGroupInvitation(arif.param1)
+        if op.type == 13:
+            if myMID in op.param3:
+              if Connect_to['autoJoin'] == True:
+                    client.acceptGroupInvitation(op.param1)
                     print ("ANDA JOIN DI GRUP")
                     pass
 
-        if arif.type == 13:
-            if mid in arif.param3:
-              if Wait['AutoReject'] == True:
-                if arif.param2 not in DpkFamily and arif.param2 not in Wait["Admin"]:
-                    gid = cl.getGroupIdsInvited()
+        if op.type == 13:
+            if myMID in op.param3:
+              if Connect_to['AutoReject'] == True:
+                if op.param2 not in Team and op.param2 not in Connect_to["Admin"]:
+                    gid = client.getGroupIdsInvited()
                     for i in gid:
-                        cl.rejectGroupInvitation(i)
+                        client.rejectGroupInvitation(i)
                         pass
 
-#------------------- ( 1 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
-
-        elif arif.type == 55:
+        elif op.type == 55:
             try:
-                if DpkCctv['Point1'][arif.param1]==True:
-                    if arif.param1 in DpkCctv['Point2']:  
-                        Name = cl.getContact(arif.param2).displayName
-                        if Name in DpkCctv['Point3'][arif.param1]:
+                if cctv['Point1'][op.param1]==True:
+                    if op.param1 in cctv['Point2']:  
+                        Name = client.getContact(op.param2).displayName
+                        kopi = client.getContact(op.param2).picturePath
+                        pait = client.getGroup(op.param1)
+                        if Name in cctv['Point3'][op.param1]:
                             pass
                         else:
-                            DpkCctv['Point3'][arif.param1] += "\n~" + Name
+                            cctv['Point3'][op.param1] += "\n~" + Name
                             if " " in Name:
                                 nick = Name.split(' ')
                                 if len(nick) == 2:
-                                    cl.mentionWithDPK(arif.param1,arif.param2," 「SIDER」\n","" + "\n ηyıмαk yαн kαk?😅" )
-                                    cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
+                                    client.arifistifik(op.param1,op.param2," Hii\n","" + "\n Terus aku harus gimana kak?" )
+                                    client.sendContact(op.param1, op.param2)
+                                    client.sendImageWithURL(op.param1, "http://dl.profile.line-cdn.net{}".format(kopi))
                                 else:
-                                    cl.mentionWithDPK(arif.param1,arif.param2," 「SIDER」\n","" + "\n ηαн...ησηgσl sıηı cнαт kαk 😊" )
-                                    cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
+                                    client.arifistifik(op.param1,op.param2," Nah\n","" + "\n Serius ga mau chat kak ??" )
+                                    client.sendContact(op.param1, op.param2)
+                                    client.sendImageWithURL(op.param1, "http://dl.profile.line-cdn.net{}".format(kopi))
                             else:
-                                cl.mentionWithDPK(arif.param1,arif.param2," 「SIDER」\n","" + "\n lıαтıη αρα kαk sєяıυs αмαт ?😆" )
-                                cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
+                                client.arifistifik(op.param1,op.param2," Hey\n","" + "\n Woy ngelamun aje lu... !!! awas kesurupan!" )
+                                client.sendContact(op.param1, op.param2)
+                                client.sendImageWithURL(op.param1, "http://dl.profile.line-cdn.net{}".format(kopi))
                     else:
                         pass
                 else:
@@ -335,75 +349,74 @@ def LINE_ARIF_USER(arif):
             except:
                 pass
 
-        if arif.type == 55:
+        if op.type == 55:
             try:
-                if arif.param1 in Wait['readPoint']:
-                    if arif.param2 in Wait['readMember'][arif.param1]:
+                if op.param1 in Connect_to['readPoint']:
+                    if op.param2 in Connect_to['readMember'][op.param1]:
                         pass
                     else:
-                        Wait['readMember'][arif.param1] += arif.param2
-                    Wait['ROM'][arif.param1][arif.param2] = arif.param2
+                        Connect_to['readMember'][op.param1] += op.param2
+                    Connect_to['ROM'][op.param1][op.param2] = op.param2
                 else:
                    pass
             except:
                 pass   
 
-        if arif.type == 17:
-            if Wait["Welcome"] == True:
-                if arif.param2 not in Dpk:
-                    ginfo = cl.getGroup(arif.param1)
-                    cl.mentionWithDPK(arif.param1,arif.param2," Hii","" + "\n " + str(Wait['WcText']))
-                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':arif.param2}, contentType=13)
+        if op.type == 17:
+            if Connect_to["Welcome"] == True:
+                if op.param2 not in mid:
+                    ginfo = client.getGroup(op.param1)
+                    client.arifistifik(op.param1,op.param2," Hii","" + "\n " + str(Connect_to['WcText']))
+                    client.sendMessage(op.param1, None, contentMetadata={'mid':op.param2}, contentType=13)
                     print ("MEMBER HAS JOIN THE GROUP")
 
-        if arif.type == 15:
-            if Wait["Leave"] == True:
-                if arif.param2 not in Dpk:
-                    ginfo = cl.getGroup(arif.param1)
-                    cl.mentionWithDPK(arif.param1,arif.param2," Hii","" + "\n " + str(Wait['LvText']))
-                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':arif.param2}, contentType=13)
+        if op.type == 15:
+            if Connect_to["Leave"] == True:
+                if op.param2 not in mid:
+                    ginfo = client.getGroup(op.param1)
+                    client.arifistifik(op.param1,op.param2," Hii","" + "\n " + str(Connect_to['LvText']))
+                    client.sendMessage(op.param1, None, contentMetadata={'mid':op.param2}, contentType=13)
                     print ("MEMBER HAS LEFT THE GROUP")
 
-        if arif.type == 46:
-            if arif.param2 in DpkBot:
-                cl.removeAllMessages()
+        if op.type == 46:
+            if op.param2 in Admin:
+                client.removeAllMessages()
 
-#------------------- ( 2 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
 
-        if arif.type == 26:
-            msg = arif.message
+        if op.type == [25,26]:
+            msg = op.message
             text = msg.text
-            dpkText = msg.text
+            msgText = msg.text
             msg_id = msg.id
-            kirim = msg.to           
-            user = msg._from
+            send = msg.to           
+            man = msg._from
             if msg.toType == 0 or msg.toType == 2:
                 if msg.toType == 0:
-                    to = kirim
+                    to = send
                 elif msg.toType == 2:
-                    to = kirim
+                    to = send
                 if msg.contentType == 0:
-                    if Wait["autoRead"] == True:
-                        cl.sendChatChecked(kirim, msg_id)
-                    if kirim in Wait["readPoint"]:
-                        if user not in Wait["ROM"][kirim]:
-                            Wait["ROM"][kirim][user] = True
-                    if user in Mozilla["mimic"]["target"] and Mozilla["mimic"]["status"] == True and Mozilla["mimic"]["target"][user] == True:
+                    if Connect_to["autoRead"] == True:
+                        client.sendChatChecked(send, msg_id)
+                    if send in Connect_to["readPoint"]:
+                        if man not in Connect_to["ROM"][send]:
+                            Connect_to["ROM"][send][man] = True
+                    if man in Mozilla["mimic"]["target"] and Mozilla["mimic"]["status"] == True and Mozilla["mimic"]["target"][man] == True:
                         text = msg.text
                         if text is not None:
-                            cl.sendMessage(kirim,text)
-                    if Wait["UnsendPesan"] == True:
-                        msg = arif.message
+                            client.sendMessage(send,text)
+                    if Connect_to["UnsendMessage"] == True:
+                        msg = op.message
                         if msg.toType == 0:
-                            cl.log(" {} - {} ".format(str(user), str(dpkText)))
+                            client.log(" {} - {} ".format(str(man), str(msgText)))
                         else:
-                            cl.log(" {} - {} ".format(str(kirim), str(dpkText)))
-                            msg_dict[msg.id] = {"rider": dpkText, "pelaku": user, "createdTime": msg.createdTime, "contentType": msg.contentType, "contentMetadata": msg.contentMetadata}
-                    if Wait["Timeline"] == True:
+                            client.log(" {} - {} ".format(str(send), str(msgText)))
+                            msg_dict[msg.id] = {"rider": msgText, "pelaku": man, "createdTime": msg.createdTime, "contentType": msg.contentType, "contentMetadata": msg.contentMetadata}
+                    if Connect_to["Timeline"] == True:
                       if msg.contentType == 16:
                           ret_ = "[ INFORMASI TIMELINE ]\n"
                           if msg.contentMetadata["serviceType"] == "GB":
-                              contact = cl.getContact(user).displayName
+                              contact = client.getContact(man).displayName
                               auth = "\nPenulis : {}".format(str(contact.displayName))
                           else:
                               auth = "\nPenulis : {}".format(str(msg.contentMetadata["serviceName"]))
@@ -428,14 +441,14 @@ def LINE_ARIF_USER(arif):
                                       ourl = "\n\nLink Objek : https://obs-us.line-apps.com/myhome/h/download.nhn?tid=612w&{}".format(str(object_))
                               ret_ += ourl
                           if "text" in msg.contentMetadata:
-                              dia = cl.getContact(user)
+                              dia = client.getContact(man)
                               zx = ""
                               zxc = ""
                               zx2 = []
                               xpesan = 'Pengirim: '
-                              arifqu = str(dia.displayName)
+                              ardian = str(dia.displayName)
                               pesan = ''
-                              pesan2 = pesan+"@A_DPK\n"
+                              pesan2 = pesan+"@Arifistifik\n"
                               xlen = str(len(zxc)+len(xpesan))
                               xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                               zx = {'S':xlen, 'E':xlen2, 'M':dia.mid}
@@ -446,122 +459,123 @@ def LINE_ARIF_USER(arif):
                               ret_ += kata
                               zxc += pesan2
                               pesan = xpesan + zxc + ret_ + ""
-                              cl.sendMessage(kirim, pesan, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
+                              client.sendMessage(send, pesan, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
                               url = msg.contentMetadata["postEndUrl"]
-                              cl.likePost(url[25:58], url[66:], likeType=1001)
+                              client.likePost(url[25:58], url[66:], likeType=1001)
+                              client.createComment(url[25:58], url[66:], Connect_to["comment"])
 
-        if arif.type == 65:
-          if Wait['UnsendPesan'] == True:
+        if op.type == 65:
+          if Connect_to['UnsendMessage'] == True:
               try:
-                  you = arif.param1
-                  msg.id = arif.param2
-                  user = msg._from
+                  you = op.param1
+                  msg.id = op.param2
+                  man = msg._from
                   if msg.id in msg_dict:
                     if msg_dict[msg.id]["pelaku"]:
-                        pelaku = cl.getContact(msg_dict[msg.id]["pelaku"])
+                        pelaku = client.getContact(msg_dict[msg.id]["pelaku"])
                         nama = pelaku.displayName
                         dia = "Detect Pesan Terhapus\n"
                         dia += "\n1. Name : " + nama
                         dia += "\n2. Taken : {}".format(str(msg_dict[msg.id]["createdTime"]))
                         dia += "\n3. Pesannya : {}".format(str(msg_dict[msg.id]["rider"]))
-                        cl.mentionWithDPK(you,user," Nah","\n\n" +str(dia))
+                        client.arifistifik(you,man," Nah","\n\n" +str(dia))
               except:
-                  cl.sendMessage(you, "Return")
+                  client.sendMessage(you, "Return")
 
-        if arif.type in [25,26]:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type in [25,26]:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 7:
-                if Wait['IDSticker'] == True:
+                if Connect_to['IDSticker'] == True:
                     stk_id = msg.contentMetadata['STKID']
                     stk_ver = msg.contentMetadata['STKVER']
                     pkg_id = msg.contentMetadata['STKPKGID']
                     filler = "STICKER CHECKS\nSTKID : %s\nSTKPKGID : %s\nSTKVER : %s\n\nTHIS IS LINK\n\nline://shop/detail/%s" % (stk_id,pkg_id,stk_ver,pkg_id)
-                    cl.mentionWithDPK(kirim,user,"My Code Sticker\n","" + "\n\n" + str(filler))
+                    client.arifistifik(send,man,"My Code Sticker\n","" + "\n\n" + str(filler))
                 else:
                     pass
 
-        if arif.type == 25:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 1:
-              if Wait['Upfoto'] == True:
-                if user in Owner:
-                    path = cl.downloadObjectMsg(msg.id)
-                    cl.updateProfilePicture(path)
-                    cl.mentionWithDPK(kirim,user," Update Picture Success ","")
-                    Wait['Upfoto'] = False
+              if Connect_to['Upfoto'] == True:
+                if man in Owner:
+                    path = client.downloadObjectMsg(msg.id)
+                    client.updateProfilePicture(path)
+                    client.arifistifik(send,man," Update Picture Success ","")
+                    Connect_to['Upfoto'] = False
 
-        if arif.type == 25:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 1:
-              if Wait['UpfotoGroup'] == True:
-                if user in DpkFamily or user in Wait["Admin"]:
-                    path = cl.downloadObjectMsg(msg.id)
-                    cl.updateGroupPicture(kirim, path)
-                    cl.mentionWithDPK(kirim,user," Update Picture Grup Success ","")
-                    Wait['UpfotoGroup'] = False
+              if Connect_to['UpfotoGroup'] == True:
+                if man in Team or man in Connect_to["Admin"]:
+                    path = client.downloadObjectMsg(msg.id)
+                    client.updateGroupPicture(send, path)
+                    client.arifistifik(send,man," Update Picture Grup Success ","")
+                    Connect_to['UpfotoGroup'] = False
 
-        if arif.type == 5:
-            if Wait["autoAdd"] == True:
-                if (Wait["PesanAdd"] in [""," ","\n",None]):
+        if op.type == 5:
+            if Connect_to["autoAdd"] == True:
+                if (Connect_to["PesanAdd"] in [""," ","\n",None]):
                     pass
                 else:
-                    Wait["ContactAdd"][arif.param2] = True
-                    usr = cl.getContact(op.param2)
-                    cl.sendMessage(arif.param1, "Haii {} " + str(Wait["PesanAdd"]).format(usr.displayName))
-                    cl.sendMessage(arif.param1, None, contentMetadata={'mid':mid}, contentType=13)
+                    Connect_to["ContactAdd"][op.param2] = True
+                    usr = client.getContact(op.param2)
+                    client.sendMessage(op.param1, "Haii {} " + str(Connect_to["PesanAdd"]).format(usr.displayName))
+                    client.sendMessage(op.param1, None, contentMetadata={'mid':myMID}, contentType=13)
 
-        if arif.type == 5:
-            if Wait['autoBlock'] == True:
+        if op.type == 5:
+            if Connect_to['autoBlock'] == True:
                 try:
-                    usr = cl.getContact(op.param2)
-                    cl.sendMessage(arif.param1, "Haii {} Sorry Auto Block , Komen di TL dulu ya kalo akun asli baru di unblock".format(usr.displayName))
-                    cl.talk.blockContact(0, arif.param1)
-                    Wait["Blacklist"][arif.param2] = True
+                    usr = client.getContact(op.param2)
+                    client.sendMessage(op.param1, "Haii {} Sorry Auto Block , Komen di TL dulu ya kalo akun asli baru di unblock".format(usr.displayName))
+                    client.talk.blockContact(0, op.param1)
+                    Connect_to["Blacklist"][op.param2] = True
                 except Exception as e:
                 	print (e)
 
-        if arif.type in [25,26]:
-          if Wait['Contact'] == True:
-              msg = arif.message
-              user = msg._from
-              kirim = msg.to
+        if op.type in [25,26]:
+          if Connect_to['Contact'] == True:
+              msg = op.message
+              man = msg._from
+              send = msg.to
               if msg.contentType == 13:
                 if 'displayName' in msg.contentMetadata:
-                    contact = cl.getContact(msg.contentMetadata["mid"])
+                    contact = client.getContact(msg.contentMetadata["mid"])
                     try:
-                        cover = cl.getProfileCoverURL(user)
+                        cover = client.getProfileCoverURL(man)
                     except:
                         cover = ""
-                    cl.sendMessage(kirim,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nBio:\n" + contact.statusMessage + "\n\nPicture URL:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\nCover URL:\n" + str(cover))
+                    client.sendMessage(send,"Nama:\n" + msg.contentMetadata["displayName"] + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nBio:\n" + contact.statusMessage + "\n\nPicture URL:\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\nCover URL:\n" + str(cover))
                 else:
-                    contact = cl.getContact(msg.contentMetadata["mid"])
+                    contact = client.getContact(msg.contentMetadata["mid"])
                     try:
-                        cover = cl.getProfileCoverURL(user)
+                        cover = client.getProfileCoverURL(man)
                     except:
                         cover = ""
-                    cl.sendText(kirim,"Nama:\n" + contact.displayName + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nBio:\n" + contact.statusMessage + "\n\nPicture URL\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\nCover URL:\n" + str(cover))
+                    client.sendText(send,"Nama:\n" + contact.displayName + "\n\nMid:\n" + msg.contentMetadata["mid"] + "\n\nBio:\n" + contact.statusMessage + "\n\nPicture URL\nhttp://dl.profile.line-cdn.net/" + contact.pictureStatus + "\nCover URL:\n" + str(cover))
 
-        if arif.type == 25:
-          if Wait['Invite'] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to['Invite'] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     invite = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
                         if _name in s.displayName:
-                            cl.sendText(kirim, _name + " Sudah Berada DiGrup Ini")
+                            client.sendText(send, _name + " Sudah Berada DiGrup Ini")
                         else:
                             targets.append(invite)
                     if targets == []:
@@ -569,26 +583,26 @@ def LINE_ARIF_USER(arif):
                     else:
                         for target in targets:
                             try:
-                                cl.findAndAddContactsByMid(target)
-                                cl.inviteIntoGroup(kirim,[target])
-                                cl.sendText(kirim,"Invite " + _name + "\nSUCCESS..")
-                                Wait['Invite'] = False
+                                client.findAndAddContactsByMid(target)
+                                client.inviteIntoGroup(send,[target])
+                                client.sendText(send,"Invite " + _name + "\nSUCCESS..")
+                                Connect_to['Invite'] = False
                                 break
                             except:             
-                                 cl.sendText(kirim, 'Contact error')
-                                 Wait['Invite'] = False
+                                 client.sendText(send, 'Contact error')
+                                 Connect_to['Invite'] = False
                                  break
 
-        if arif.type == 25:
-          if Wait['Steal'] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to['Steal'] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -602,29 +616,29 @@ def LINE_ARIF_USER(arif):
                     else:
                         for target in targets:
                             try:
-                                contact = cl.getContact(target)
-                                cl.sendText(kirim,"Nama :\n" + msg.contentMetadata["displayName"] + "\n\nBio :\n" + contact.statusMessage+ "\n\nMid :\n" + msg.contentMetadata["mid"] + "\n\nSteal Succes..")
+                                contact = client.getContact(target)
+                                client.sendText(send,"Nama :\n" + msg.contentMetadata["displayName"] + "\n\nBio :\n" + contact.statusMessage+ "\n\nMid :\n" + msg.contentMetadata["mid"] + "\n\nSteal Succes..")
                                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
-                                cl.sendImageWithURL(kirim,image)
-                                cover = cl.getProfileCoverURL(target)
-                                cl.sendImageWithURL(kirim, cover)
-                                Wait['Steal'] = False
+                                client.sendImageWithURL(send,image)
+                                cover = client.getProfileCoverURL(target)
+                                client.sendImageWithURL(send, cover)
+                                Connect_to['Steal'] = False
                                 break                     
                             except:             
-                                 cl.sendText(kirim, 'Contact error')
-                                 Wait['Steal'] = False
+                                 client.sendText(send, 'Contact error')
+                                 Connect_to['Steal'] = False
                                  break
 
-        if arif.type == 25:
-          if Wait['KillOn'] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to['KillOn'] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -637,26 +651,26 @@ def LINE_ARIF_USER(arif):
                         pass
                     else:
                         for target in targets:
-                            if target not in DpkFamily:
+                            if target not in Team:
                                 try:
-                                    cl.kickoutFromGroup(kirim,[target])
-                                    Wait['KillOn'] = False
+                                    client.kickoutFromGroup(send,[target])
+                                    Connect_to['KillOn'] = False
                                     break
                                 except:             
-                                     cl.sendText(kirim, 'Target Not Found')
-                                     Wait['KillOn'] = False
+                                     client.sendText(send, 'Target Not Found')
+                                     Connect_to['KillOn'] = False
                                      break
 
-        if arif.type == 25:
-          if Wait['Gift'] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to['Gift'] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -670,24 +684,24 @@ def LINE_ARIF_USER(arif):
                     else:
                         for target in targets:
                             try:
-                                cl.sendMessage(target, None, contentMetadata={'PRDID': 'a0768339-c2d3-4189-9653-2909e9bb6f58','PRDTYPE': 'THEME','MSGTPL': '12'}, contentType = 9)
-                                Wait['Gift'] = False
+                                client.sendMessage(target, None, contentMetadata={'PRDID': 'a0768339-c2d3-4189-9653-2909e9bb6f58','PRDTYPE': 'THEME','MSGTPL': '12'}, contentType = 9)
+                                Connect_to['Gift'] = False
                                 break
                             except:             
-                                 cl.sendText(kirim, 'Target Error')
-                                 Wait['Gift'] = False
+                                 client.sendText(send, 'Target Error')
+                                 Connect_to['Gift'] = False
                                  break
 
-        if arif.type == 25:
-          if Wait["Mic"] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to["Mic"] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -702,23 +716,23 @@ def LINE_ARIF_USER(arif):
                         for target in targets:
                             try:
                                 Mozilla["mimic"]["target"][target] = True
-                                cl.sendText(kirim,"Target ditambahkan!")
-                                Squas['Mic'] = False
+                                client.sendText(send,"Target ditambahkan!")
+                                Connect_to['Mic'] = False
                                 break
                             except:             
-                                 cl.sendText(kirim, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
+                                 client.sendText(send, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
                                  break
 
-        if arif.type == 25:
-          if Wait["MicDel"] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to["MicDel"] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -733,23 +747,23 @@ def LINE_ARIF_USER(arif):
                         for target in targets:
                             try:
                                 del Mozilla["mimic"]["target"][target]
-                                cl.sendText(kirim,"Target is Dellete!")
-                                Wait['MicDel'] = False
+                                client.sendText(send,"Target is Dellete!")
+                                Connect_to['MicDel'] = False
                                 break
                             except:             
-                                 cl.sendText(kirim, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
+                                 client.sendText(send, 'Silahkan untuk on kan kembali & Send Contact Again\nKami akan memuat ulang program')
                                  break
 
-        if arif.type == 25:
-          if Wait['Copy'] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to['Copy'] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     _name = msg.contentMetadata["displayName"]
                     copy = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for s in groups.members:
@@ -763,46 +777,44 @@ def LINE_ARIF_USER(arif):
                     else:
                         for target in targets:
                             try:
-                                cl.cloneContactProfile(target)
-                                cl.sendText(kirim, "Copy Contact Success")
-                                Wait['Copy'] = False
+                                client.cloneContactProfile(target)
+                                client.sendText(send, "Copy Contact Success")
+                                Connect_to['Copy'] = False
                                 break
                             except:             
-                                 cl.sendText(kirim, "Contact Error")
-                                 Wait['Copy'] = False
+                                 client.sendText(send, "Contact Error")
+                                 Connect_to['Copy'] = False
                                  break
                                  
                                  
 #======= AUTO TAG & CHAT BATAS SCRIP ========
-        if arif.type == 26:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
-            if msg.contentType == 0 and user not in mid and msg.toType == 2:
+        if op.type == 26:
+            msg = op.message
+            man = msg._from
+            send = msg.to
+            if msg.contentType == 0 and man not in myMID and msg.toType == 2:
                 if "MENTION" in msg.contentMetadata.keys() != None:
-                    if Wait['AutoRespon'] == True:
-                        contact = cl.getContact(user)
+                    if Connect_to['AutoRespon'] == True:
+                        contact = client.getContact(man)
                         cName = contact.displayName
-                        balas = [cName + "\n" + str(Wait['MentionText'])]
+                        balas = [cName + "\n" + str(Connect_to['MentionText'])]
                         ret_ = "" + random.choice(balas)
                         name = re.findall(r'@(\w+)', msg.text)
                         mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                         mentionees = mention['MENTIONEES']
                         for mention in mentionees:
-                              if mention['M'] in mid:
-#                                  cl.mentionWithDPK(kirim,user,"","" +str(ret_))
-                                  cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
-                                  cl.sendMessage(kirim, wait["MentionText"])
+                              if mention['M'] in myMID:
+                                  client.arifistifik(send,man,"","" +str(ret_))
                                   break
 
-        if arif.type == 26:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
-            if msg.contentType == 0 and user not in DpkFamily or user not in Wait["Admin"]:
+        if op.type == 26:
+            msg = op.message
+            man = msg._from
+            send = msg.to
+            if msg.contentType == 0 and man not in Team or man not in Connect_to["Admin"]:
                 if "MENTION" in msg.contentMetadata.keys() != None:
-                    if Wait['KickRespon'] == True:
-                        contact = cl.getContact(user)
+                    if Connect_to['KickRespon'] == True:
+                        contact = client.getContact(man)
                         cName = contact.displayName
                         balas = [cName + "Dont Tag Me","Sorry Dont Tag Me"]
                         ret_ = "" + random.choice(balas)
@@ -810,26 +822,26 @@ def LINE_ARIF_USER(arif):
                         mention = ast.literal_eval(msg.contentMetadata["MENTION"])
                         mentionees = mention['MENTIONEES']
                         for mention in mentionees:
-                              if mention['M'] in mid:
-                                  cl.mentionWithDPK(kirim,user,"","" +str(ret_))
-                                  cl.kickoutFromGroup(kirim,[user])
+                              if mention['M'] in myMID:
+                                  client.arifistifik(send,man,"","" +str(ret_))
+                                  client.kickoutFromGroup(send,[man])
                                   break
 
-        if arif.type == 25:
-          if Wait['SpamInvite'] == True:
-            msg = arif.message
-            user = msg._from
-            kirim = msg.to
+        if op.type == 25:
+          if Connect_to['SpamInvite'] == True:
+            msg = op.message
+            man = msg._from
+            send = msg.to
             if msg.contentType == 13:
-                if user in DpkFamily or user in Wait["Admin"]:
+                if man in Team or man in Connect_to["Admin"]:
                     korban = msg.contentMetadata["displayName"]
                     invite = msg.contentMetadata["mid"]
-                    groups = cl.getGroup(kirim)
+                    groups = client.getGroup(send)
                     pending = groups.invitee
                     targets = []
                     for x in groups.members:
                         if korban in x.displayName:
-                            cl.sendText(kirim, korban + " Sudah Berada DiGrup Ini")
+                            client.sendText(send, korban + " Sudah Berada DiGrup Ini")
                         else:
                             targets.append(invite)
                     if targets == []:
@@ -837,180 +849,187 @@ def LINE_ARIF_USER(arif):
                     else:
                         for target in targets:
                             try:
-                                cl.findAndAddContactsByMid(target)
-                                cl.createGroup("LINE SPAM GROUP",[target]) # KALAU MAU BUAT BANYAK SILAHKAN TAMBAHIN SESUKA KALIAN :>
-                                cl.createGroup("LINE SPAM GROUP",[target]) # HANYA SPAM VIA CONTACT
-                                cl.createGroup("LINE SPAM GROUP",[target])
-                                cl.sendText(kirim,"Spam Invite ke " + korban + "\nSUCCESS..")
-                                Wait['SpamInvite'] = False
+                                client.findAndAddContactsByMid(target)
+                                client.createGroup("ELU DISPAM GOBLOK",[target]) 
+                                client.createGroup("ELU DISPAM GOBLOK",[target]) 
+                                client.createGroup("ELU DISPAM GOBLOK",[target])
+                                client.sendText(send,"Spam Invite ke " + korban + "\nSUCCESS..")
+                                Connect_to['SpamInvite'] = False
                             except:             
-                                 cl.sendText(kirim, 'Contact error')
-                                 Wait['SpamInvite'] = False
+                                 client.sendText(send, 'Contact error')
+                                 Connect_to['SpamInvite'] = False
                                  break
 
 
-#------------------- ( 3 ) ------------------------- PEMBATAS SCRIP ------------------------------------------------#
 
-        if arif.type == 25 or arif.type == 26:
-            msg = arif.message
+        if op.type == 25 or op.type == 26:
+            msg = op.message
             text = msg.text
-            dpkText = msg.text
+            msgText = msg.text
             msg_id = msg.id
-            kirim = msg.to           
-            user = msg._from
+            send = msg.to           
+            man = msg._from
             if msg.toType == 0 or msg.toType == 2:
                 if msg.toType == 0:
-                    to = kirim
+                    to = send
                 elif msg.toType == 2:
-                    to = kirim
+                    to = send
                 if msg.contentType == 0:
-                    if Wait["autoRead"] == True:
-                        cl.sendChatChecked(0, msg_id)
-                    elif dpkText is None:
+                    if Connect_to["autoRead"] == True:
+                        client.sendChatChecked(0, msg_id)
+                    elif msgText is None:
                         return
                     else:               
-                        if dpkText.lower() == '_PYTHON3_':
-                            cl.sendMessage(0, user)
+                        if msgText.lower() == '_PYTHON3_':
+                            client.sendMessage(0, man)
 
-                        elif dpkText.lower() == "me":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                cl.sendMessage(kirim, None, contentMetadata={'mid': user}, contentType=13)
-                                cl.mentionWithDPK(kirim,user," Hay","")
+                        elif msgText.lower() == "me":
+                            if man in Team or man in Connect_to["Admin"]:
+                                client.sendMessage(send, None, contentMetadata={'mid': man}, contentType=13)
+                                client.arifistifik(send,man," Hay","")
 
-                        elif dpkText.lower() == "help":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                 cl.sendMessage(kirim, str(Help))
+                        elif msgText.lower() == "help":
+                            if man in Team or man in Connect_to["Admin"]:
+                                 client.sendMessage(send, str(Help))
 
-                        elif dpkText.lower() == "help bot":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                 cl.sendMessage(kirim, str(Helpbot))
+                        elif msgText.lower() == "help2":
+                            if man in Team or man in Connect_to["Admin"]:
+                                 client.sendMessage(send, str(Help2))
 
-                        elif dpkText.lower() == "help media":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                 cl.sendMessage(kirim, str(Helpmedia))
+                        elif msgText.lower() == "help3":
+                            if man in Team or man in Connect_to["Admin"]:
+                                 client.sendMessage(send, str(Help3))
 
-                        elif dpkText.lower() == "speed":
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == "help4":
+                            if man in Team or man in Connect_to["Admin"]:
+                                 client.sendMessage(send, str(Help4))
+
+                        elif msgText.lower() == "help5":
+                            if man in Team or man in Connect_to["Admin"]:
+                                 client.sendMessage(send, str(Help5))
+
+                        elif msgText.lower() == "speed":
+                            if man in Team or man in Connect_to["Admin"]:
                                 no = time.time()
-                                cl.sendText("u65224f4e8812136f01b25275a54b5aef", ' ')
+                                client.sendText("u5cddc1ed7ed83dd61226e5bd229b0ccb", ' ')
                                 elapsed_time = time.time() - no
-                                cl.sendText(kirim, "%s" % (elapsed_time))
+                                client.sendText(send, "%s" % (elapsed_time))
 
-                        elif dpkText.lower() == "rename":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                team1 = cl.getContact(mid).displayName
-                                cl.mentionWithDPK(kirim,mid," Ready On ","" + str(" ("+team1+")"))
+                        elif msgText.lower() == "rename":
+                            if man in Team or man in Connect_to["Admin"]:
+                                team1 = client.getContact(myMID).displayName
+                                client.arifistifik(send,myMID," Ready On ","" + str(" ("+team1+")"))
 
-                        elif dpkText.lower() == "my team":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                dpk = ""
-                                family = ""
+                        elif msgText.lower() == "my team":
+                            if man in Team or man in Connect_to["Admin"]:
+                                msg = ""
+                                dpk_ = ""
                                 wa = 0
                                 wi = 0
                                 for m_id in Owner:
                                     wa = wa + 1
                                     end = '\n'
-                                    dpk += str(wa) + ". " +cl.getContact(m_id).displayName + "\n"
-                                for m_id in Wait["Admin"]:
+                                    msg += str(wa) + ". " +client.getContact(m_id).displayName + "\n"
+                                for m_id in Connect_to["Admin"]:
                                     wi = wi + 1
                                     end = '\n'
-                                    family += str(wi) + ". " +cl.getContact(m_id).displayName + "\n"
-                                cl.sendText(kirim,"DPK FAMILY\n\nOwner:\n"+dpk+"\nAdmin:\n"+family+"\n( %s ) TEAM FAMILY" %(str(len(Owner)+len(Wait["Admin"]))))                                
+                                    dpk_ += str(wi) + ". " +client.getContact(m_id).displayName + "\n"
+                                client.sendText(send,"Team\n\nOwner:\n"+msg+"\nAdmin:\n"+dpk_+"\n( %s ) TEAM DPK" %(str(len(Owner)+len(Connect_to["Admin"]))))                                
 
-                        elif dpkText.lower() == "leaveall grup":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                gid = cl.getGroupIdsJoined()
+                        elif msgText.lower() == "leaveall grup":
+                            if man in Team or man in Connect_to["Admin"]:
+                                gid = client.getGroupIdsJoined()
                                 for i in gid:
-                                    cl.leaveGroup(i)
+                                    client.leaveGroup(i)
                                     print ("Kicker Leave All group")
 
-                        elif dpkText in ["Kick on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["KickOn"] = True
-                                cl.sendText(kirim,"Status:\n{''cancel'':0,''kick'':1}")
-                        elif dpkText in ["Kick off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["KickOn"] = False
-                                cl.sendText(kirim,"Status:\n{''cancel'':0,''kick'':0}")
+                        elif msgText in ["Kick on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["KickOn"] = True
+                                client.sendText(send,"Status:\n{''cancel'':0,''kick'':1}")
+                        elif msgText in ["Kick off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["KickOn"] = False
+                                client.sendText(send,"Status:\n{''cancel'':0,''kick'':0}")
 
-                        elif "Kickall" in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "Kickall" in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
                               if msg.toType == 2:
-                                if Wait["KickOn"]:
+                                if Connect_to["KickOn"]:
                                     _name = msg.text.replace("Kickall","")
-                                    gs = cl.getGroup(kirim)
+                                    gs = client.getGroup(send)
                                     targets = []
                                     for g in gs.members:
                                         if _name in g.displayName:
                                             targets.append(g.mid)
                                     if targets == []:
-                                        cl.sendText(kirim,"Target Not found.")
+                                        client.sendText(send,"Target Not found.")
                                     else:
                                         for target in targets:
-                                          if target not in DpkFamily and target not in Wait["Admin"]:
+                                          if target not in Team and target not in Connect_to["Admin"]:
                                             try:
                                                 klist=[cl]
                                                 kicker=random.choice(klist)
-                                                kicker.kickoutFromGroup(kirim,[target])
+                                                kicker.kickoutFromGroup(send,[target])
                                             except Exception as error:
-                                                cl.sendText(kirim, str(error))
+                                                client.sendText(send, str(error))
 
-                        elif dpkText.lower().startswith("spam "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                txt = dpkText.split(" ")
+                        elif msgText.lower().startswith("spam "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                txt = msgText.split(" ")
                                 jmlh = int(txt[2])
-                                teks = dpkText.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
+                                teks = msgText.replace("Spam "+str(txt[1])+" "+str(jmlh)+" ","")
                                 tulisan = jmlh * (teks+"\n")
                                 if txt[1] == "on":
                                     if jmlh <= 500:
                                        for x in range(jmlh):
-                                           cl.sendText(kirim, teks)
+                                           client.sendText(send, teks)
                                     else:
-                                       cl.sendText(kirim, "Maksimal 500 SpamTeks!")
+                                       client.sendText(send, "Maksimal 500 SpamTeks!")
                                 elif txt[1] == "off":
                                     if jmlh <= 500:
-                                        cl.sendText(kirim, tulisan)
+                                        client.sendText(send, tulisan)
                                     else:
-                                        cl.sendText(kirim, "Maksimal 500 SpamTeks!")
+                                        client.sendText(send, "Maksimal 500 SpamTeks!")
 
-                        elif "Gcall" in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "Gcall" in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
                               if msg.toType == 2:
-                                    group = cl.getGroup(to)
+                                    group = client.getGroup(to)
                                     members = [mem.mid for mem in group.members]
                                     call.acquireGroupCallRoute(to)
                                     call.inviteIntoGroupCall(to, contactIds=members)
-                                    jmlh = int(Wait["limit"])
-                                    cl.sendText(to, "Success melakukan panggilan group")
+                                    jmlh = int(Connect_to["limit"])
+                                    client.sendText(to, "Success melakukan panggilan group")
                                     if jmlh <= 1000:
                                       for x in range(jmlh):
                                          try:
                                             call.acquireGroupCallRoute(to)
                                             call.inviteIntoGroupCall(to, contactIds=members)
                                          except Exception as e:
-                                            cl.sendMessage(msg.to,str(e))
+                                            client.sendMessage(msg.to,str(e))
                                     else:
-                                    	cl.sendMessage(msg.to,"Jumlah melebihi batas")
+                                    	client.sendMessage(msg.to,"Jumlah melebihi batas")
                             	
-                        elif dpkText.lower().startswith("cekmid: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                arifqu = dpkText.replace("Cekmid: ","")
-                                cl.sendMessage(kirim, None, contentMetadata={'mid': arifqu}, contentType=13)
-                                contact = cl.getContact(arifqu)
-                                ganteng = cl.getProfileCoverURL(arifqu)
+                        elif msgText.lower().startswith("cekmid: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                ardian = msgText.replace("Cekmid: ","")
+                                client.sendMessage(send, None, contentMetadata={'mid': ardian}, contentType=13)
+                                contact = client.getContact(ardian)
+                                ganteng = client.getProfileCoverURL(ardian)
                                 path = str(ganteng)
                                 image = "http://dl.profile.line-cdn.net/" + contact.pictureStatus
                                 try:
-                                    cl.sendText(kirim,"Nama :\n" + contact.displayName + "\n\nBio :\n" + contact.statusMessage)
-                                    cl.sendText(kirim,"Profile Picture " + contact.displayName)
-                                    cl.sendImageWithURL(kirim,image)
-                                    cl.sendText(kirim,"Cover Picture " + contact.displayName)
-                                    cl.sendImageWithURL(kirim,path)
+                                    client.sendText(send,"Nama :\n" + contact.displayName + "\n\nBio :\n" + contact.statusMessage)
+                                    client.sendText(send,"Profile Picture " + contact.displayName)
+                                    client.sendImageWithURL(send,image)
+                                    client.sendText(send,"Cover Picture " + contact.displayName)
+                                    client.sendImageWithURL(send,path)
                                 except:
                                     pass
 
-                        elif ("Banlock " in dpkText):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif ("Banlock " in msgText):
+                            if man in Team or man in Connect_to["Admin"]:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
@@ -1018,101 +1037,101 @@ def LINE_ARIF_USER(arif):
                                     targets.append(x["M"])
                                 for target in targets:
                                     try:
-                                        Wait["Blacklist"][target] = True
-                                        cl.sendText(kirim,"Succes Banned ")
+                                        Connect_to["Blacklist"][target] = True
+                                        client.sendText(send,"Succes Banned ")
                                     except:
                                         pass
 
-                        elif dpkText.lower() == "banlist":
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                if Wait["Blacklist"] == {}:
-                                    cl.sendText(kirim,"Tidak ada yang masuk dalam daftar orang bejat bos😁")
+                        elif msgText.lower() == "banlist":
+                            if man in Team or man in Connect_to["Admin"]:
+                                if Connect_to["Blacklist"] == {}:
+                                    client.sendText(send,"Nothing in Blacklist")
                                 else:
                                     mc = "Daftar Blacklist "
                                     num=1
-                                    ragets = cl.getContacts(Wait["Blacklist"])
+                                    ragets = client.getContacts(Connect_to["Blacklist"])
                                     for mi_d in ragets:
                                         mc+="\n%i. %s" % (num, mi_d.displayName)
                                         num=(num+1)
-                                    mc+="\n\n Total %i Masuk dalam katekori Orang Bejat!!! " % len(ragets)
-                                    cl.sendText(kirim, mc)
+                                    mc+="\n\n Total %i Blacklist " % len(ragets)
+                                    client.sendText(send, mc)
 
-                        elif dpkText.lower().startswith("contact ban"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                              if Wait["Blacklist"] == {}:
-                                  cl.sendText(kirim,"Tidak ada yang masuk dalam daftar orang bejat bos😁")
+                        elif msgText.lower().startswith("contact ban"):
+                            if man in Team or man in Connect_to["Admin"]:
+                              if Connect_to["Blacklist"] == {}:
+                                  client.sendText(send,"Tidak Ada Blacklist")
                               else:
-                                  cl.sendText(kirim,"Contact Blacklist")
+                                  client.sendText(send,"Contact Blacklist")
                                   h = ""
-                                  for i in Wait["Blacklist"]:
-                                      h = cl.getContact(i)
-                                      cl.sendMessage(kirim, None, contentMetadata={'mid': i}, contentType=13)
+                                  for i in Connect_to["Blacklist"]:
+                                      h = client.getContact(i)
+                                      client.sendMessage(send, None, contentMetadata={'mid': i}, contentType=13)
 
-                        elif dpkText.lower().startswith("clear ban"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["Blacklist"] = {}
-                                cl.sendText(kirim,"ORANG BEJAT SUDAH DIMAAFKAN😁")
+                        elif msgText.lower().startswith("clear ban"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["Blacklist"] = {}
+                                client.sendText(send,"Succes clear Blacklist is nothing??")
                                 print ("Clear Ban")
 
-                        elif dpkText.lower() == 'link on':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'link on':
+                            if man in Team or man in Connect_to["Admin"]:
                                 if msg.toType == 2:
-                                    group = cl.getGroup(kirim)
+                                    group = client.getGroup(send)
                                     group.preventedJoinByTicket = False
-                                    cl.updateGroup(group)
+                                    client.updateGroup(group)
 
-                        elif dpkText.lower() == 'link off':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'link off':
+                            if man in Team or man in Connect_to["Admin"]:
                                 if msg.toType == 2:
-                                    group = cl.getGroup(kirim)
+                                    group = client.getGroup(send)
                                     group.preventedJoinByTicket = True
-                                    cl.updateGroup(group)
+                                    client.updateGroup(group)
 
-                        elif dpkText.lower() == 'gurl':
-                          if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'gurl':
+                          if man in Team or man in Connect_to["Admin"]:
                             if msg.toType == 2:
-                                grup = cl.getGroup(kirim)
+                                grup = client.getGroup(send)
                                 if grup.preventedJoinByTicket == False:
-                                    set = cl.reissueGroupTicket(kirim)
-                                    cl.sendMessage(kirim, "Group Ticket : \nhttps://line.me/R/ti/g/{}".format(str(set)))
+                                    set = client.reissueGroupTicket(send)
+                                    client.sendMessage(send, "Group Ticket : \nhttps://line.me/R/ti/g/{}".format(str(set)))
                                 else:
-                                    cl.sendMessage(kirim, "Ketik Link on Dulu kaka")
+                                    client.sendMessage(send, "Ketik Link on Dulu kaka")
 
-                        elif dpkText.lower() == 'gcreator':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'gcreator':
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    group = cl.getGroup(kirim)
-                                    GS = group.creator.mid
-                                    cl.sendMessage(kirim, None, contentMetadata={'mid': GS}, contentType=13)
-                                    cl.mentionWithDPK(kirim,GS,"Group Creator","")
-                                    contact = cl.getContact(GS.mid)
+                                    group = client.getGroup(send)
+                                    GC = group.creator.mid
+                                    client.sendMessage(send, None, contentMetadata={'mid': GC}, contentType=13)
+                                    client.arifistifik(send,GC,"Group Creator","")
+                                    contact = client.getContact(GC.mid)
                                 except:
                                     W = group.members[0].mid
-                                    cl.sendMessage(kirim, None, contentMetadata={'mid': W}, contentType=13)
-                                    cl.mentionWithDPK(kirim,W,"Group Creator","")
+                                    client.sendMessage(send, None, contentMetadata={'mid': W}, contentType=13)
+                                    client.arifistifik(send,W,"Group Creator","")
 
-                        elif "invite gcreator" == dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "invite gcreator" == msgText:
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    group = cl.getGroup(kirim)
-                                    GS = group.creator.mid
-                                    cl.sendMessage(kirim, None, contentMetadata={'mid': GS}, contentType=13)
-                                    cl.mentionWithDPK(kirim,GS,"Group Creator","")
-                                    cl.findAndAddContactsByMid(GS)
-                                    cl.inviteIntoGroup(kirim,[GS])
-                                    cl.mentionWithDPK(kirim,user,"Invite Done","")
-                                    contact = cl.getContact(GS.mid)
+                                    group = client.getGroup(send)
+                                    GC = group.creator.mid
+                                    client.sendMessage(send, None, contentMetadata={'mid': GC}, contentType=13)
+                                    client.arifistifik(send,GC,"Group Creator","")
+                                    client.findAndAddContactsByMid(GC)
+                                    client.inviteIntoGroup(send,[GC])
+                                    client.arifistifik(send,man,"Invite Done","")
+                                    contact = client.getContact(GC.mid)
                                 except:
                                     W = group.members[0].mid
-                                    cl.sendMessage(kirim, None, contentMetadata={'mid': W}, contentType=13)
-                                    cl.mentionWithDPK(kirim,W,"Group Creator","")
-                                    cl.findAndAddContactsByMid(W)
-                                    cl.inviteIntoGroup(kirim,[W])
-                                    cl.mentionWithDPK(kirim,user,"Invite Done","")
+                                    client.sendMessage(send, None, contentMetadata={'mid': W}, contentType=13)
+                                    client.arifistifik(send,W,"Group Creator","")
+                                    client.findAndAddContactsByMid(W)
+                                    client.inviteIntoGroup(send,[W])
+                                    client.arifistifik(send,man,"Invite Done","")
 
-                        elif dpkText.lower() == 'ginfo':
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                group = cl.getGroup(kirim)
+                        elif msgText.lower() == 'ginfo':
+                            if man in Team or man in Connect_to["Admin"]:
+                                group = client.getGroup(send)
                                 try:
                                     gCreator = group.creator.displayName
                                 except:
@@ -1126,20 +1145,20 @@ def LINE_ARIF_USER(arif):
                                     gTicket = "Tidak ada"
                                 else:
                                     gQr = "Terbuka"
-                                    gTicket = "https://line.me/R/ti/g/{}".format(str(line.reissueGroupTicket(group.id)))
-                                cuki = "INFO GRUP"
-                                cuki += "\nNama Group : {}".format(str(group.name))
-                                cuki += "\nID Group :\n? {}".format(group.id)
-                                cuki += "\nPembuat : {}".format(str(gCreator))
-                                cuki += "\nJumlah Member : {}".format(str(len(group.members)))
-                                cuki += "\nJumlah Pending : {}".format(gPending)
-                                cuki += "\nGroup Qr : {}".format(gQr)
-                                cuki += "\nGroup Ticket : {}".format(gTicket)
-                                cl.sendMessage(kirim, str(cuki))
+                                    gTicket = "https://line.me/R/ti/g/{}".format(str(client.reissueGroupTicket(group.id)))
+                                dpk = "INFO GRUP"
+                                dpk += "\nNama Group : {}".format(str(group.name))
+                                dpk += "\nID Group :\n? {}".format(group.id)
+                                dpk += "\nPembuat : {}".format(str(gCreator))
+                                dpk += "\nJumlah Member : {}".format(str(len(group.members)))
+                                dpk += "\nJumlah Pending : {}".format(gPending)
+                                dpk += "\nGroup Qr : {}".format(gQr)
+                                dpk += "\nGroup Ticket : {}".format(gTicket)
+                                client.sendMessage(send, str(dpk))
 
-                        elif dpkText in ["Memberlist"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                kontak = cl.getGroup(kirim)
+                        elif msgText in ["Memberlist"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                kontak = client.getGroup(send)
                                 group = kontak.members
                                 num=1
                                 msgs="LIST MEMBER\n"
@@ -1147,40 +1166,40 @@ def LINE_ARIF_USER(arif):
                                     msgs+="\n%i. %s" % (num, ids.displayName)
                                     num=(num+1)
                                 msgs+="\n\nTOTAL MEMBER ( %i )" % len(group)
-                                cl.sendText(kirim, msgs)
+                                client.sendText(send, msgs)
 
-                        elif dpkText in ["Blocklist"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                blockedlist = cl.getBlockedContactIds()
-                                kontak = cl.getContacts(blockedlist)
+                        elif msgText in ["Blocklist"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                blockedlist = client.getBlockedContactIds()
+                                kontak = client.getContacts(blockedlist)
                                 num=1
                                 msgs="My Blocked\n"
                                 for ids in kontak:
                                     msgs+="\n%i. %s" % (num, ids.displayName)
                                     num=(num+1)
                                 msgs+="\n\nTotal Blocked : %i" % len(kontak)
-                                cl.sendText(kirim, msgs)
+                                client.sendText(send, msgs)
 
-                        elif dpkText in ["Friendlist mid"]: 
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                gruplist = cl.getAllContactIds()
-                                kontak = cl.getContacts(gruplist)
+                        elif msgText in ["Friendlist mid"]: 
+                            if man in Team or man in Connect_to["Admin"]:
+                                gruplist = client.getAllContactIds()
+                                kontak = client.getContacts(gruplist)
                                 num=1
                                 msgs="List Mid Friend\n"
                                 for ids in kontak:
                                     msgs+="\n%i. %s" % (num, ids.mid)
                                     num=(num+1)
                                 msgs+="\n\nTotal Mid Friend : %i" % len(kontak)
-                                cl.sendText(kirim, msgs)
+                                client.sendText(send, msgs)
 
-                        elif "Grup id" in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                saya = dpkText.replace('Grup id','')
-                                gid = cl.getGroup(kirim)
-                                cl.sendText(kirim, "ID Grup : \n" + gid.id + "\nName Grup : \n" + str(gid.name))
+                        elif "Grup id" in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
+                                saya = msgText.replace('Grup id','')
+                                gid = client.getGroup(send)
+                                client.sendText(send, "ID Grup : \n" + gid.id + "\nName Grup : \n" + str(gid.name))
 
-                        elif dpkText.lower() == 'lurking on':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'lurking on':
+                            if man in Team or man in Connect_to["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1193,37 +1212,37 @@ def LINE_ARIF_USER(arif):
                                 for k in range(0, len(bulan)):
                                     if bln == str(k): bln = bulan[k-1]
                                 readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                                if kirim in Wait['readPoint']:
+                                if send in Connect_to['readPoint']:
                                         try:
-                                            del Wait['readPoint'][kirim]
-                                            del Wait['readMember'][kirim]
-                                            del Wait['readTime'][kirim]
+                                            del Connect_to['readPoint'][send]
+                                            del Connect_to['readMember'][send]
+                                            del Connect_to['readTime'][send]
                                         except:
                                             pass
-                                        Wait['readPoint'][kirim] = msg.id
-                                        Wait['readMember'][kirim] = ""
-                                        Wait['readTime'][kirim] = datetime.now().strftime('%H:%M:%S')
-                                        Wait['ROM'][kirim] = {}
+                                        Connect_to['readPoint'][send] = msg.id
+                                        Connect_to['readMember'][send] = ""
+                                        Connect_to['readTime'][send] = datetime.now().strftime('%H:%M:%S')
+                                        Connect_to['ROM'][send] = {}
                                         with open('sider.json', 'w') as fp:
-                                            json.dump(Wait, fp, sort_keys=True, indent=4)
-                                            cl.sendMessage(kirim,"Lurking already on")
+                                            json.dump(Connect_to, fp, sort_keys=True, indent=4)
+                                            client.sendMessage(send,"Lurking already on")
                                 else:
                                     try:
-                                        del read['readPoint'][kirim]
-                                        del read['readMember'][kirim]
-                                        del read['readTime'][kirim]
+                                        del read['readPoint'][send]
+                                        del read['readMember'][send]
+                                        del read['readTime'][send]
                                     except:
                                         pass
-                                    Wait['readPoint'][kirim] = msg.id
-                                    Wait['readMember'][kirim] = ""
-                                    Wait['readTime'][kirim] = datetime.now().strftime('%H:%M:%S')
-                                    Wait['ROM'][kirim] = {}
+                                    Connect_to['readPoint'][send] = msg.id
+                                    Connect_to['readMember'][send] = ""
+                                    Connect_to['readTime'][send] = datetime.now().strftime('%H:%M:%S')
+                                    Connect_to['ROM'][send] = {}
                                     with open('sider.json', 'w') as fp:
-                                        json.dump(Wait, fp, sort_keys=True, indent=4)
-                                        cl.sendMessage(kirim, "Set reading point:\n" + readTime)
+                                        json.dump(Connect_to, fp, sort_keys=True, indent=4)
+                                        client.sendMessage(send, "Set reading point:\n" + readTime)
                                         
-                        elif dpkText.lower() == 'lurking off':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'lurking off':
+                            if man in Team or man in Connect_to["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1236,19 +1255,19 @@ def LINE_ARIF_USER(arif):
                                 for k in range(0, len(bulan)):
                                     if bln == str(k): bln = bulan[k-1]
                                 readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                                if kirim not in Wait['readPoint']:
-                                    cl.sendMessage(kirim,"Lurking already off..")
+                                if send not in Connect_to['readPoint']:
+                                    client.sendMessage(send,"Lurking already off..")
                                 else:
                                     try:
-                                            del Wait['readPoint'][kirim]
-                                            del Wait['readMember'][kirim]
-                                            del Wait['readTime'][kirim]
+                                            del Connect_to['readPoint'][send]
+                                            del Connect_to['readMember'][send]
+                                            del Connect_to['readTime'][send]
                                     except:
                                           pass
-                                    cl.sendMessage(kirim, "Delete reading point:\n" + readTime)
+                                    client.sendMessage(send, "Delete reading point:\n" + readTime)
                 
-                        elif dpkText.lower() == 'lurking reset':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'lurking reset':
+                            if man in Team or man in Connect_to["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1261,20 +1280,20 @@ def LINE_ARIF_USER(arif):
                                 for k in range(0, len(bulan)):
                                     if bln == str(k): bln = bulan[k-1]
                                 readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                                if kirim in Wait["readPoint"]:
+                                if send in Connect_to["readPoint"]:
                                     try:
-                                        Wait["readPoint"][kirim] = True
-                                        Wait["readMember"][kirim] = {}
-                                        Wait["readTime"][kirim] = readTime
-                                        Wait["ROM"][kirim] = {}
+                                        Connect_to["readPoint"][send] = True
+                                        Connect_to["readMember"][send] = {}
+                                        Connect_to["readTime"][send] = readTime
+                                        Connect_to["ROM"][send] = {}
                                     except:
                                         pass
-                                    cl.sendMessage(kirim, "Reset reading point:\n" + readTime)
+                                    client.sendMessage(send, "Reset reading point:\n" + readTime)
                                 else:
-                                    cl.sendMessage(kirim, "Lurking on dulu kaka..")
+                                    client.sendMessage(send, "Lurking on dulu kaka..")
                                     
-                        elif dpkText.lower() == 'lurking read':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'lurking read':
+                            if man in Team or man in Connect_to["Admin"]:
                                 tz = pytz.timezone("Asia/Jakarta")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -1287,14 +1306,14 @@ def LINE_ARIF_USER(arif):
                                 for k in range(0, len(bulan)):
                                     if bln == str(k): bln = bulan[k-1]
                                 readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                                if kirim in Wait['readPoint']:
-                                    if Wait["ROM"][kirim].items() == []:
-                                        cl.sendMessage(kirim,"[ Reader ]:\nNone")
+                                if send in Connect_to['readPoint']:
+                                    if Connect_to["ROM"][send].items() == []:
+                                        client.sendMessage(send,"[ Reader ]:\nNone")
                                     else:
                                         chiya = []
-                                        for rom in Wait["ROM"][kirim].items():
+                                        for rom in Connect_to["ROM"][send].items():
                                             chiya.append(rom[1])
-                                        cmem = cl.getContacts(chiya) 
+                                        cmem = client.getContacts(chiya) 
                                         zx = ""
                                         zxc = ""
                                         zx2 = []
@@ -1302,7 +1321,7 @@ def LINE_ARIF_USER(arif):
                                     for x in range(len(cmem)):
                                         xname = str(cmem[x].displayName)
                                         pesan = ''
-                                        pesan2 = pesan+"@A_DPK\n"
+                                        pesan2 = pesan+"@Arifistifik\n"
                                         xlen = str(len(zxc)+len(xpesan))
                                         xlen2 = str(len(zxc)+len(pesan2)+len(xpesan)-1)
                                         zx = {'S':xlen, 'E':xlen2, 'M':cmem[x].mid}
@@ -1310,37 +1329,37 @@ def LINE_ARIF_USER(arif):
                                         zxc += pesan2
                                     text = xpesan+ zxc + "\nLurking time: \n" + readTime
                                     try:
-                                        cl.sendMessage(kirim, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
+                                        client.sendMessage(send, text, contentMetadata={'MENTION':str('{"MENTIONEES":'+json.dumps(zx2).replace(' ','')+'}')}, contentType=0)
                                     except Exception as error:
                                         print (error)
                                     pass
                                 else:
-                                    cl.sendMessage(kirim,"Lurking on dulu kaka ??")
+                                    client.sendMessage(send,"Lurking on dulu kaka ??")
 
-                        elif dpkText.lower() == 'sider on':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'sider on':
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    del DpkCctv['Point2'][kirim]
-                                    del DpkCctv['Point3'][kirim]
-                                    del DpkCctv['Point1'][kirim]
+                                    del cctv['Point2'][send]
+                                    del cctv['Point3'][send]
+                                    del cctv['Point1'][send]
                                 except:
                                     pass
-                                DpkCctv['Point2'][kirim] = msg.id
-                                DpkCctv['Point3'][kirim] = ""
-                                DpkCctv['Point1'][kirim]=True
-                                cl.sendText(kirim,"Sider Set to On..")
+                                cctv['Point2'][send] = msg.id
+                                cctv['Point3'][send] = ""
+                                cctv['Point1'][send]=True
+                                client.sendText(send,"Sider Set to On..")
 
-                        elif dpkText.lower() == 'sider off':
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                if kirim in DpkCctv['Point2']:
-                                    DpkCctv['Point1'][kirim]=False
-                                    cl.sendText(kirim, DpkCctv['Point3'][kirim])
+                        elif msgText.lower() == 'sider off':
+                            if man in Team or man in Connect_to["Admin"]:
+                                if send in cctv['Point2']:
+                                    cctv['Point1'][send]=False
+                                    client.sendText(send, cctv['Point3'][send])
                                 else:
-                                    cl.sendText(kirim, "Off not Going")
+                                    client.sendText(send, "Off not Going")
 
-                        elif dpkText.lower().startswith("mentionall"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                gname = cl.getGroup(kirim)
+                        elif msgText.lower().startswith("mentionall"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                gname = client.getGroup(send)
                                 local = [contact.mid for contact in gname.members]
                                 try:
                                     lur = len(local)//20
@@ -1353,321 +1372,321 @@ def LINE_ARIF_USER(arif):
                                             sell += 7
                                             hdc += u'@A_DPK\n'
                                             atas = '\n Halo {} '.format(str(gname.name))
-                                            atas += '\n Halo {} Family'.format(str(len(local)))
-                                        cl.sendMessage(kirim, text=hdc + str(atas), contentMetadata={u'MENTION': json.dumps({'MENTIONEES':com})}, contentType=0)
+                                            atas += '\n Halo {} Members'.format(str(len(local)))
+                                        client.sendMessage(send, text=hdc + str(atas), contentMetadata={u'MENTION': json.dumps({'MENTIONEES':com})}, contentType=0)
                                 except Exception as error:
-                                    cl.sendMessage(kirim, str(error))
+                                    client.sendMessage(send, str(error))
 
-                        elif dpkText in ["Welcome on"]:
-                          if user in DpkFamily or user in Wait["Admin"]:
-                            if user in DpkFamily:
-                                Wait['Welcome'] = True
-                                cl.sendText(kirim,"Cek Welcome Already ON")
-                        elif dpkText in ["Welcome off"]:
-                          if user in DpkFamily or user in Wait["Admin"]:
-                            if user in DpkFamily:
-                                Wait['Welcome'] = False
-                                cl.sendText(kirim,"Cek Welcome Already Off")
+                        elif msgText in ["Welcome on"]:
+                          if man in Team or man in Connect_to["Admin"]:
+                            if man in Team:
+                                Connect_to['Welcome'] = True
+                                client.sendText(send,"Cek Welcome Already ON")
+                        elif msgText in ["Welcome off"]:
+                          if man in Team or man in Connect_to["Admin"]:
+                            if man in Team:
+                                Connect_to['Welcome'] = False
+                                client.sendText(send,"Cek Welcome Already Off")
 
-                        elif dpkText.lower().startswith("changewelcome "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                teks = dpkText.split(": ")
-                                data = dpkText.replace(teks[0] + ": ","")
+                        elif msgText.lower().startswith("changewelcome "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                teks = msgText.split(": ")
+                                data = msgText.replace(teks[0] + ": ","")
                                 try:
-                                    Wait["WcText"] = data
-                                    cl.sendText(kirim,"Name Welcome Change to:\n" +str("(" +data+ ")"))
+                                    Connect_to["WcText"] = data
+                                    client.sendText(send,"Name Welcome Change to:\n" +str("(" +data+ ")"))
                                 except:
-                                    cl.sendText(kirim,"Name Error")
+                                    client.sendText(send,"Name Error")
 
-                        elif dpkText in ["Leave on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Leave'] = True
-                                cl.sendText(kirim,"Cek Leave Already ON")
-                        elif dpkText in ["Leave off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Leave'] = False
-                                cl.sendText(kirim,"Cek Leave Already Off")
+                        elif msgText in ["Leave on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Leave'] = True
+                                client.sendText(send,"Cek Leave Already ON")
+                        elif msgText in ["Leave off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Leave'] = False
+                                client.sendText(send,"Cek Leave Already Off")
 
-                        elif dpkText.lower().startswith("changeleave "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                teks = dpkText.split(": ")
-                                data = dpkText.replace(teks[0] + ": ","")
+                        elif msgText.lower().startswith("changeleave "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                teks = msgText.split(": ")
+                                data = msgText.replace(teks[0] + ": ","")
                                 try:
-                                    Wait["LvText"] = data
-                                    cl.sendText(kirim,"Name Leave Change to:\n" +str("(" +data+ ")"))
+                                    Connect_to["LvText"] = data
+                                    client.sendText(send,"Name Leave Change to:\n" +str("(" +data+ ")"))
                                 except:
-                                    cl.sendText(kirim,"Name Error")
+                                    client.sendText(send,"Name Error")
 
-                        elif dpkText.lower() == "runtime":
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == "runtime":
+                            if man in Team or man in Connect_to["Admin"]:
                                 eltime = time.time() - mulai                                
                                 opn = " "+waktu(eltime)
-                                cl.sendText(kirim,"Connect to DPK FAMILY\nBot Active\n" + opn)                
+                                client.sendText(send,"Connect to Team\nBot Active\n" + opn)                
 
-                        elif dpkText.lower().startswith("broadcast: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower().startswith("broadcast: "):
+                            if man in Team or man in Connect_to["Admin"]:
                                 bc = msg.text.replace("Broadcast: ","")
-                                gid = cl.getGroupIdsJoined()
+                                gid = client.getGroupIdsJoined()
                                 for i in gid:
-                                    cl.mentionWithDPK(i,user," BROADCAST BY:","\n" + str(" ("+bc+")"))
+                                    client.arifistifik(i,man," BROADCAST BY:","\n" + str(" ("+bc+")"))
 
-                        elif dpkText.lower().startswith("contactbc: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower().startswith("contactbc: "):
+                            if man in Team or man in Connect_to["Admin"]:
                                 bc = msg.text.replace("Contactbc: ","")
-                                gid = cl.getAllContactIds()
+                                gid = client.getAllContactIds()
                                 for i in gid:
-                                    cl.mentionWithDPK(i,user," BROADCAST BY:","\n" + str(" ("+bc+")"))
+                                    client.arifistifik(i,man," BROADCAST BY:","\n" + str(" ("+bc+")"))
 
-                        elif dpkText.lower().startswith("adminadd "):
-                            if user in DpkFamily:
+                        elif msgText.lower().startswith("adminadd "):
+                            if man in Team:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
                                 for x in key["MENTIONEES"]:
                                     targets.append(x["M"])
                                 for target in targets:
-                                    if target in Wait["Admin"]:
-                                        cl.sendText(kirim, "Sudah Terdaftar di Admin")
+                                    if target in Connect_to["Admin"]:
+                                        client.sendText(send, "Sudah Terdaftar di Admin")
                                     else:
                                         try:
-                                            Wait["Admin"][target] = True
-                                            cl.sendText(kirim, "Terdaftar Menjadi Admin ")
+                                            Connect_to["Admin"][target] = True
+                                            client.sendText(send, "Terdaftar Menjadi Admin ")
                                         except Exception as e:
-                                            cl.sendText(kirim, str(error))
+                                            client.sendText(send, str(error))
 
-                        elif dpkText.lower().startswith("admindell "):
-                            if user in Owner:
+                        elif msgText.lower().startswith("admindell "):
+                            if man in Owner:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
                                 for x in key["MENTIONEES"]:
                                     targets.append(x["M"])
                                 for target in targets:
-                                    if target not in Wait["Admin"]:
-                                        cl.sendText(kirim, "Belum Terdaftar di Admin")
+                                    if target not in Connect_to["Admin"]:
+                                        client.sendText(send, "Belum Terdaftar di Admin")
                                     else:
                                         try:
-                                            del Wait["Admin"][target]
-                                            cl.sendText(kirim, "Succes Dihapus menjadi admin")
+                                            del Connect_to["Admin"][target]
+                                            client.sendText(send, "Succes Dihapus menjadi admin")
                                         except Exception as e:
-                                            cl.sendText(kirim, str(error))
+                                            client.sendText(send, str(error))
 
-                        elif dpkText.lower().startswith("changename: "):
-                            if user in DpkFamily:
-                                name = dpkText.split(": ")
-                                change = dpkText.replace(name[0] + ": ","")
-                                cll = cl.getProfile()
+                        elif msgText.lower().startswith("changename: "):
+                            if man in Team:
+                                name = msgText.split(": ")
+                                change = msgText.replace(name[0] + ": ","")
+                                cll = client.getProfile()
                                 cll.displayName = change
-                                cl.updateProfile(cll)
-                                owner = "ud296655acef67cbd5e8208e63629f78b"
-                                cl.mentionWithDPK(kirim,owner," Update Name Success","\n Change to " + str(change))
+                                client.updateProfile(cll)
+                                owner = "uc721ad1f11fb7e128453ba5a27424998"
+                                client.arifistifik(send,owner," Update Name Success","\n Change to " + str(change))
 
-                        elif dpkText.lower().startswith("changebio: "):
-                            if user in DpkFamily:
-                                proses = dpkText.split(": ")
-                                teks = dpkText.replace(proses[0] + ": ","")
-                                no1 = cl.getProfile()
+                        elif msgText.lower().startswith("changebio: "):
+                            if man in Team:
+                                proses = msgText.split(": ")
+                                teks = msgText.replace(proses[0] + ": ","")
+                                no1 = client.getProfile()
                                 no1.statusMessage = teks
-                                cl.updateProfile(no1)
-                                cl.sendText(kirim,"My Bio Change To : " + teks)
+                                client.updateProfile(no1)
+                                client.sendText(send,"My Bio Change To : " + teks)
 
-                        elif dpkText.lower() == "del":
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == "remove pesan":
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    cl.removeAllMessages(arif.param2)
-                                    ginfo = cl.getGroup(kirim)
-                                    cl.mentionWithDPK(kirim,user," Remove Message Success ","\n In Grup" + str(" ("+ginfo.name+")"))
+                                    client.removeAllMessages(op.param2)
+                                    ginfo = client.getGroup(send)
+                                    client.arifistifik(send,man," Remove Message Success ","\n In Grup" + str(" ("+ginfo.name+")"))
                                 except:
                                     pass
 
-                        elif dpkText.lower() == 'restart':
-                            if user in DpkFamily:
-                                cl.sendText(kirim, 'Restarting Server Prosses..')
+                        elif msgText.lower() == 'restart':
+                            if man in Team:
+                                client.sendText(send, 'Restarting Server Prosses..')
                                 print ("Restarting Server")
                                 restart_program()
 
-                        elif dpkText.lower() == 'bot logout':
-                            if user in DpkFamily:
-                                cl.mentionWithDPK(kirim,user," Akses Off","")
+                        elif msgText.lower() == 'bot logout':
+                            if man in Team:
+                                client.arifistifik(send,man," Akses Off","")
                                 print ("Selfbot Off")
                                 exit(1)
 
-                        elif dpkText.lower().startswith("kick "):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower().startswith("kick "):
+                            if man in Team or man in Connect_to["Admin"]:
                                 key = eval(msg.contentMetadata["MENTION"])
                                 key["MENTIONEES"][0]["M"]
                                 targets = []
                                 for x in key["MENTIONEES"]:
                                     targets.append(x["M"])
                                 for target in targets:
-                                    if target in Dpk:
+                                    if target in mid:
                                         pass
                                     else:
                                         try:
                                             klist=[cl]
                                             kicker=random.choice(klist)
-                                            kicker.kickoutFromGroup(kirim,[target])
-                                            Wait["Blacklist"][target] = True
+                                            kicker.kickoutFromGroup(send,[target])
+                                            Connect_to["Blacklist"][target] = True
                                         except Exception as e:
-                                            cl.sendText(kirim, str(error))
+                                            client.sendText(send, str(error))
 
-                        elif dpkText.lower() == 'my grup':
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                groups = cl.groups
+                        elif msgText.lower() == 'my grup':
+                            if man in Team or man in Connect_to["Admin"]:
+                                groups = client.groups
                                 ret_ = "GRUP JOIN"
                                 no = 0 + 1
                                 for gid in groups:
-                                    group = cl.getGroup(gid)
+                                    group = client.getGroup(gid)
                                     ret_ += "\n\n{}. {} ".format(str(no), str(group.name))
                                     no += 1
                                 ret_ += "\n\nTOTAL {} GRUP JOIN".format(str(len(groups)))
-                                cl.sendText(kirim, str(ret_))
+                                client.sendText(send, str(ret_))
 
-                        elif dpkText.lower().startswith("rejectall grup"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                ginvited = cl.getGroupIdsInvited()
+                        elif msgText.lower().startswith("rejectall grup"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                ginvited = client.getGroupIdsInvited()
                                 if ginvited != [] and ginvited != None:
                                     for gid in ginvited:
-                                        cl.rejectGroupInvitation(gid)
-                                    cl.sendMessage(kirim, "Succes Cancell {} Invite Grup".format(str(len(ginvited))))
+                                        client.rejectGroupInvitation(gid)
+                                    client.sendMessage(send, "Succes Cancell {} Invite Grup".format(str(len(ginvited))))
                                 else:
-                                    cl.sendMessage(kirim, "Nothing Invited")
+                                    client.sendMessage(send, "Nothing Invited")
 
-                        elif dpkText.lower() == 'status':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'status':
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    hasil = "╔═══════════════════╗\n╠════sᴛᴀᴛᴜs    sᴇᴛᴛɪɴɢs════\n╠═══════════════════╝"
-                                    if Wait["autoAdd"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ᴀᴅᴅ                                🔵"
-                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ᴀᴅᴅ                                🔴"
-                                    if Wait["autoJoin"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ                               🔵"
-                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ                               🔴"
-                                    if Wait["AutoReject"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ʀᴏᴏᴍ                🔵"
-                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ʀᴇᴊᴇᴄᴛ ʀᴏᴏᴍ                🔴"
-                                    if Wait["AutojoinTicket"] == True: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ ᴛɪᴄᴋᴇᴛ                   🔵"
-                                    else: hasil += "\n╠ ᴀᴜᴛᴏ ᴊᴏɪɴ ᴛɪᴄᴋᴇᴛ                  🔴"
-                                    if Wait["autoRead"] == True: hasil += "\n ᴀᴜᴛᴏ ʀᴇᴀᴅ                              🔵"
-                                    else: hasil += "\n╠  ᴀᴜᴛᴏ ʀᴇᴀᴅ                              🔴"
-                                    if Wait["AutoRespon"] == True: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴍᴇɴᴛɪᴏɴ                    🔵"
-                                    else: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴍᴇɴᴛɪᴏɴ                    🔴"
-                                    if Wait["KickRespon"] == True: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴋɪᴄᴋ ᴍᴇɴᴛɪᴏɴ.          🔵"
-                                    else: hasil += "\n╠ ᴅᴇᴛᴇᴄᴛ ᴋɪᴄᴋ ᴍᴇɴᴛɪᴏɴ.          🔴"
-                                    if Wait["Contact"] == True: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴄᴏɴᴛᴀᴄᴛ                     🔵"
-                                    else: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴄᴏɴᴛᴀᴄᴛ                     🔴"
-                                    if Wait["Timeline"] == True: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴘᴏsᴛ                            🔵"
-                                    else: hasil += "\n╠ ᴄʜᴇᴄᴋ ᴘᴏsᴛ                            🔴"
-                                    if Wait["IDSticker"] == True: hasil += "\n╠ ᴄʜᴇᴄᴋ sᴛɪᴄᴋᴇʀ                      🔵"
-                                    else: hasil += "\n╠ ᴄʜᴇᴄᴋ sᴛɪᴄᴋᴇʀ                      🔴"
-                                    if Wait["UnsendPesan"] == True: hasil += "\n╠ ᴜɴsᴇɴᴅ ᴍᴇssᴀɢᴇ                  🔵"
-                                    else: hasil += "\n╠ ᴜɴsᴇɴᴅ ᴍᴇssᴀɢᴇ                  🔴"
-                                    if Wait["KickOn"] == True: hasil += "\n╠ ᴋɪᴄᴋ ᴀʟʟ ᴍᴇᴍʙᴇʀ                  🔵"
-                                    else: hasil += "\n╠ ᴋɪᴄᴋ ᴀʟʟ ᴍᴇᴍʙᴇʀ                  🔴"
-                                    if Wait["SpamInvite"] == True: hasil += "\n╠ Spam invite via contact 🔵"
-                                    else: hasil += "\n╠ sᴘᴀᴍ ɪɴᴠɪᴛᴇ ᴠɪᴀ ᴄᴏɴᴛᴀᴄᴛ     🔴"
-                                    hasil += "\n╚═══════════════════╝"
-                                    cl.sendMessage(kirim, str(hasil))
+                                    hasil = "╭──────────────"
+                                    if Connect_to["autoAdd"] == True: hasil += "\n│Auto Add ( on )"
+                                    else: hasil += "\n│Auto Add ( off )"
+                                    if Connect_to["autoJoin"] == True: hasil += "\n│Auto Join ( on )"
+                                    else: hasil += "\n│Auto Join ( off )"
+                                    if Connect_to["AutoReject"] == True: hasil += "\n│Auto Reject Room ( on )"
+                                    else: hasil += "\n│Auto Reject Room ( off )"
+                                    if Connect_to["AutojoinTicket"] == True: hasil += "\n│Auto Join Ticket ( on )"
+                                    else: hasil += "\n│Auto Join Ticket ( off )"
+                                    if Connect_to["autoRead"] == True: hasil += "\n│Auto Read ( on )"
+                                    else: hasil += "\n│Auto Read ( off )"
+                                    if Connect_to["AutoRespon"] == True: hasil += "\n│Detect Mention ( on )"
+                                    else: hasil += "\n│Detect Mention ( off )"
+                                    if Connect_to["KickRespon"] == True: hasil += "\n│Detect Mention ( on )"
+                                    else: hasil += "\n│Detect Kick Mention ( off )"
+                                    if Connect_to["Contact"] == True: hasil += "\n│Check Contact ( on )"
+                                    else: hasil += "\n│Check Contact ( off )"
+                                    if Connect_to["Timeline"] == True: hasil += "\n│Check Post Timeline ( on )"
+                                    else: hasil += "\n│Check Post ( off )"
+                                    if Connect_to["IDSticker"] == True: hasil += "\n│Check Sticker ( on )"
+                                    else: hasil += "\n│Check Sticker ( off )"
+                                    if Connect_to["UnsendMessage"] == True: hasil += "\n│Unsend Message ( on )"
+                                    else: hasil += "\n│Unsend Message ( off )"
+                                    if Connect_to["KickOn"] == True: hasil += "\n│Kick All Member ( on )"
+                                    else: hasil += "\n│Kick All Member ( off )"
+                                    if Connect_to["SpamInvite"] == True: hasil += "\n│Spam contact ( on )"
+                                    else: hasil += "\n│Spam Contact ( off )"
+                                    hasil += "\n╰──────────────"
+                                    client.sendMessage(send, str(hasil))
                                 except Exception as error:
-                                    cl.sendMessage(kirim, str(error))
+                                    client.sendMessage(send, str(error))
 
-                        elif dpkText in ["Unsend on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['UnsendPesan'] = True
-                                cl.sendText(kirim,"Cek UnsendMessage Set to on..")
-                        elif dpkText in ["Unsend off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['UnsendPesan'] = False
-                                cl.sendText(kirim,"Cek UnsendMessage Set to off..")
+                        elif msgText in ["Unsend on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['UnsendMessage'] = True
+                                client.sendText(send,"Cek UnsendMessage Set to on..")
+                        elif msgText in ["Unsend off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['UnsendMessage'] = False
+                                client.sendText(send,"Cek UnsendMessage Set to off..")
 
-                        elif dpkText in ["Changepp on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Upfoto'] = True
-                                cl.sendText(kirim,"Send Pict For UpPict")
-                        elif dpkText in ["Changepp off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Upfoto'] = False
-                                cl.sendText(kirim,"Send Pict Already Off")
+                        elif msgText in ["Changepp on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Upfoto'] = True
+                                client.sendText(send,"Send Pict For UpPict")
+                        elif msgText in ["Changepp off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Upfoto'] = False
+                                client.sendText(send,"Send Pict Already Off")
 
-                        elif dpkText in ["Cfotogrup on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['UpfotoGrup'] = True
-                                cl.sendText(kirim,"Send Pict For Change Foto Grup")
-                        elif dpkText in ["Cfotogrup off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['UpfotoGrup'] = False
-                                cl.sendText(kirim,"Send Pict Already Off")
+                        elif msgText in ["Cfotogrup on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['UpfotoGrup'] = True
+                                client.sendText(send,"Send Pict For Change Foto Grup")
+                        elif msgText in ["Cfotogrup off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['UpfotoGrup'] = False
+                                client.sendText(send,"Send Pict Already Off")
 
-                        elif dpkText in ["Timeline on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Timeline'] = True
-                                cl.sendText(kirim,"Cek Post Set to on..")
-                        elif dpkText in ["Timeline off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Timeline'] = False
-                                cl.sendText(kirim,"Cek Post Set to off..")
+                        elif msgText in ["Timeline on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Timeline'] = True
+                                client.sendText(send,"Cek Post Set to on..")
+                        elif msgText in ["Timeline off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Timeline'] = False
+                                client.sendText(send,"Cek Post Set to off..")
 
-                        elif dpkText in ["Autojoin on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['autoJoin'] = True
-                                cl.sendText(kirim,"Join Set To On..")
-                        elif dpkText in ["Autojoin off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['autoJoin'] = False
-                                cl.sendText(kirim,"Join Set To Off..")
+                        elif msgText in ["Autojoin on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['autoJoin'] = True
+                                client.sendText(send,"Join Set To On..")
+                        elif msgText in ["Autojoin off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['autoJoin'] = False
+                                client.sendText(send,"Join Set To Off..")
 
-                        elif dpkText in ["Autoreject on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['AutoReject'] = True
-                                cl.sendText(msg.to,"Reject Set To On..")
-                        elif dpkText in ["Autoreject off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['AutoReject'] = False
-                                cl.sendText(msg.to,"Reject Set To Off..")
+                        elif msgText in ["Autoreject on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['AutoReject'] = True
+                                client.sendText(msg.to,"Reject Set To On..")
+                        elif msgText in ["Autoreject off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['AutoReject'] = False
+                                client.sendText(msg.to,"Reject Set To Off..")
 
-                        elif dpkText in ["admin:on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["Adminadd"] = True
-                                cl.sendText(kirim,"Send Contact to added Admin..")
-                        elif dpkText in ["admin:off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["Adminadd"] = False
-                                cl.sendText(kirim,"Send Contact to added Admin in Off..")
+                        elif msgText in ["Admin:add-on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["Adminadd"] = True
+                                client.sendText(send,"Send Contact to added Admin..")
+                        elif msgText in ["Admin:add-off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["Adminadd"] = False
+                                client.sendText(send,"Send Contact to added Admin in Off..")
 
-                        elif dpkText in ["admindel:on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["AdminDel"] = True
-                                cl.sendText(kirim,"Send Contact to Dellete Admin..")
-                        elif dpkText in ["admindel:off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["AdminDel"] = False
-                                cl.sendText(kirim,"Send Contact to Dellete Admin in Off..")
+                        elif msgText in ["Admin:del-on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["AdminDel"] = True
+                                client.sendText(send,"Send Contact to Dellete Admin..")
+                        elif msgText in ["Admin:del-off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["AdminDel"] = False
+                                client.sendText(send,"Send Contact to Dellete Admin in Off..")
 
-                        elif dpkText in ["Gift:on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["Gift"] = True
-                                cl.sendText(kirim,"Send Contact to send Gift..")
-                        elif dpkText in ["Gift:off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["Gift"] = False
-                                cl.sendText(kirim,"Send Contact to Gift in Off..")
+                        elif msgText in ["Gift:on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["Gift"] = True
+                                client.sendText(send,"Send Contact to send Gift..")
+                        elif msgText in ["Gift:off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["Gift"] = False
+                                client.sendText(send,"Send Contact to Gift in Off..")
 
-                        elif dpkText in ["Spaminvite on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["SpamInvite"] = True
-                                cl.sendText(kirim,"Send Contact to spam grup..")
-                        elif dpkText in ["Spaminvite off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["Gift"] = False
-                                cl.sendText(kirim,"Send Contact to send grup Off..")
+                        elif msgText in ["Spaminvite on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["SpamInvite"] = True
+                                client.sendText(send,"Send Contact to spam grup..")
+                        elif msgText in ["Spaminvite off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["Gift"] = False
+                                client.sendText(send,"Send Contact to send grup Off..")
 
-                        elif dpkText in ["Auto jointicket on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["AutojoinTicket"] = True
-                                cl.sendText(kirim,"Join Ticket Set To On")
-                        elif dpkText in ["Auto jointicket off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["AutojoinTicket"] = False
-                                cl.sendText(kirim,"Join Ticket Set To Off")
-                        elif '/ti/g/' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText in ["Auto jointicket on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["AutojoinTicket"] = True
+                                client.sendText(send,"Join Ticket Set To On")
+                        elif msgText in ["Auto jointicket off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["AutojoinTicket"] = False
+                                client.sendText(send,"Join Ticket Set To Off")
+                        elif '/ti/g/' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 link_re = re.compile('(?:line\:\/|line\.me\/R)\/ti\/g\/([a-zA-Z0-9_-]+)?')
                                 links = link_re.findall(msg.text)
                                 n_links=[]
@@ -1675,22 +1694,22 @@ def LINE_ARIF_USER(arif):
                                     if l not in n_links:
                                         n_links.append(l)
                                 for ticket_id in n_links:
-                                    if Wait["AutojoinTicket"] == True:
-                                        group=cl.findGroupByTicket(ticket_id)
-                                        cl.acceptGroupInvitationByTicket(group.id,ticket_id)
-                                        cl.sendText(kirim,"Success Masuk %s" % str(group.name))
+                                    if Connect_to["AutojoinTicket"] == True:
+                                        group=client.findGroupByTicket(ticket_id)
+                                        client.acceptGroupInvitationByTicket(group.id,ticket_id)
+                                        client.sendText(send,"Success Masuk %s" % str(group.name))
 
-                        elif dpkText in ["Copy on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Copy'] = True
-                                cl.sendText(kirim,"Send Contact For Copy User")
-                        elif dpkText in ["Copy off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Copy'] = False
-                                cl.sendText(kirim,"Send Contact Already Off")
+                        elif msgText in ["Copy on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Copy'] = True
+                                client.sendText(send,"Send Contact For Copy User")
+                        elif msgText in ["Copy off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Copy'] = False
+                                client.sendText(send,"Send Contact Already Off")
 
-                        elif dpkText.lower().startswith("clone "):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower().startswith("clone "):
+                            if man in Team or man in Connect_to["Admin"]:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
                                     mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1700,143 +1719,143 @@ def LINE_ARIF_USER(arif):
                                         if mention["M"] not in lists:
                                             lists.append(mention["M"])
                                     for ls in lists:
-                                        contact = cl.getContact(ls)
-                                        cl.cloneContactProfile(ls)
-                                        cl.sendMessage(kirim, "Berhasil mengclone profile {}".format(contact.displayName))
+                                        contact = client.getContact(ls)
+                                        client.cloneContactProfile(ls)
+                                        client.sendMessage(send, "Berhasil mengclone profile {}".format(contact.displayName))
 
-                        elif dpkText.lower() == 'comeback':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'comeback':
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    clProfile.displayName = str(ProfileMe["displayName"])
-                                    clProfile.statusMessage = str(ProfileMe["statusMessage"])
-                                    clProfile.pictureStatus = str(ProfileMe["pictureStatus"])
-                                    cl.updateProfileAttribute(8, clProfile.pictureStatus)
-                                    cl.updateProfile(clProfile)
-                                    cl.sendMessage(kirim, "Already back to my account")
+                                    clientProfiledisplayName = str(myProfile["displayName"])
+                                    clientProfilestatusMessage = str(myProfile["statusMessage"])
+                                    clientProfilepictureStatus = str(myProfile["pictureStatus"])
+                                    client.updateProfileAttribute(8, clientProfilepictureStatus)
+                                    client.updateProfile(clProfile)
+                                    client.sendMessage(send, "Already back to my account")
                                 except:
-                                    cl.sendMessage(kirim, "Error Come Back")
+                                    client.sendMessage(send, "Error Come Back")
 
-                        elif dpkText in ["Steal on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Steal'] = True
-                                cl.sendText(kirim,"Send Contact For Cek Contact")
-                        elif dpkText in ["Steal off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Steal'] = False
-                                cl.sendText(kirim,"Send Contact Already Off")
+                        elif msgText in ["Steal on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Steal'] = True
+                                client.sendText(send,"Send Contact For Cek Contact")
+                        elif msgText in ["Steal off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Steal'] = False
+                                client.sendText(send,"Send Contact Already Off")
 
-                        elif dpkText in ["Contact on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Contact'] = True
-                                cl.sendText(kirim,"Contact Set to on")
-                        elif dpkText in ["Contact off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Contact'] = False
-                                cl.sendText(kirim,"Contact Already Off")
+                        elif msgText in ["Contact on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Contact'] = True
+                                client.sendText(send,"Contact Set to on")
+                        elif msgText in ["Contact off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Contact'] = False
+                                client.sendText(send,"Contact Already Off")
 
-                        elif dpkText in ["Invite on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Invite'] = True
-                                cl.sendText(kirim,"Send Contact For Invite Target")
-                        elif dpkText in ["Invite off"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait['Invite'] = False
-                                cl.sendText(kirim,"Send Contact Set Off")
+                        elif msgText in ["Invite on"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Invite'] = True
+                                client.sendText(send,"Send Contact For Invite Target")
+                        elif msgText in ["Invite off"]:
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to['Invite'] = False
+                                client.sendText(send,"Send Contact Set Off")
 
-                        elif dpkText.lower() == 'kill on':
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["KillOn"] = True
-                                cl.sendMessage(kirim, "SendContact For Kick Taget")
-                        elif dpkText.lower() == 'kill off':
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                Wait["KillOn"] = False
-                                cl.sendMessage(kirim, "SendContact For Kick Taget in Off")
+                        elif msgText.lower() == 'kill on':
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["KillOn"] = True
+                                client.sendMessage(send, "SendContact For Kick Taget")
+                        elif msgText.lower() == 'kill off':
+                            if man in Team or man in Connect_to["Admin"]:
+                                Connect_to["KillOn"] = False
+                                client.sendMessage(send, "SendContact For Kick Taget in Off")
 
-                        elif dpkText in ["Mic:add-on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText in ["Mic:add-on"]:
+                            if man in Team or man in Connect_to["Admin"]:
                                 Target["Mic"] = True
-                                cl.sendText(kirim,"Send Contact To Clone Message User")
-                        elif dpkText in ["Mic:del-on"]:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                                client.sendText(send,"Send Contact To Clone Message User")
+                        elif msgText in ["Mic:del-on"]:
+                            if man in Team or man in Connect_to["Admin"]:
                                 Target["MicDel"] = True
-                                cl.sendText(kirim,"Send Contact Dellete Clone Message User")
-                        elif dpkText.lower().startswith("mimic "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                mic = dpkText.replace(sep[0] + " ","")
+                                client.sendText(send,"Send Contact Dellete Clone Message User")
+                        elif msgText.lower().startswith("mimic "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                mic = msgText.replace(sep[0] + " ","")
                                 if mic == "on":
                                     if Mozilla["mimic"]["status"] == False:
                                         Mozilla["mimic"]["status"] = True
-                                        cl.sendText(kirim,"Mimic Set to on")
+                                        client.sendText(send,"Mimic Set to on")
                                 elif mic == "off":
                                     if Mozilla["mimic"]["status"] == True:
                                         Mozilla["mimic"]["status"] = False
-                                        cl.sendText(kirim,"Mimic Message off")
+                                        client.sendText(send,"Mimic Message off")
 
-                        elif dpkText.lower() == 'mimiclist':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'mimiclist':
+                            if man in Team or man in Connect_to["Admin"]:
                                 if Mozilla["mimic"]["target"] == {}:
-                                    cl.sendText(kirim,"Tidak Ada Target")
+                                    client.sendText(send,"Tidak Ada Target")
                                 else:
                                     mc = "Mimic List"
                                     for mi_d in Mozilla["mimic"]["target"]:
-                                        mc += "\n? "+cl.getContact(mi_d).displayName
-                                    cl.sendText(kirim,mc + "\nFinish")
+                                        mc += "\n? "+client.getContact(mi_d).displayName
+                                    client.sendText(send,mc + "\nFinish")
 
-                        elif dpkText.lower() == 'refresh':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'refresh':
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    Wait['Mic'] = False
-                                    Wait['MicDel'] = False
-                                    Wait['Gift'] = False
-                                    Wait['Steal'] = False
-                                    Wait['Invite'] = False
-                                    Wait['Contact'] = False
-                                    Wait['Copy'] = False
-                                    Wait['autoJoin'] = False
-                                    Wait['autoAdd'] = False
-                                    Wait['AutojoinTicket'] = False
-                                    Wait['UnsendPesan'] = False
-                                    Wait['AutoReject'] = False
-                                    Wait['Timeline'] = False
-                                    Wait['Upfoto'] = False
-                                    Wait['UpfotoGrup'] = False
-                                    Wait['Adminadd'] = False
-                                    Wait['AdminDel'] = False
-                                    Wait['Welcome'] = False
-                                    Wait['Leave'] = False
-                                    Wait['Ban'] = False
-                                    Wait['Unban'] = False
-                                    Wait['KillOn'] = False
-                                    Wait['KickOn'] = False
-                                    Wait['SpamInvite'] = False
-                                    cl.sendText(kirim,"Refresh Success")
+                                    Connect_to['Mic'] = False
+                                    Connect_to['MicDel'] = False
+                                    Connect_to['Gift'] = False
+                                    Connect_to['Steal'] = False
+                                    Connect_to['Invite'] = False
+                                    Connect_to['Contact'] = False
+                                    Connect_to['Copy'] = False
+                                    Connect_to['autoJoin'] = False
+                                    Connect_to['autoAdd'] = False
+                                    Connect_to['AutojoinTicket'] = False
+                                    Connect_to['UnsendMessage'] = False
+                                    Connect_to['AutoReject'] = False
+                                    Connect_to['Timeline'] = False
+                                    Connect_to['Upfoto'] = False
+                                    Connect_to['UpfotoGrup'] = False
+                                    Connect_to['Adminadd'] = False
+                                    Connect_to['AdminDel'] = False
+                                    Connect_to['Welcome'] = False
+                                    Connect_to['Leave'] = False
+                                    Connect_to['Ban'] = False
+                                    Connect_to['Unban'] = False
+                                    Connect_to['KillOn'] = False
+                                    Connect_to['KickOn'] = False
+                                    Connect_to['SpamInvite'] = False
+                                    client.sendText(send,"Refresh Success")
                                 except Exception as e:
-                                    cl.sendText(kirim, str(error))
+                                    client.sendText(send, str(error))
 
-                        elif dpkText.lower().startswith("my name"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                contact = cl.getContact(user)
-                                cl.sendMessage(kirim, "MyName : {}".format(contact.displayName))
-                        elif dpkText.lower().startswith("my bio"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                contact = cl.getContact(user)
-                                cl.sendMessage(kirim, "My Status : \n{}".format(contact.statusMessage))
-                        elif dpkText.lower().startswith("my picture"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                contact = cl.getContact(user)
-                                cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
-                        elif dpkText.lower().startswith("my video"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                contact = cl.getContact(user)
-                                cl.sendVideoWithURL(kirim,"http://dl.profile.line-cdn.net/{}/vp".format(contact.pictureStatus))
-                        elif dpkText.lower().startswith("my cover"):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                channel = cl.getProfileCoverURL(user)          
+                        elif msgText.lower().startswith("my name"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                contact = client.getContact(man)
+                                client.sendMessage(send, "MyName : {}".format(contact.displayName))
+                        elif msgText.lower().startswith("my bio"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                contact = client.getContact(man)
+                                client.sendMessage(send, "My Status : \n{}".format(contact.statusMessage))
+                        elif msgText.lower().startswith("my picture"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                contact = client.getContact(man)
+                                client.sendImageWithURL(send,"http://dl.profile.line-cdn.net/{}".format(contact.pictureStatus))
+                        elif msgText.lower().startswith("my video"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                contact = client.getContact(man)
+                                client.sendVideoWithURL(send,"http://dl.profile.line-cdn.net/{}/vp".format(contact.pictureStatus))
+                        elif msgText.lower().startswith("my cover"):
+                            if man in Team or man in Connect_to["Admin"]:
+                                channel = client.getProfileCoverURL(man)          
                                 path = str(channel)
-                                cl.sendImageWithURL(kirim, path)
+                                client.sendImageWithURL(send, path)
 
-                        elif dpkText.lower().startswith("stealname "):
+                        elif msgText.lower().startswith("stealname "):
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1846,10 +1865,10 @@ def LINE_ARIF_USER(arif):
                                     if mention["M"] not in lists:
                                         lists.append(mention["M"])
                                 for ls in lists:
-                                    contact = cl.getContact(ls)
-                                    cl.sendMessage(to, "[ Display Name ]\n{}".format(str(contact.displayName)))
-                        elif dpkText.lower().startswith("stealbio "):
-                          if user in DpkFamily or user in Wait["Admin"]:
+                                    contact = client.getContact(ls)
+                                    client.sendMessage(to, "[ Display Name ]\n{}".format(str(contact.displayName)))
+                        elif msgText.lower().startswith("stealbio "):
+                          if man in Team or man in Connect_to["Admin"]:
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1859,10 +1878,10 @@ def LINE_ARIF_USER(arif):
                                     if mention["M"] not in lists:
                                         lists.append(mention["M"])
                                 for ls in lists:
-                                    contact = cl.getContact(ls)
-                                    cl.sendMessage(kirim, "[ Status Message ]\n{}".format(str(contact.statusMessage)))
-                        elif dpkText.lower().startswith("stealpict "):
-                          if user in DpkFamily or user in Wait["Admin"]:
+                                    contact = client.getContact(ls)
+                                    client.sendMessage(send, "[ Status Message ]\n{}".format(str(contact.statusMessage)))
+                        elif msgText.lower().startswith("stealpict "):
+                          if man in Team or man in Connect_to["Admin"]:
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1872,11 +1891,11 @@ def LINE_ARIF_USER(arif):
                                     if mention["M"] not in lists:
                                         lists.append(mention["M"])
                                 for ls in lists:
-                                    contact = cl.getContact(ls)
+                                    contact = client.getContact(ls)
                                     path = "http://dl.profile.line.naver.jp/{}".format(contact.pictureStatus)
-                                    cl.sendImageWithURL(kirim, str(path))
-                        elif dpkText.lower().startswith("stealvideo "):
-                          if user in DpkFamily or user in Wait["Admin"]:
+                                    client.sendImageWithURL(send, str(path))
+                        elif msgText.lower().startswith("stealvideo "):
+                          if man in Team or man in Connect_to["Admin"]:
                             if 'MENTION' in msg.contentMetadata.keys()!= None:
                                 names = re.findall(r'@(\w+)', text)
                                 mention = ast.literal_eval(msg.contentMetadata['MENTION'])
@@ -1886,11 +1905,11 @@ def LINE_ARIF_USER(arif):
                                     if mention["M"] not in lists:
                                         lists.append(mention["M"])
                                 for ls in lists:
-                                    contact = cl.getContact(ls)
+                                    contact = client.getContact(ls)
                                     path = "http://dl.profile.line.naver.jp/{}/vp".format(contact.pictureStatus)
-                                    cl.sendVideoWithURL(kirim, str(path))
-                        elif dpkText.lower().startswith("stealcover "):
-                          if user in DpkFamily or user in Wait["Admin"]:
+                                    client.sendVideoWithURL(send, str(path))
+                        elif msgText.lower().startswith("stealcover "):
+                          if man in Team or man in Connect_to["Admin"]:
                             if cl != None:
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -1901,74 +1920,73 @@ def LINE_ARIF_USER(arif):
                                         if mention["M"] not in lists:
                                             lists.append(mention["M"])
                                     for ls in lists:
-                                        channel = cl.getProfileCoverURL(ls)
+                                        channel = client.getProfileCoverURL(ls)
                                         path = str(channel)
-                                        cl.sendImageWithURL(kirim, str(path))
-                        elif dpkText.lower().startswith("stealmid "):
-                          if user in DpkFamily or user in Wait["Admin"]:
+                                        client.sendImageWithURL(send, str(path))
+                        elif msgText.lower().startswith("stealmid "):
+                          if man in Team or man in Connect_to["Admin"]:
                               try:
                                   key = eval(msg.contentMetadata["MENTION"])
                                   u = key["MENTIONEES"][0]["M"]
-                                  cmid = cl.getContact(u).mid
-                                  cl.sendText(kirim, str(cmid))
+                                  cmid = client.getContact(u).mid
+                                  client.sendText(send, str(cmid))
                               except Exception as e:
-                                  cl.sendText(kirim, str(e))
-                        elif dpkText.lower().startswith("profile "):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                                  client.sendText(send, str(e))
+                        elif msgText.lower().startswith("profile "):
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
                                     key = eval(msg.contentMetadata["MENTION"])
                                     u = key["MENTIONEES"][0]["M"]
-                                    cname = cl.getContact(u).displayName
-                                    cmid = cl.getContact(u).mid
-                                    cstatus = cl.getContact(u).statusMessage
-                                    cpic = cl.getContact(u).picturePath
-                                    a = cl.getProfileCoverURL(mid=u)
-                                    cl.sendText(kirim, 'Nama : '+cname+'\nMid : '+cmid+'\nBio : '+cstatus+'\nURL Picture : http://dl.profile.line.naver.jp'+cpic)
-                                    cl.sendMessage(kirim, None, contentMetadata={'mid': cmid}, contentType=13)
-                                    cl.sendImageWithURL(kirim, a)
-                                    if "videoProfile='{" in str(cl.getContact(u)):
-                                        cl.sendVideoWithURL(kirim, 'http://dl.profile.line.naver.jp'+cpic+'/vp.small')
+                                    cname = client.getContact(u).displayName
+                                    cmid = client.getContact(u).mid
+                                    cstatus = client.getContact(u).statusMessage
+                                    cpic = client.getContact(u).picturePath
+                                    a = client.getProfileCoverURL(mid=u)
+                                    client.sendText(send, 'Nama : '+cname+'\nMid : '+cmid+'\nBio : '+cstatus+'\nURL Picture : http://dl.profile.line.naver.jp'+cpic)
+                                    client.sendMessage(send, None, contentMetadata={'mid': cmid}, contentType=13)
+                                    client.sendImageWithURL(send, a)
+                                    if "videoProfile='{" in str(client.getContact(u)):
+                                        client.sendVideoWithURL(send, 'http://dl.profile.line.naver.jp'+cpic+'/vp.small')
                                     else:
-                                        cl.sendImageWithURL(kirim, 'http://dl.profile.line.naver.jp'+cpic)
+                                        client.sendImageWithURL(send, 'http://dl.profile.line.naver.jp'+cpic)
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif dpkText.lower().startswith("randomgrup: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower().startswith("randomgrup: "):
+                            if man in Team or man in Connect_to["Admin"]:
                               if msg.toType == 2:
-                                  strnum = dpkText.replace("randomgrup: ","")
+                                  strnum = msgText.replace("randomgrup: ","")
                                   source_str = 'abcdefghijklmnopqrstuvwxyz1234567890@:;./_][!&%$#)(=~^|'
                                   try:
                                       num = int(strnum)
-                                      group = cl.getGroup(kirim)
+                                      group = client.getGroup(send)
                                       for var in range(0,num):
                                           name = "".join([random.choice(source_str) for x in range(10)])
                                           time.sleep(0.01)
                                           group.name = name
-                                          cl.updateGroup(group)
+                                          client.updateGroup(group)
                                   except Exception as e:
-                                      cl.sendText(kirim, str(e))
+                                      client.sendText(send, str(e))
 
-                        elif dpkText.lower() == 'announce':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'announce':
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    gett = cl.getChatRoomAnnouncements(kirim)
+                                    gett = client.getChatRoomAnnouncements(send)
                                     for a in gett:
-                                        aa = cl.getContact(a.creatorMid).displayName
+                                        aa = client.getContact(a.creatorMid).displayName
                                         bb = a.contents
                                         cc = bb.link
                                         textt = bb.text
-                                        cl.sendText(kirim, 'Pemberitahuan Grup\n\nLink: ' + str(cc) + '\nPenulis: ' + str(aa) + '\nTeksnya: ' + str(textt))
+                                        client.sendText(send, 'Pemberitahuan Grup\n\nLink: ' + str(cc) + '\nPenulis: ' + str(aa) + '\nTeksnya: ' + str(textt))
                                         break
                                 except Exception as e:
-                                    cl.sendText(kirim, "Pemberitahuan Grup Tidak Ditemukan")
+                                    client.sendText(send, "Pemberitahuan Grup Tidak Ditemukan")
 
-#------------------------------------------ SOCIAL MEDIA ----------------------------------------------------#
 
-                        elif dpkText.lower().startswith("topnews"):
-                              if user in DpkFamily or user in Wait["Admin"]:
-                                  dpk=requests.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=1214d6480f6848e18e01ba6985e2008d")
-                                  data=dpk.text
+                        elif msgText.lower().startswith("berita"):
+                              if man in Team or man in Connect_to["Admin"]:
+                                  msg=requests.get("https://newsapi.org/v2/top-headlines?country=id&apiKey=1214d6480f6848e18e01ba6985e2008d")
+                                  data=msg.text
                                   data=json.loads(data)
                                   hasil = "Top News\n\n"
                                   hasil += "(1) " + str(data["articles"][0]["title"])                                                        
@@ -1996,12 +2014,12 @@ def LINE_ARIF_USER(arif):
                                   hasil += "\n     Penulis : " + str(data["articles"][5]["author"])
                                   hasil += "\n     Link : " + str(data["articles"][5]["url"])
                                   path = data["articles"][3]["urlToImage"]
-                                  cl.sendText(kirim, str(hasil))
-                                  cl.sendImageWithURL(kirim, str(path))
+                                  client.sendText(send, str(hasil))
+                                  client.sendImageWithURL(send, str(path))
 
-                        elif "Data birth: " in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                tanggal = dpkText.replace("Data birth: ","")
+                        elif "Data birth: " in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
+                                tanggal = msgText.replace("Data birth: ","")
                                 r=requests.get('https://script.google.com/macros/exec?service=AKfycbw7gKzP-WYV2F5mc9RaR7yE3Ve1yN91Tjs91hp_jHSE02dSv9w&nama=ervan&tanggal='+tanggal)
                                 data=r.text
                                 data=json.loads(data)
@@ -2009,15 +2027,15 @@ def LINE_ARIF_USER(arif):
                                 usia = data["data"]["usia"]
                                 ultah = data["data"]["ultah"]
                                 zodiak = data["data"]["zodiak"]
-                                cl.sendText(kirim," I N F O R M A S I \n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n  I N F O R M A S I ")
+                                client.sendText(send," I N F O R M A S I \n"+"Date Of Birth : "+lahir+"\nAge : "+usia+"\nUltah : "+ultah+"\nZodiak : "+zodiak+"\n  I N F O R M A S I ")
 
-                        elif dpkText.lower().startswith("urban: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                judul = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("urban: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                judul = msgText.replace(sep[0] + " ","")
                                 url = "http://api.urbandictionary.com/v0/define?term="+str(judul)
                                 with requests.session() as s:
-                                    s.headers["User-Agent"] = random.choice(Mozilla["userAgent"])
+                                    s.headers["User-Agent"] = random.choice(Mozilla["manAgent"])
                                     r = s.get(url)
                                     data = r.text
                                     data = json.loads(data)
@@ -2035,23 +2053,23 @@ def LINE_ARIF_USER(arif):
                                     cu += "\nLink: "+str(data["list"][0]["permalink"])+"\n"
                                     cu += "\nDefinition: "+str(data["list"][0]["definition"])+"\n"
                                     cu += "\nExample: "+str(data["list"][0]["example"])+"\n"
-                                    cl.sendText(kirim, str(cu))
+                                    client.sendText(send, str(cu))
 
-                        elif "Sslink: " in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "Sslink: " in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
                                  website = msg.text.replace("Sslink: ","")
                                  response = requests.get("http://rahandiapi.herokuapp.com/sswebAPI?key=betakey&link="+website+"")
                                  data = response.json()
                                  pictweb = data['result']
-                                 cl.sendImageWithURL(kirim, pictweb)
+                                 client.sendImageWithURL(send, pictweb)
 
-                        elif dpkText.lower().startswith("maps: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                location = dpkText.lower().replace("maps: ","")
+                        elif msgText.lower().startswith("maps: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                location = msgText.lower().replace("maps: ","")
                                 with requests.session() as web:
-                                    web.headers["user-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
-                                    dpk = web.get("http://api.corrykalam.net/apiloc.php?lokasi={}".format(urllib.parse.quote(location)))
-                                    data = dpk.text
+                                    web.headers["man-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+                                    msg = web.get("http://api.corrykalam.net/apiloc.php?lokasi={}".format(urllib.parse.quote(location)))
+                                    data = msg.text
                                     data = json.loads(data)
                                     if data[0] != "" and data[1] != "" and data[2] != "":
                                         link = "https://www.google.co.id/maps/@{},{},15z".format(str(data[1]), str(data[2]))
@@ -2061,15 +2079,15 @@ def LINE_ARIF_USER(arif):
                                         ret_ += "\n\nSearch Location Success"
                                     else:
                                         ret_ = "Searching Location Error or Location Tidak Ditemukan"
-                                    cl.sendText(kirim,str(ret_))
+                                    client.sendText(send,str(ret_))
 
-                        elif dpkText.lower().startswith("cekcuaca: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                weather = dpkText.lower().replace("cekcuaca: ","")
+                        elif msgText.lower().startswith("cekcuaca: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                weather = msgText.lower().replace("cekcuaca: ","")
                                 with requests.session() as web:
-                                    web.headers["user-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
-                                    dpk = web.get("http://api.corrykalam.net/apicuaca.php?kota={}".format(urllib.parse.quote(weather)))
-                                    data = dpk.text
+                                    web.headers["man-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+                                    msg = web.get("http://api.corrykalam.net/apicuaca.php?kota={}".format(urllib.parse.quote(weather)))
+                                    data = msg.text
                                     data = json.loads(data)
                                     if "result" not in data:
                                         ret_ = "Cheking Weather\n"
@@ -2081,15 +2099,15 @@ def LINE_ARIF_USER(arif):
                                         ret_ += "\n\nSearching Weather Success"
                                     else:
                                         ret_ = "Checking Weather Error or Not Found Location"
-                                    cl.sendText(kirim, str(ret_))
+                                    client.sendText(send, str(ret_))
 
-                        elif dpkText.lower().startswith("jadwalshalat: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                shalat = dpkText.lower().replace("jadwalshalat: ","")
+                        elif msgText.lower().startswith("jadwalshalat: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                shalat = msgText.lower().replace("jadwalshalat: ","")
                                 with requests.session() as web:
-                                    web.headers["user-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
-                                    dpk = web.get("http://api.corrykalam.net/apisholat.php?lokasi={}".format(urllib.parse.quote(shalat)))
-                                    data = dpk.text
+                                    web.headers["man-agent"] = "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/41.0.2228.0 Safari/537.36"
+                                    msg = web.get("http://api.corrykalam.net/apisholat.php?lokasi={}".format(urllib.parse.quote(shalat)))
+                                    data = msg.text
                                     data = json.loads(data)
                                     if data[1] != "Subuh : " and data[2] != "Dzuhur : " and data[3] != "Ashar : " and data[4] != "Maghrib : " and data[5] != "Isha : ":
                                         ret_ = "Jadwal Shalat\n"
@@ -2102,97 +2120,151 @@ def LINE_ARIF_USER(arif):
                                         ret_ += "\n\nJadwal Shalat Wilayah"
                                     else:
                                         ret_ = "Jadwa Shalat Wilayah Error or Not Found Location" 
-                                    cl.sendText(kirim, str(ret_))
+                                    client.sendText(send, str(ret_))
 
-                        elif "Idline: " in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                 msgg = dpkText.replace('Idline: ','')
-                                 conn = cl.findContactsByUserid(msgg)
+                        elif msgText.lower().startswith("mp4: "):
+                          if man in Team or man in Connect_to["Admin"]:
+                            try:
+                                sep = msg.text.split(" ")
+                                textToSearch = msg.text.replace(sep[0] + " ","")
+                                query = urllib.parse.quote(textToSearch)
+                                search_url="https://www.youtube.com/results?search_query="
+                                mozhdr = {'User-Agent': 'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-GB; rv:1.9.0.3) Gecko/2008092417 Firefox/3.0.3'}
+                                sb_url = search_url + query
+                                sb_get = requests.get(sb_url, headers = mozhdr)
+                                soupeddata = BeautifulSoup(sb_get.content, "html.parser")
+                                yt_links = soupeddata.find_all("a", class_ = "yt-uix-tile-link")
+                                x = (yt_links[1])
+                                yt_href =  x.get("href")
+                                yt_href = yt_href.replace("watch?v=", "")
+                                qx = "https://youtu.be" + str(yt_href)
+                                vid = pafy.new(qx)
+                                stream = vid.streams
+                                best = vid.getbest()
+                                best.resolution, best.extension
+                                for s in stream:
+                                    me = best.url
+                                    hasil = ""
+                                    title = "Judul [ " + vid.title + " ]"
+                                    author = '\n\n│ Author : ' + str(vid.author)
+                                    durasi = '\n│ Duration : ' + str(vid.duration)
+                                    suka = '\n│ Likes : ' + str(vid.likes)
+                                    rating = '\n│ Rating : ' + str(vid.rating)
+                                    deskripsi = '\n│ Deskripsi : ' + str(vid.description)
+                                client.sendVideoWithURL(msg.to, me)
+                                client.sendText(msg.to,title+ author+ durasi+ suka+ rating+ deskripsi)
+                            except Exception as e:
+                                client.sendText(msg.to,str(e))
+
+                        elif msgText.lower().startswith("musik: "):
+                          if man in Team or man in Connect_to["Admin"]:
+                            try:
+                                search = msg.text.replace("musik: ","")
+                                r = requests.get("https://rest.farzain.com/api/joox.php?apikey=tjfoPmtksGg222NdQdZypSqEV&id={}".format(urllib.parse.quote(search)))
+                                data = r.text
+                                data = json.loads(data)
+                                info = data["info"]
+                                audio = data["audio"]
+                                hasil = "「 Hasil Musik 」\n"
+                                hasil += "\nPenyanyi : {}".format(str(info["penyanyi"]))
+                                hasil += "\nJudul : {}".format(str(info["judul"]))
+                                hasil += "\nAlbum : {}".format(str(info["album"]))
+                                hasil += "\n\nLink : \n1. Image : {}".format(str(data["gambar"]))
+                                hasil += "\n\nLink : \n2. MP3 : {}".format(str(audio["mp3"]))
+                                client.sendImageWithURL(msg.to, str(data["gambar"]))
+                                client.sendMessage(msg.to, str(hasil))
+                                client.sendAudioWithURL(msg.to, str(audio["mp3"]))
+                            except Exception as e:
+                                client.sendMessage(msg.to, "Selamat Menikmati ")
+                        elif "Idline: " in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
+                                 msgg = msgText.replace('Idline: ','')
+                                 conn = client.findContactsByUserid(msgg)
                                  if True:
-                                    cl.sendText(kirim,"Link User : https://line.me/ti/p/~" + msgg)
-                                    cl.sendMessage(kirim, None, contentMetadata={'mid': conn.mid}, contentType=13)
-                                    contact = cl.getContact(conn.mid)
-                                    cl.sendImageWithURL(kirim,"http://dl.profile.line-cdn.net/" + contact.pictureStatus)
-                                    cover = cl.getProfileCoverURL(conn.mid)
-                                    cl.sendImageWithURL(kirim, cover)
-                                    cl.mentionWithDPK(kirim,conn.mid,"Tag User\n","")
+                                    client.sendText(send,"Link User : https://line.me/ti/p/~" + msgg)
+                                    client.sendMessage(send, None, contentMetadata={'mid': conn.mid}, contentType=13)
+                                    contact = client.getContact(conn.mid)
+                                    client.sendImageWithURL(send,"http://dl.profile.line-cdn.net/" + contact.pictureStatus)
+                                    cover = client.getProfileCoverURL(conn.mid)
+                                    client.sendImageWithURL(send, cover)
+                                    client.arifistifik(send,conn.mid,"Tag User\n","")
 
-                        elif 'say-id: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'say-id: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    isi = dpkText.lower().replace('say-id: ','')
+                                    isi = msgText.lower().replace('say-id: ','')
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp.mp3')
-                                    cl.sendAudio(kirim, 'temp.mp3')
+                                    client.sendAudio(send, 'temp.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif 'say-en: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'say-en: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    isi = dpkText.lower().replace('say-en: ','')
+                                    isi = msgText.lower().replace('say-en: ','')
                                     tts = gTTS(text=isi, lang='en', slow=False)
                                     tts.save('temp.mp3')
-                                    cl.sendAudio(kirim, 'temp.mp3')
+                                    client.sendAudio(send, 'temp.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif 'say-jp: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'say-jp: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    isi = dpkText.lower().replace('say-jp: ','')
+                                    isi = msgText.lower().replace('say-jp: ','')
                                     tts = gTTS(text=isi, lang='ja', slow=False)
                                     tts.save('temp.mp3')
-                                    cl.sendAudio(kirim, 'temp.mp3')
+                                    client.sendAudio(send, 'temp.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif 'say-ar: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'say-ar: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    isi = dpkText.lower().replace('say-ar: ','')
+                                    isi = msgText.lower().replace('say-ar: ','')
                                     tts = gTTS(text=isi, lang='ar', slow=False)
                                     tts.save('temp.mp3')
-                                    cl.sendAudio(kirim, 'temp.mp3')
+                                    client.sendAudio(send, 'temp.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif 'say-ko: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'say-ko: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    isi = dpkText.lower().replace('say-ko: ','')
+                                    isi = msgText.lower().replace('say-ko: ','')
                                     tts = gTTS(text=isi, lang='ko', slow=False)
                                     tts.save('temp.mp3')
-                                    cl.sendAudio(kirim, 'temp.mp3')
+                                    client.sendAudio(send, 'temp.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif 'apakah: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'apakah: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
                                     txt = ['iya','tidak','bisa jadi','mungkin saja','tidak mungkin','au ah gelap']
                                     isi = random.choice(txt)
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp2.mp3')
-                                    cl.sendAudio(kirim, 'temp2.mp3')
+                                    client.sendAudio(send, 'temp2.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif 'kapan: ' in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif 'kapan: ' in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
                                     txt = ['kapan kapan','besok','satu abad lagi','Hari ini','Tahun depan','Minggu depan','Bulan depan','Sebentar lagi']
                                     isi = random.choice(txt)
                                     tts = gTTS(text=isi, lang='id', slow=False)
                                     tts.save('temp2.mp3')
-                                    cl.sendAudio(kirim, 'temp2.mp3')
+                                    client.sendAudio(send, 'temp2.mp3')
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-                        elif "Wikipedia: " in dpkText:
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "Wikipedia: " in msgText:
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    wiki = dpkText.lower().replace("Wikipedia: ","")
+                                    wiki = msgText.lower().replace("Wikipedia: ","")
                                     wikipedia.set_lang("id")
                                     pesan="Title ("
                                     pesan+=wikipedia.page(wiki).title
@@ -2200,17 +2272,17 @@ def LINE_ARIF_USER(arif):
                                     pesan+=wikipedia.summary(wiki, sentences=1)
                                     pesan+="\n"
                                     pesan+=wikipedia.page(wiki).url
-                                    cl.sendText(kirim, pesan)
+                                    client.sendText(send, pesan)
                                 except:
                                     try:
                                         pesan="Over Text Limit! Please Click link\n"
                                         pesan+=wikipedia.page(wiki).url
-                                        cl.sendText(kirim, pesan)
+                                        client.sendText(send, pesan)
                                     except Exception as e:
-                                        cl.sendText(kirim, str(e))
+                                        client.sendText(send, str(e))
 
-                        elif dpkText.lower() == 'kalender':
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif msgText.lower() == 'kalender':
+                            if man in Team or man in Connect_to["Admin"]:
                                 tz = pytz.timezone("Asia/Makassar")
                                 timeNow = datetime.now(tz=tz)
                                 day = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday","Friday", "Saturday"]
@@ -2223,114 +2295,113 @@ def LINE_ARIF_USER(arif):
                                 for k in range(0, len(bulan)):
                                     if bln == str(k): bln = bulan[k-1]
                                 readTime = hasil + ", " + timeNow.strftime('%d') + " - " + bln + " - " + timeNow.strftime('%Y') + "\nJam : [ " + timeNow.strftime('%H:%M:%S') + " ]"
-                                cl.sendMessage(kirim, readTime)
+                                client.sendMessage(send, readTime)
 
-                        elif "gambar: " in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "gambar: " in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    query = dpkText.replace("gambar: ", "")
+                                    query = msgText.replace("gambar: ", "")
                                     query = query.replace(" ", "+")
-                                    gambar = cl.download_image(query)
-                                    cl.sendImageWithURL(kirim, gambar)
+                                    gambar = client.download_image(query)
+                                    client.sendImageWithURL(send, gambar)
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))                                    
+                                    client.sendText(send, str(e))                                    
 
-                        elif "youtube: " in dpkText.lower():
-                            if user in DpkFamily or user in Wait["Admin"]:
+                        elif "youtube: " in msgText.lower():
+                            if man in Team or man in Connect_to["Admin"]:
                                 try:
-                                    query = dpkText.replace("youtube: ", "")
+                                    query = msgText.replace("youtube: ", "")
                                     query = query.replace(" ", "+")
-                                    x = cl.youtube(query)
-                                    cl.sendText(kirim, x)
+                                    x = client.youtube(query)
+                                    client.sendText(send, x)
                                 except Exception as e:
-                                    cl.sendText(kirim, str(e))
+                                    client.sendText(send, str(e))
 
-#--------------------------------- TRANSLATOR -------------------------------------------------#
 
-                        elif dpkText.lower().startswith("indonesian: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("indonesian: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='id')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator Indonesian\n\n" + str(text))
+                                client.sendMessage(send, "Translator Indonesian\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("english: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("english: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='en')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator English\n\n" + str(text))
+                                client.sendMessage(send, "Translator English\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("korea: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                    sep = dpkText.split(" ")
-                                    isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("korea: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                    sep = msgText.split(" ")
+                                    isi = msgText.replace(sep[0] + " ","")
                                     translator = Translator()
                                     hasil = translator.translate(isi, dest='ko')
                                     text = hasil.text
-                                    cl.sendMessage(kirim, "Translator Korea\n\n" + str(text))
+                                    client.sendMessage(send, "Translator Korea\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("japan: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("japan: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='ja')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator Japan\n\n" + str(text))
+                                client.sendMessage(send, "Translator Japan\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("thailand: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("thailand: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='th')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator Thailand\n\n" + str(text))
+                                client.sendMessage(send, "Translator Thailand\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("arab: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("arab: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='ar')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator Saudi Arabia\n\n" + str(text))
+                                client.sendMessage(send, "Translator Saudi Arabia\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("malaysia: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("malaysia: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='ms')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator Malaysia\n\n" + str(text))
+                                client.sendMessage(send, "Translator Malaysia\n\n" + str(text))
 
-                        elif dpkText.lower().startswith("jawa: "):
-                            if user in DpkFamily or user in Wait["Admin"]:
-                                sep = dpkText.split(" ")
-                                isi = dpkText.replace(sep[0] + " ","")
+                        elif msgText.lower().startswith("jawa: "):
+                            if man in Team or man in Connect_to["Admin"]:
+                                sep = msgText.split(" ")
+                                isi = msgText.replace(sep[0] + " ","")
                                 translator = Translator()
                                 hasil = translator.translate(isi, dest='jw')
                                 text = hasil.text
-                                cl.sendMessage(kirim, "Translator Jawa\n\n" + str(text))
+                                client.sendMessage(send, "Translator Jawa\n\n" + str(text))
 
     except Exception as error:
         print (error)
 
-#-------------------------------------------- FINNISHING SCRIP ------------------------------------------------#
+
 
 while True:
     try:
         Operation = LINE.singleTrace(count=50)
         if Operation is not None:
-            for arif in Operation:
-                LINE.setRevision(arif.revision)
-                thread1 = threading.Thread(target=LINE_ARIF_USER, args=(arif,))#self.OpInterrupt[arif.type], args=(arif,)
+            for op in Operation:
+                LINE.setRevision(op.revision)
+                thread1 = threading.Thread(target=LINE_OP_TYPE, args=(op,))#self.OpInterrupt[op.type], args=(op,)
                 thread1.start()
                 thread1.join()
     except Exception as error:
